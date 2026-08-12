@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1220">
-  <meta name="description" content="Business and technology services focused on ERP, custom software, system integration, automation, reporting, and dependable infrastructure.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Business development, virtual assistance, digital marketing, CRM, lead generation, web development, ERP, BI and AI automation services by Gizzle and Andrew.">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Leba | Business &amp; Technology Services">
-  <meta property="og:description" content="Business and technology services focused on ERP, custom software, system integration, automation, reporting, and dependable infrastructure.">
+  <meta property="og:description" content="Business development, virtual assistance, digital marketing, CRM, lead generation, web development, ERP, BI and AI automation services by Gizzle and Andrew.">
   <meta property="og:image" content="./assets/images/og-image.svg">
   <meta property="og:image:alt" content="Leba — business and technology services">
   <meta property="og:url" content="">
   <meta name="twitter:card" content="summary_large_image">
   <link id="canonical-link" rel="canonical">
-  <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/images/favicon.png" type="image/png">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Leba | Business &amp; Technology Services</title>
   <script src="./assets/js/content.js" defer></script>
@@ -25,17 +25,16 @@
 
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="brand-mark" aria-hidden="true">2</span>
-        <span data-business-name>Leba</span>
+      <a class="brand" href="#top" aria-label="Leba home">
+        <img class="brand-logo" src="./assets/images/logo.png" alt="Leba Business &amp; Technology" width="1536" height="1024">
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
         <span class="sr-only">Open navigation menu</span>
         <span></span><span></span><span></span>
       </button>
       <div class="nav-menu" id="nav-menu">
+        <a href="#top" data-nav="home"></a>
         <a href="#about" data-nav="about"></a>
-        <a href="#team" data-nav="team"></a>
         <a href="#services" data-nav="services"></a>
         <a href="#skills" data-nav="skills"></a>
         <a href="#work" data-nav="work"></a>
@@ -101,6 +100,14 @@
           <p id="services-intro"></p>
         </div>
         <div class="services-grid" id="services-grid"></div>
+        <div class="gizzle-services reveal" aria-labelledby="gizzle-services-title">
+          <div class="gizzle-services-heading">
+            <h3 id="gizzle-services-title"></h3>
+            <p id="gizzle-services-description"></p>
+          </div>
+          <div class="accordion-grid" id="gizzle-services-grid"></div>
+        </div>
+        <div class="why-gizzle reveal" id="why-gizzle"></div>
       </div>
     </section>
 
@@ -165,7 +172,7 @@
   <footer class="footer">
     <div class="container footer-layout">
       <div>
-        <a class="brand brand-footer" href="#top"><span class="brand-mark" aria-hidden="true">2</span><span data-business-name>Leba</span></a>
+        <a class="brand brand-footer" href="#top" aria-label="Leba home"><img class="brand-logo" src="./assets/images/logo.png" alt="Leba Business &amp; Technology" width="1536" height="1024" loading="lazy"></a>
         <p id="footer-tagline"></p>
       </div>
       <div class="footer-links" id="social-links" aria-label="Social links"></div>

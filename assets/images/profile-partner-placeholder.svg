@@ -1,4 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 720" role="img" aria-labelledby="title desc">
-  <title id="title">Portrait placeholder for the business partner</title><desc id="desc">Replace this placeholder after the second team member provides an approved portrait.</desc>
-  <rect width="640" height="720" fill="#e5e6e9"/><circle cx="320" cy="250" r="105" fill="#b2b9c2"/><path d="M105 650c25-165 102-246 215-246s190 81 215 246" fill="#9da7b2"/><rect x="65" y="48" width="510" height="618" rx="14" fill="none" stroke="#687583" stroke-width="3" stroke-dasharray="12 12"/><text x="320" y="692" text-anchor="middle" fill="#3d4855" font-family="Arial,sans-serif" font-size="17" letter-spacing="2">PARTNER PHOTO PENDING</text>
-</svg>

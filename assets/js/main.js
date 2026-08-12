@@ -65,6 +65,8 @@
     setText("#services-label", sectionText.servicesLabel);
     setText("#services-title", sectionText.servicesTitle);
     setText("#services-intro", sectionText.servicesIntroduction);
+    setText("#gizzle-services-title", sectionText.gizzleServicesTitle);
+    setText("#gizzle-services-description", sectionText.gizzleServicesDescription);
     setText("#skills-label", sectionText.skillsLabel);
     setText("#skills-title", sectionText.skillsTitle);
     setText("#skills-intro", sectionText.skillsIntroduction);
@@ -93,19 +95,42 @@
       const services = member.services && member.services.length
         ? `<ul class="member-services" aria-label="Areas of work">${member.services.map((service) => `<li>${escapeHTML(service)}</li>`).join("")}</ul>`
         : '<p class="member-pending">Services to be confirmed.</p>';
+      const extendedRole = member.extendedRole ? `<p class="member-extended">${escapeHTML(member.extendedRole)}</p>` : "";
+      const vietnameseName = member.vietnameseName ? `<p class="member-local-name">${escapeHTML(member.vietnameseName)}</p>` : "";
       return `<article class="team-card reveal">
         <div class="portrait-wrap"><img src="${escapeHTML(member.image)}" alt="${escapeHTML(member.imageAlt)}" width="640" height="720" loading="lazy"></div>
-        <div class="team-card-body"><span class="card-number">${String(index + 1).padStart(2, "0")}</span><p class="member-role">${escapeHTML(member.role)}</p><h3>${escapeHTML(member.name)}</h3><p>${escapeHTML(member.bio)}</p>${services}<div class="member-links">${links}</div></div>
+        <div class="team-card-body"><span class="card-number">${String(index + 1).padStart(2, "0")}</span><p class="member-role">${escapeHTML(member.role)}</p><h3>${escapeHTML(member.name)}</h3>${vietnameseName}${extendedRole}<p>${escapeHTML(member.bio)}</p>${services}<div class="member-links">${links}</div></div>
       </article>`;
     }).join("");
   }
 
   function renderServices() {
     $("#services-grid").innerHTML = content.services.map((service, index) => `<article class="service-card reveal">
-      <div class="service-top"><span>${String(index + 1).padStart(2, "0")}</span><span aria-hidden="true">↗</span></div>
+      <div class="service-top"><span>${String(index + 1).padStart(2, "0")}</span><span aria-hidden="true">${escapeHTML(service.icon || "↗")}</span></div>
       <h3>${escapeHTML(service.title)}</h3><p>${escapeHTML(service.description)}</p>
       <ul class="tag-list" aria-label="Related capabilities">${service.tags.map((tag) => `<li>${escapeHTML(tag)}</li>`).join("")}</ul>
     </article>`).join("");
+
+    $("#gizzle-services-grid").innerHTML = content.gizzleServiceGroups.map((group, index) => {
+      const panelId = `gizzle-service-panel-${index}`;
+      const buttonId = `gizzle-service-button-${index}`;
+      const note = group.note ? `<p class="service-note">${escapeHTML(group.note)}</p>` : "";
+      return `<article class="accordion-card">
+        <div class="accordion-icon" aria-hidden="true">${escapeHTML(group.icon)}</div>
+        <h4>${escapeHTML(group.title)}</h4>
+        <p>${escapeHTML(group.description)}</p>
+        <ul class="featured-services" aria-label="Featured services">${group.featured.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>
+        <button class="accordion-toggle" type="button" id="${buttonId}" aria-expanded="false" aria-controls="${panelId}" data-accordion-toggle>
+          ${escapeHTML(content.sectionText.servicesActionLabel)} <span aria-hidden="true">+</span>
+        </button>
+        <div class="accordion-panel" id="${panelId}" role="region" aria-labelledby="${buttonId}" hidden>
+          <ul>${group.services.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>${note}
+        </div>
+      </article>`;
+    }).join("");
+
+    const why = content.whyGizzle;
+    $("#why-gizzle").innerHTML = `<p class="eyebrow">${escapeHTML(why.heading)}</p><h3>${escapeHTML(why.subheading)}</h3><p>${escapeHTML(why.body)}</p><p>${escapeHTML(why.goal)}</p>`;
   }
 
   function renderSkills() {
@@ -153,16 +178,14 @@
     const emailReady = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email);
     const linkedInReady = Boolean(safeUrl(contact.linkedin));
     const githubReady = Boolean(safeUrl(contact.github));
-    const whatsappReady = /^\d{8,15}$/.test(contact.whatsappNumber);
+    const whatsappReady = /^\d{8,15}$/.test(contact.whatsapp);
     const items = [
       { label: "Email", icon: "@", href: emailReady ? `mailto:${contact.email}` : "", ready: emailReady },
       { label: "LinkedIn", icon: "in", href: linkedInReady ? contact.linkedin : "", ready: linkedInReady },
       { label: "GitHub", icon: "gh", href: githubReady ? contact.github : "", ready: githubReady },
-      { label: "WhatsApp", icon: "wa", href: whatsappReady ? `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(contact.whatsappMessage)}` : "", ready: whatsappReady }
+      { label: "WhatsApp", icon: "wa", href: whatsappReady ? `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(contact.whatsappMessage)}` : "", ready: whatsappReady }
     ];
-    $("#contact-actions").innerHTML = items.map((item) => item.ready
-      ? `<a href="${escapeHTML(item.href)}" ${item.href.startsWith("http") ? externalAttributes : ""}><span>${escapeHTML(item.icon)}</span>${escapeHTML(item.label)}</a>`
-      : `<span class="contact-disabled" title="Add this information in content.js"><span>${escapeHTML(item.icon)}</span>${escapeHTML(item.label)} <small>Not provided</small></span>`).join("");
+    $("#contact-actions").innerHTML = items.filter((item) => item.ready).map((item) => `<a href="${escapeHTML(item.href)}" ${item.href.startsWith("http") ? externalAttributes : ""}><span>${escapeHTML(item.icon)}</span>${escapeHTML(item.label)}</a>`).join("");
     $("#social-links").innerHTML = [
       githubReady ? `<a href="${escapeHTML(contact.github)}" ${externalAttributes}>GitHub <span aria-hidden="true">↗</span></a>` : "",
       linkedInReady ? `<a href="${escapeHTML(contact.linkedin)}" ${externalAttributes}>LinkedIn <span aria-hidden="true">↗</span></a>` : ""
@@ -180,6 +203,18 @@
     });
     $(".dialog-close", dialog).addEventListener("click", () => dialog.close());
     dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+  }
+
+  function setupAccordions() {
+    $$("[data-accordion-toggle]").forEach((button) => {
+      const panel = document.getElementById(button.getAttribute("aria-controls"));
+      button.addEventListener("click", () => {
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!expanded));
+        panel.hidden = expanded;
+        $("span", button).textContent = expanded ? "+" : "−";
+      });
+    });
   }
 
   function setupNavigation() {
@@ -218,6 +253,7 @@
   renderProof();
   renderContact();
   setupProjectDialog();
+  setupAccordions();
   setupNavigation();
   setupReveal();
 })();

@@ -8,31 +8,34 @@ window.PORTFOLIO_CONTENT = {
     // Public business name used throughout the website.
     name: "Leba",
     shortName: "Leba",
-    websiteTitle: "Leba | Business and Technology Services",
-    description: "Business and technology services focused on ERP, custom software, system integration, automation, reporting, and dependable infrastructure.",
+    websiteTitle: "Leba | Business Services and Technology Services",
+    description: "Business development, virtual assistance, digital marketing, CRM, lead generation, web development, ERP, BI and AI automation services by Gizzle and Andrew.",
     heroEyebrow: "Business and technology services",
     heroTitle: "Business Expertise Meets Technology",
-    heroIntroduction: "We build practical digital solutions that connect business operations, software development, automation and data.",
-    heroNote: "A focused two-person team for business analysis, system development and long-term technical improvement.",
-    footerTagline: "Practical systems for real business operations.",
+    heroIntroduction: "Gizzle leads business development, project coordination and operational support, while Andrew leads software development, system architecture and AI research. Together, they provide practical business and technology solutions.",
+    heroNote: "Two co-founders combining organized business support with dependable technical delivery.",
+    footerTagline: "Business support and technology services for practical operations.",
     canonicalUrl: "", // EDIT HERE: Add the final GitHub Pages or custom-domain URL.
     structuredDataEnabled: false // EDIT HERE: Enable only after the final business name and URL are confirmed.
   },
 
   sectionText: {
-    navigation: { about: "About", team: "Team", services: "Services", skills: "Capabilities", work: "Projects", contact: "Contact" },
+    navigation: { home: "Home", about: "About", services: "Services", skills: "Expertise", work: "Projects", contact: "Contact" },
     heroActions: { services: "Explore Our Services", projects: "View Projects", contact: "Contact Us" },
     aboutLabel: "About us",
-    aboutTitle: "Business understanding, backed by technical delivery.",
+    aboutTitle: "Business Expertise Meets Technology",
     teamLabel: "Our team",
-    teamTitle: "Two complementary areas of expertise.",
-    teamIntroduction: "We combine software and infrastructure capability with business development and professional services.",
+    teamTitle: "Two co-founders, two complementary roles.",
+    teamIntroduction: "Gizzle leads Business Development. Andrew leads Technical Delivery.",
     servicesLabel: "Our services",
-    servicesTitle: "Solutions designed around operational requirements.",
-    servicesIntroduction: "These are capabilities we can provide. Individual scope, feasibility and delivery approach are confirmed for each engagement.",
-    skillsLabel: "Technical capabilities",
-    skillsTitle: "Technologies used across systems, data and deployment.",
-    skillsIntroduction: "Capabilities are grouped by working area without artificial percentages or proficiency scores.",
+    servicesTitle: "Business Expertise Meets Technology",
+    servicesIntroduction: "Gizzle leads business development, project coordination and operational support, while Andrew leads software development, system architecture and AI research. Together, they provide practical business and technology solutions.",
+    servicesActionLabel: "View all services",
+    gizzleServicesTitle: "Expert Virtual Assistant Services",
+    gizzleServicesDescription: "Gizzle provides professional Virtual Assistance, Digital Marketing, CRM Management, Lead Generation, Bookkeeping and Technical Business Support to help businesses improve productivity, organize operations and grow their online presence.",
+    skillsLabel: "Core expertise",
+    skillsTitle: "Expertise across business support and technical delivery.",
+    skillsIntroduction: "Capabilities are grouped by working area without artificial percentages, testimonials or unverified claims.",
     workLabel: "Projects & proof of work",
     workTitle: "Systems developed and currently in progress.",
     projectsIntroduction: "Project status and planned functions are identified clearly. No commercial deployment or client results are implied unless explicitly stated.",
@@ -47,45 +50,62 @@ window.PORTFOLIO_CONTENT = {
   },
 
   about: [
-    "We help translate operational requirements into maintainable digital systems. Our work can cover workflow analysis, ERP customization, APIs, user interfaces, reporting, automation and deployment.",
-    "The team is intentionally small and collaborative. We focus on understanding the actual process, defining a suitable technical approach and keeping communication direct throughout development."
+    "We combine business development, project coordination and operational support with software development, system architecture and AI research.",
+    "The team is intentionally small and collaborative. Gizzle helps organize business functions and growth support, while Andrew builds maintainable digital systems for ERP, APIs, reporting, automation and deployment."
   ],
 
   team: [
     {
-      name: "Lê Bá Dũng",
-      role: "System Developer, BI & AI Automation Specialist",
-      bio: "A system developer focused on ERP platforms, API integration, process automation, BI reporting and Docker-based infrastructure. His work includes Odoo development and customization, frontend applications, REST APIs, PostgreSQL, Linux service deployment and research into AI agents for business reporting.",
+      name: "Andrew",
+      vietnameseName: "Lê Bá Dũng",
+      role: "Technical Lead",
+      extendedRole: "Co-Founder & Technical Lead / Web Developer & AI Researcher",
+      bio: "Technical lead specializing in web development, ERP systems, APIs, Docker infrastructure, BI reporting and AI-powered business solutions.",
       image: "./assets/images/profile-dung-placeholder.jpeg",
-      imageAlt: "Placeholder portrait for Lê Bá Dũng — replace with an approved professional photo",
+      imageAlt: "Andrew — Technical Lead",
       github: "https://github.com/lebad280324",
       linkedin: "", // EDIT HERE: Add the real LinkedIn URL when available.
-      services: ["System development", "BI and reporting", "AI and business automation"]
+      services: ["Odoo ERP development", "Python and FastAPI", "Vue.js, JavaScript and TypeScript", "PostgreSQL and BI reporting", "Docker and Linux deployment", "API integration", "AI agents and business automation"]
     },
     {
-      name: "Sugar", // EDIT HERE: Add the second member's real name.
-      role: "Business Development & Professional Services",
-      bio: "Information will be added soon.",
-      image: "./assets/images/profile-partner-placeholder.svg",
-      imageAlt: "Placeholder portrait for the second team member",
+      name: "Gizzle",
+      role: "Business Development",
+      extendedRole: "Co-Founder & Business Development / Project Manager",
+      bio: "Business development professional providing virtual assistance, digital marketing, CRM management, lead generation, bookkeeping and technology-driven business support.",
+      image: "./assets/images/profile-gizzle.png",
+      imageAlt: "Gizzle — Business Development",
       github: "",
       linkedin: "", // EDIT HERE: Add the real LinkedIn URL when available.
-      services: [] // EDIT HERE: Add this member's confirmed services when provided.
+      services: ["Virtual Assistance", "Digital Marketing", "CRM Management", "Lead Generation", "Bookkeeping", "Technology-driven business support"]
     }
   ],
 
   services: [
-    { title: "Custom Software Development", description: "Development of custom web applications and internal business systems designed around real operational requirements.", tags: ["Web applications", "Internal systems", "Responsive UI"] },
-    { title: "Odoo ERP Development", description: "Odoo installation, customization, custom module development, API integration and business workflow implementation.", tags: ["Odoo", "Custom modules", "ERP integration"] },
-    { title: "Business Process Digitalization", description: "Conversion of manual and paper-based processes into controlled digital workflows with approvals, permissions and status tracking.", tags: ["Workflow", "Approvals", "Access control"] },
-    { title: "API and System Integration", description: "Integration between ERP, CRM, websites, databases, government-related services and other business platforms when supported.", tags: ["REST API", "Data exchange", "System integration"] },
-    { title: "BI Dashboards and Reporting", description: "Development of management dashboards, business reports, PostgreSQL analytics views and data pipelines.", tags: ["BI dashboards", "PostgreSQL", "Reporting"] },
-    { title: "AI and Business Automation", description: "AI agents, automated reporting, internal knowledge assistants and workflow automation using local or cloud-based AI models.", tags: ["AI agents", "Automation", "Local LLM"] },
-    { title: "Docker and Linux Deployment", description: "Dockerized deployment of web applications, Odoo, PostgreSQL and supporting services on Linux servers.", tags: ["Docker Compose", "Linux", "Application deployment"] },
-    { title: "Cloud and Secure Remote Access", description: "Reverse proxy, Cloudflare Tunnel, Nginx, HTTPS and secure publication of internal business applications.", tags: ["Cloudflare", "Nginx", "HTTPS"] }
+    { icon: "B", title: "Business Services — Gizzle", description: "Business development, coordination and operational support for daily business needs.", tags: ["Virtual Assistance", "Business Development", "Project Coordination", "Digital Marketing", "CRM Management", "Lead Generation", "Bookkeeping Support", "Research and Data Services"] },
+    { icon: "T", title: "Technology Services — Andrew", description: "Software, ERP, reporting, deployment and automation services for business systems.", tags: ["Custom Web Development", "Odoo ERP Development", "API Integration", "BI Dashboards", "Docker and Linux Deployment", "AI Agents and Automation", "Database and Reporting Systems", "Technical Architecture"] }
   ],
 
+  gizzleServiceGroups: [
+    { icon: "VA", title: "Virtual Assistant & Business Support", description: "Reliable administrative and operational support that helps businesses stay organized and productive.", featured: ["Executive & Administrative Assistance", "Email & Calendar Management", "Project & Operations Coordination"], services: ["Executive & Administrative Assistance", "Email & Calendar Management", "Data Entry & Database Management", "Web Research", "Document & File Management", "Scheduling & Appointment Management", "Customer Support", "Project & Operations Coordination"] },
+    { icon: "DM", title: "Digital Marketing", description: "Practical digital marketing support for content, campaigns, analytics and online visibility.", featured: ["Social Media Management", "Content Planning & Scheduling", "Marketing Performance Reporting"], services: ["Digital Marketing Support", "Social Media Management", "Content Planning & Scheduling", "Email Marketing & Campaign Management", "SEO Support & Keyword Research", "Google Analytics Reporting", "Google Tag Manager", "Website Content Management", "Marketing Performance Reporting"] },
+    { icon: "CRM", title: "CRM Management", description: "Organized CRM processes for managing customer information, sales pipelines and follow-up activities.", featured: ["CRM Setup & Organization", "Lead & Pipeline Management", "CRM Reporting & Analytics"], services: ["CRM Setup & Organization", "Customer Database Management", "Lead & Pipeline Management", "Lead Qualification", "Customer Segmentation", "CRM Data Cleaning", "Follow-up Management", "CRM Reporting & Analytics", "Workflow & Automation Support"] },
+    { icon: "LG", title: "Lead Generation", description: "Structured prospect research and lead-generation support for B2B and B2C growth.", featured: ["Prospect Research", "Lead List Building", "Appointment Setting"], services: ["B2B & B2C Lead Generation", "Prospect Research", "Lead List Building", "Decision-Maker Research", "LinkedIn Lead Research", "Contact Database Building", "Lead Qualification", "Email List Building", "Prospect Follow-up", "Appointment Setting", "Competitor Research"] },
+    { icon: "BK", title: "Bookkeeping & Financial Administration", description: "Accurate support for routine bookkeeping, payment tracking and financial administration.", featured: ["Income & Expense Tracking", "Invoice Management", "Basic Financial Reporting"], services: ["Basic Bookkeeping", "Income & Expense Tracking", "Invoice Management", "Accounts Receivable Support", "Accounts Payable Support", "Expense Categorization", "Payment Tracking", "Payroll Data Preparation", "Financial Spreadsheet Management", "Basic Financial Reporting"], note: "Administrative bookkeeping support only. This does not represent licensed accounting, tax or financial advisory services." },
+    { icon: "WS", title: "Technical & Website Support", description: "Day-to-day website, analytics and technical support for business operations.", featured: ["WordPress Management", "Website Content Updates", "Google Analytics"], services: ["WordPress Management", "Website Content Updates", "Basic HTML & CSS", "Website Testing", "Landing Page Management", "Google Analytics", "Google Tag Manager", "Basic SEO Implementation", "Technical Documentation", "Database & Data Management"] },
+    { icon: "AI", title: "AI & Business Automation", description: "AI-assisted workflows and automation designed to reduce repetitive work and improve business processes.", featured: ["Prompt Engineering", "CRM Automation", "Workflow Automation"], services: ["AI-Assisted Business Operations", "AI Research & Content Support", "Prompt Engineering", "CRM Automation", "Email & Lead Follow-up Automation", "Data Processing", "Workflow Automation", "Business Process Optimization"] },
+    { icon: "RD", title: "Research & Data Services", description: "Structured research and data support for informed business decisions.", featured: ["Market Research", "Competitor Analysis", "Data Cleaning & Validation"], services: ["Market Research", "Competitor Analysis", "Web Research", "Data Collection", "Data Cleaning & Validation", "Spreadsheet Management", "Database Management", "Business Research Reports"] }
+  ],
+
+  whyGizzle: {
+    heading: "Why Work With Gizzle?",
+    subheading: "One professional. Multiple business functions.",
+    body: "Gizzle combines Virtual Assistance, Digital Marketing, CRM Management, Lead Generation, Bookkeeping and technical skills to provide businesses with reliable, organized and technology-driven support.",
+    goal: "Her goal is to help clients save time, organize their businesses, generate opportunities and focus on sustainable growth."
+  },
+
   skillGroups: [
+    { title: "Business Services — Gizzle", skills: ["Virtual Assistance", "Digital Marketing", "CRM Management", "Lead Generation", "Bookkeeping", "WordPress", "SEO", "Data Management", "Customer Support", "AI Automation", "Business Research", "Technical Support"] },
+    { title: "Technology Services — Andrew", skills: ["Custom Web Development", "Odoo ERP Development", "API Integration", "BI Dashboards", "Docker and Linux Deployment", "AI Agents and Automation", "Database and Reporting Systems", "Technical Architecture"] },
     { title: "ERP and business systems", skills: ["Odoo ERP development and customization", "Odoo custom modules", "Business workflow digitalization", "Booking and resource management", "Accounting and operational integrations", "Role-based access control", "Email and notification workflows"] },
     { title: "Backend and API", skills: ["Python", "FastAPI", "REST API design and integration", "Odoo API development", "Authentication and access control", "Data serialization and validation", "Business reporting APIs"] },
     { title: "Frontend development", skills: ["Vue.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Vite", "Responsive web interface", "Dashboard development"] },
@@ -191,9 +211,9 @@ window.PORTFOLIO_CONTENT = {
 
   contact: {
     email: "", // EDIT HERE: Add the real public email address.
+    whatsapp: "", // EDIT HERE: Add digits only, including country code.
     linkedin: "", // EDIT HERE: Add the real LinkedIn URL.
     github: "https://github.com/lebad280324",
-    whatsappNumber: "", // EDIT HERE: Digits only, including country code.
     whatsappMessage: "Hello, I would like to discuss a business technology project.",
     location: "Vietnam / Available for remote collaboration"
   }

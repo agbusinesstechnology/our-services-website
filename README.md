@@ -14,10 +14,12 @@ A responsive English-language portfolio for a two-person business and technology
     ├── js/content.js
     ├── js/main.js
     └── images
-        ├── favicon.svg
+        ├── favicon.png
+        ├── logo.png
+        ├── logo2.png
         ├── og-image.svg
-        ├── profile-dung-placeholder.svg
-        ├── profile-partner-placeholder.svg
+        ├── profile-dung-placeholder.jpeg
+        ├── profile-gizzle.png
         └── projects/
 ```
 
@@ -40,7 +42,7 @@ Routine content is stored in [`assets/js/content.js`](assets/js/content.js). Edi
 - business name, title, description and hero content;
 - navigation and section text;
 - team members, roles, biographies, images and links;
-- services and technical capability groups;
+- services, Gizzle service groups and technical capability groups;
 - projects, status, descriptions, functions, technology and repository visibility;
 - development process and proof-of-work guidance;
 - email, LinkedIn, GitHub, WhatsApp and location;
@@ -54,14 +56,14 @@ The LEBA Medical ERP repository URL is stored in `content.js`, but `showReposito
 showRepository: true
 ```
 
-Contact methods without real information remain visibly unavailable. WhatsApp must use digits only, including the country code, without `+`, spaces or punctuation.
+Contact methods without real information are hidden. WhatsApp must use digits only, including the country code, without `+`, spaces or punctuation.
 
 ## Information still needed
 
-- Approved portrait for Lê Bá Dũng
+- Approved portrait for Andrew
+- Gizzle portrait at `assets/images/profile-gizzle.png`
 - Public email, LinkedIn and WhatsApp details
 - Final GitHub Pages or custom-domain URL
-- Second member’s real name, biography, photograph, LinkedIn and confirmed services
 - Approved project screenshots or diagrams
 - Confirmation that the LEBA Medical ERP repository is public
 
