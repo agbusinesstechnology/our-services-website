@@ -1,6 +1,6 @@
-# Leba — Services Portfolio
+# LEBA — Business Services & Technology Solutions
 
-A responsive English-language portfolio for a two-person business and technology services team. The site uses only HTML5, CSS3 and vanilla JavaScript, with no backend, database, package installation, paid library or build process.
+A responsive English-language website for a founder-led business services and technology solutions team. The site uses only HTML5, CSS3 and vanilla JavaScript, with no backend, database, package installation, paid library or build process.
 
 ## Project structure
 
@@ -42,9 +42,9 @@ Routine content is stored in [`assets/js/content.js`](assets/js/content.js). Edi
 - business name, title, description and hero content;
 - navigation and section text;
 - team members, roles, biographies, images and links;
-- services, Gizzle service groups and technical capability groups;
+- Gizzle and Andrew service profiles, expertise groups and credentials;
 - projects, status, descriptions, functions, technology and repository visibility;
-- development process and proof-of-work guidance;
+- portfolio projects and the collaborative working process;
 - email, LinkedIn, GitHub, WhatsApp and location;
 - canonical URL and structured-data setting.
 

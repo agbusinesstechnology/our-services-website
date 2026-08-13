@@ -57,7 +57,7 @@
     setText("#hero-intro", business.hero.description);
     setText("#hero-note", business.heroNote);
     setText("#hero-services-action", sectionText.heroActions.services);
-    setText("#hero-projects-action", sectionText.heroActions.projects);
+    setText("#hero-portfolio-action", sectionText.heroActions.portfolio);
     setText("#hero-contact-action", sectionText.heroActions.contact);
     setText("#about-label", sectionText.aboutLabel);
     setText("#about-title", sectionText.aboutTitle);
@@ -68,19 +68,11 @@
     setText("#services-label", sectionText.servicesLabel);
     setText("#services-title", sectionText.servicesTitle);
     setText("#services-intro", sectionText.servicesIntroduction);
-    setText("#gizzle-services-title", sectionText.gizzleServicesTitle);
-    setText("#gizzle-services-description", sectionText.gizzleServicesDescription);
-    setText("#skills-label", sectionText.skillsLabel);
-    setText("#skills-title", sectionText.skillsTitle);
-    setText("#skills-intro", sectionText.skillsIntroduction);
-    setText("#work-label", sectionText.workLabel);
-    setText("#work-title", sectionText.workTitle);
-    setText("#projects-intro", sectionText.projectsIntroduction);
+    setText("#portfolio-label", sectionText.portfolioLabel);
+    setText("#portfolio-title", sectionText.portfolioTitle);
+    setText("#portfolio-intro", sectionText.portfolioIntroduction);
     setText("#process-label", sectionText.processLabel);
     setText("#process-title", sectionText.processTitle);
-    setText("#proof-label", sectionText.proofLabel);
-    setText("#proof-title", sectionText.proofTitle);
-    setText("#proof-intro", sectionText.proofIntroduction);
     setText("#contact-label", sectionText.contactLabel);
     setText("#contact-title", sectionText.contactTitle);
     setText("#contact-intro", sectionText.contactIntroduction);
@@ -98,49 +90,139 @@
       const services = member.services && member.services.length
         ? `<ul class="member-services" aria-label="Areas of work">${member.services.map((service) => `<li>${escapeHTML(service)}</li>`).join("")}</ul>`
         : '<p class="member-pending">Services to be confirmed.</p>';
+      const credentials = member.credentials && member.credentials.length
+        ? `<div class="member-credentials"><h4>Credentials</h4><ul>${member.credentials.map((credential) => `<li>${escapeHTML(credential)}</li>`).join("")}</ul></div>`
+        : "";
+      const roleDescription = member.roleDescription ? `<p class="member-role-description">${escapeHTML(member.roleDescription)}</p>` : "";
       const extendedRole = member.extendedRole ? `<p class="member-extended">${escapeHTML(member.extendedRole)}</p>` : "";
       const vietnameseName = member.vietnameseName ? `<p class="member-local-name">${escapeHTML(member.vietnameseName)}</p>` : "";
       return `<article class="team-card reveal">
         <div class="portrait-wrap"><img src="${escapeHTML(member.image)}" alt="${escapeHTML(member.imageAlt)}" width="640" height="720" loading="lazy"></div>
-        <div class="team-card-body"><span class="card-number">${String(index + 1).padStart(2, "0")}</span><p class="member-role">${escapeHTML(member.role)}</p><h3>${escapeHTML(member.name)}</h3>${vietnameseName}${extendedRole}<p>${escapeHTML(member.bio)}</p>${services}<div class="member-links">${links}</div></div>
+        <div class="team-card-body"><span class="card-number">${String(index + 1).padStart(2, "0")}</span><p class="member-role">${escapeHTML(member.role)}</p><h3>${escapeHTML(member.name)}</h3>${vietnameseName}${extendedRole}<p>${escapeHTML(member.bio)}</p>${roleDescription}${services}${credentials}<div class="member-links">${links}</div></div>
       </article>`;
     }).join("");
   }
 
   function renderServices() {
-    $("#services-grid").innerHTML = content.services.map((service, index) => `<article class="service-card reveal">
-      <div class="service-top"><span>${String(index + 1).padStart(2, "0")}</span><span aria-hidden="true">${escapeHTML(service.icon || "↗")}</span></div>
-      <h3>${escapeHTML(service.title)}</h3><p>${escapeHTML(service.description)}</p>
-      <ul class="tag-list" aria-label="Related capabilities">${service.tags.map((tag) => `<li>${escapeHTML(tag)}</li>`).join("")}</ul>
-    </article>`).join("");
+    const createElement = (tagName, className = "", text = "") => {
+      const element = document.createElement(tagName);
+      if (className) element.className = className;
+      if (text) element.textContent = text;
+      return element;
+    };
+    const createList = (items, className, label) => {
+      const list = createElement("ul", className);
+      if (label) list.setAttribute("aria-label", label);
+      items.forEach((item) => list.append(createElement("li", "", item)));
+      return list;
+    };
 
-    $("#gizzle-services-grid").innerHTML = content.gizzleServiceGroups.map((group, index) => {
-      const panelId = `gizzle-service-panel-${index}`;
-      const buttonId = `gizzle-service-button-${index}`;
-      const note = group.note ? `<p class="service-note">${escapeHTML(group.note)}</p>` : "";
-      return `<article class="accordion-card">
-        <div class="accordion-icon" aria-hidden="true">${escapeHTML(group.icon)}</div>
-        <h4>${escapeHTML(group.title)}</h4>
-        <p>${escapeHTML(group.description)}</p>
-        <ul class="featured-services" aria-label="Featured services">${group.featured.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>
-        <button class="accordion-toggle" type="button" id="${buttonId}" aria-expanded="false" aria-controls="${panelId}" data-accordion-toggle>
-          ${escapeHTML(content.sectionText.servicesActionLabel)} <span aria-hidden="true">+</span>
-        </button>
-        <div class="accordion-panel" id="${panelId}" role="region" aria-labelledby="${buttonId}" hidden>
-          <ul>${group.services.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>${note}
-        </div>
-      </article>`;
-    }).join("");
+    const servicesGrid = $("#services-grid");
+    servicesGrid.replaceChildren();
+    content.services.forEach((service, index) => {
+      const lead = content.team.find((member) => member.name === service.leadName);
+      const article = createElement("article", "service-card reveal");
+      const top = createElement("div", "service-top");
+      const number = createElement("span", "", String(index + 1).padStart(2, "0"));
+      const icon = createElement("span", "", service.icon || "↗");
+      icon.setAttribute("aria-hidden", "true");
+      top.append(number, icon);
 
-    const why = content.whyGizzle;
-    $("#why-gizzle").innerHTML = `<p class="eyebrow">${escapeHTML(why.heading)}</p><h3>${escapeHTML(why.subheading)}</h3><p>${escapeHTML(why.body)}</p><p>${escapeHTML(why.goal)}</p>`;
-  }
+      const leadHeader = createElement("div", "service-lead");
+      const portraitFrame = createElement("div", "service-portrait-frame");
+      const fallback = createElement("span", "service-portrait-fallback", (lead?.name || service.leadName || "?").charAt(0));
+      fallback.setAttribute("aria-hidden", "true");
+      if (lead?.image) {
+        const image = createElement("img", `service-portrait service-portrait-${lead.name.toLowerCase()}`);
+        image.src = lead.image;
+        image.alt = lead.serviceImageAlt || lead.imageAlt;
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.width = 112;
+        image.height = 112;
+        fallback.hidden = true;
+        image.addEventListener("error", () => { image.remove(); fallback.hidden = false; });
+        portraitFrame.append(image, fallback);
+      } else {
+        portraitFrame.append(fallback);
+      }
 
-  function renderSkills() {
-    $("#skills-list").innerHTML = content.skillGroups.map((group, index) => `<section class="skill-group">
-      <div class="skill-group-heading"><span>${String(index + 1).padStart(2, "0")}</span><h3>${escapeHTML(group.title)}</h3></div>
-      <ul>${group.skills.map((skill) => `<li>${escapeHTML(skill)}</li>`).join("")}</ul>
-    </section>`).join("");
+      const leadCopy = createElement("div", "service-lead-copy");
+      leadCopy.append(
+        createElement("p", "service-lead-name", lead?.name || service.leadName),
+        createElement("p", "service-lead-role", lead?.serviceRole || "Service Lead")
+      );
+      leadHeader.append(portraitFrame, leadCopy);
+
+      article.append(top, leadHeader);
+      article.append(createElement("p", "service-category", lead?.serviceCategory || "Services"));
+      article.append(createElement("h3", "", service.title));
+      article.append(createElement("p", "service-description", service.description));
+
+      if (service.expertiseGroups?.length) {
+        const groups = createElement("div", "service-expertise-groups");
+        service.expertiseGroups.forEach((group) => {
+          const groupSection = createElement("section", "service-expertise-group");
+          groupSection.append(createElement("h4", "", group.title));
+          groupSection.append(createList(group.skills, "tag-list service-skill-tags", `${group.title} skills`));
+          groups.append(groupSection);
+        });
+        article.append(groups);
+      } else {
+        article.append(createList(service.tags || [], "tag-list", "Related capabilities"));
+      }
+      servicesGrid.append(article);
+    });
+
+    const serviceProfiles = $("#service-profiles");
+    serviceProfiles.replaceChildren();
+    content.serviceProfiles.forEach((profile) => {
+      const profileId = String(profile.id).replace(/[^a-z0-9-]/gi, "-");
+      const profileSection = createElement("section", "service-profile reveal");
+      profileSection.setAttribute("aria-labelledby", `${profileId}-services-title`);
+      const heading = createElement("div", "service-profile-heading");
+      const headingCopy = createElement("div");
+      headingCopy.append(createElement("p", "eyebrow", profile.eyebrow));
+      const title = createElement("h3", "", profile.title);
+      title.id = `${profileId}-services-title`;
+      headingCopy.append(title);
+      heading.append(headingCopy, createElement("p", "", profile.description));
+
+      const accordionGrid = createElement("div", "accordion-grid");
+      profile.groups.forEach((group, index) => {
+        const panelId = `${profileId}-service-panel-${index}`;
+        const buttonId = `${profileId}-service-button-${index}`;
+        const card = createElement("article", "accordion-card");
+        const accordionIcon = createElement("div", "accordion-icon", group.icon);
+        accordionIcon.setAttribute("aria-hidden", "true");
+        card.append(accordionIcon, createElement("h4", "", group.title));
+        card.append(createElement("p", "", group.description));
+        card.append(createList(group.featured, "featured-services", "Featured services"));
+
+        const button = createElement("button", "accordion-toggle");
+        button.type = "button";
+        button.id = buttonId;
+        button.setAttribute("aria-expanded", "false");
+        button.setAttribute("aria-controls", panelId);
+        button.setAttribute("data-accordion-toggle", "");
+        button.append(document.createTextNode(`${content.sectionText.servicesActionLabel} `));
+        const symbol = createElement("span", "", "+");
+        symbol.setAttribute("aria-hidden", "true");
+        button.append(symbol);
+
+        const panel = createElement("div", "accordion-panel");
+        panel.id = panelId;
+        panel.hidden = true;
+        panel.setAttribute("role", "region");
+        panel.setAttribute("aria-labelledby", buttonId);
+        panel.append(createList(group.services, "", `${group.title} services`));
+        if (group.note) panel.append(createElement("p", "service-note", group.note));
+        card.append(button, panel);
+        accordionGrid.append(card);
+      });
+      profileSection.append(heading, accordionGrid);
+      serviceProfiles.append(profileSection);
+    });
   }
 
   function projectDialogMarkup(project) {
@@ -168,12 +250,6 @@
 
   function renderProcess() {
     $("#process-grid").innerHTML = content.process.map((step, index) => `<li class="reveal"><span>${String(index + 1).padStart(2, "0")}</span><strong>${escapeHTML(step)}</strong></li>`).join("");
-  }
-
-  function renderProof() {
-    $("#proof-grid").innerHTML = content.proofItems.map((item) => `<article class="proof-card reveal">
-      <p class="project-type">${escapeHTML(item.type)}</p><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.description)}</p>
-    </article>`).join("");
   }
 
   function renderContact() {
@@ -250,10 +326,8 @@
   renderBaseContent();
   renderTeam();
   renderServices();
-  renderSkills();
   renderProjects();
   renderProcess();
-  renderProof();
   renderContact();
   setupProjectDialog();
   setupAccordions();
