@@ -30,9 +30,9 @@
     document.title = business.websiteTitle;
     const metadata = {
       'meta[name="description"]': business.description,
-      'meta[property="og:title"]': business.websiteTitle,
+      'meta[property="og:title"]': business.openGraphTitle || business.websiteTitle,
       'meta[property="og:description"]': business.openGraphDescription,
-      'meta[name="twitter:title"]': business.websiteTitle,
+      'meta[name="twitter:title"]': business.openGraphTitle || business.websiteTitle,
       'meta[name="twitter:description"]': business.openGraphDescription,
       'meta[property="og:url"]': business.canonicalUrl
     };
@@ -70,6 +70,9 @@
     setText("#hero-services-action", sectionText.heroActions.services);
     setText("#hero-projects-action", sectionText.heroActions.projects);
     setText("#hero-contact-action", sectionText.heroActions.contact);
+    setText("#audience-label", sectionText.audienceLabel);
+    setText("#audience-title", sectionText.audienceTitle);
+    setText("#audience-intro", sectionText.audienceIntroduction);
     setText("#about-label", sectionText.aboutLabel);
     setText("#about-title", sectionText.aboutTitle);
     const aboutBody = $("#about-body");
@@ -80,6 +83,9 @@
     setText("#services-label", sectionText.servicesLabel);
     setText("#services-title", sectionText.servicesTitle);
     setText("#services-intro", sectionText.servicesIntroduction);
+    setText("#why-label", sectionText.whyChooseLabel);
+    setText("#why-title", sectionText.whyChooseTitle);
+    setText("#why-intro", sectionText.whyChooseIntroduction);
     setText("#expertise-label", sectionText.expertiseLabel);
     setText("#expertise-title", sectionText.expertiseTitle);
     setText("#expertise-intro", sectionText.expertiseIntroduction);
@@ -94,6 +100,30 @@
     setText("#contact-location", content.contact.location);
     setText("#footer-tagline", business.footerTagline);
     setText("#current-year", new Date().getFullYear());
+  }
+
+  function renderAudience() {
+    const audienceList = $("#audience-list");
+    audienceList.replaceChildren();
+    content.audiences.forEach((audience, index) => {
+      const item = createElement("li", "reveal");
+      const number = createElement("span", "", String(index + 1).padStart(2, "0"));
+      number.setAttribute("aria-hidden", "true");
+      item.append(number, document.createTextNode(audience));
+      audienceList.append(item);
+    });
+  }
+
+  function renderWhyChoose() {
+    const whyGrid = $("#why-grid");
+    whyGrid.replaceChildren();
+    content.whyChoose.forEach((reason, index) => {
+      const article = createElement("article", "why-card reveal");
+      const number = createElement("span", "why-number", String(index + 1).padStart(2, "0"));
+      number.setAttribute("aria-hidden", "true");
+      article.append(number, createElement("h3", "", reason.title), createElement("p", "", reason.description));
+      whyGrid.append(article);
+    });
   }
 
   function renderTeam() {
@@ -149,7 +179,7 @@
     const servicesGrid = $("#services-grid");
     servicesGrid.replaceChildren();
     content.services.forEach((service, index) => {
-      const lead = content.team.find((member) => member.name === service.leadName);
+      const leads = (service.leadNames || [service.leadName]).map((name) => content.team.find((member) => member.name === name)).filter(Boolean);
       const article = createElement("article", "service-card reveal");
       const top = createElement("div", "service-top");
       const number = createElement("span", "", String(index + 1).padStart(2, "0"));
@@ -157,51 +187,42 @@
       icon.setAttribute("aria-hidden", "true");
       top.append(number, icon);
 
-      const leadHeader = createElement("div", "service-lead");
-      const portraitFrame = createElement("div", "service-portrait-frame");
-      const fallback = createElement("span", "service-portrait-fallback", (lead?.name || service.leadName || "?").charAt(0));
-      fallback.setAttribute("aria-hidden", "true");
-      const imagePath = safeAssetPath(lead?.image);
-      if (imagePath) {
-        const portraitClass = (lead.displayName || lead.name).toLowerCase().replace(/[^a-z0-9]+/g, "-");
-        const image = createElement("img", `service-portrait service-portrait-${portraitClass}`);
-        image.src = imagePath;
-        image.alt = lead.serviceImageAlt || lead.imageAlt;
-        image.loading = "lazy";
-        image.decoding = "async";
-        image.width = 112;
-        image.height = 112;
-        fallback.hidden = true;
-        image.addEventListener("error", () => { image.remove(); fallback.hidden = false; });
-        portraitFrame.append(image, fallback);
-      } else {
-        portraitFrame.append(fallback);
-      }
+      article.append(top, createElement("h3", "", service.title), createElement("p", "service-description", service.description));
+      article.append(createList(service.featured || [], "tag-list service-featured", `${service.title} featured services`));
 
+      const responsible = createElement("div", "service-lead service-responsible");
+      const avatars = createElement("div", "service-avatars");
+      leads.forEach((lead) => {
+        const portraitFrame = createElement("div", "service-portrait-frame");
+        const fallback = createElement("span", "service-portrait-fallback", (lead.displayName || lead.name).charAt(0));
+        fallback.setAttribute("aria-hidden", "true");
+        const imagePath = safeAssetPath(lead.image);
+        if (imagePath) {
+          const portraitClass = (lead.displayName || lead.name).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+          const image = createElement("img", `service-portrait service-portrait-${portraitClass}`);
+          image.src = imagePath;
+          image.alt = lead.serviceImageAlt || lead.imageAlt;
+          image.loading = "lazy";
+          image.decoding = "async";
+          image.width = 88;
+          image.height = 88;
+          fallback.hidden = true;
+          image.addEventListener("error", () => { image.remove(); fallback.hidden = false; });
+          portraitFrame.append(image, fallback);
+        } else {
+          portraitFrame.append(fallback);
+        }
+        avatars.append(portraitFrame);
+      });
       const leadCopy = createElement("div", "service-lead-copy");
-      leadCopy.append(
-        createElement("p", "service-lead-name", lead?.name || service.leadName),
-        createElement("p", "service-lead-role", lead?.serviceRole || "Service Lead")
-      );
-      if (lead?.experience) leadCopy.append(createElement("p", "service-lead-experience", lead.experience));
-      leadHeader.append(portraitFrame, leadCopy);
+      leadCopy.append(createElement("p", "service-category", "Responsible team member"), createElement("p", "service-lead-role", service.responsible));
+      responsible.append(avatars, leadCopy);
+      article.append(responsible);
 
-      article.append(top, leadHeader);
-      article.append(createElement("p", "service-category", lead?.serviceCategory || "Services"));
-      article.append(createElement("h3", "", service.title));
-      article.append(createElement("p", "service-description", service.description));
-
-      if (service.expertiseGroups?.length) {
-        const groups = createElement("div", "service-expertise-groups");
-        service.expertiseGroups.forEach((group) => {
-          const groupSection = createElement("section", "service-expertise-group");
-          groupSection.append(createElement("h4", "", group.title));
-          groupSection.append(createList(group.skills, "tag-list service-skill-tags", `${group.title} skills`));
-          groups.append(groupSection);
-        });
-        article.append(groups);
-      } else {
-        article.append(createList(service.tags || [], "tag-list", "Related capabilities"));
+      if (service.actionLabel && /^#[a-z0-9-]+$/i.test(service.actionHref || "")) {
+        const action = createElement("a", "service-action", `${service.actionLabel} →`);
+        action.href = service.actionHref;
+        article.append(action);
       }
       servicesGrid.append(article);
     });
@@ -451,6 +472,8 @@
 
   renderMetadata();
   renderBaseContent();
+  renderAudience();
+  renderWhyChoose();
   renderTeam();
   renderServices();
   renderProjects();

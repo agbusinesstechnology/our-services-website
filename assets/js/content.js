@@ -6,19 +6,20 @@
 window.PORTFOLIO_CONTENT = {
   business: {
     // Public business name used throughout the website.
-    name: "Business And Technology",
-    shortName: "Business And Technology",
-    websiteTitle: "Business And Technology | Business Support & Technology Solutions",
-    description: "Virtual assistance, business services, lead generation, web development, ERP, automation and AI-powered technology solutions by Business And Technology.",
-    openGraphDescription: "Virtual assistance, business services and practical technology solutions for businesses.",
+    name: "A&G Business & Technology",
+    shortName: "A&G",
+    websiteTitle: "A&G Business & Technology | Digital Business & Technology Solutions",
+    description: "A&G provides virtual business support, digital marketing, web and software development, business automation, AI solutions and practical technology support for growing organizations.",
+    openGraphTitle: "A&G Business & Technology",
+    openGraphDescription: "Human expertise and practical technology solutions for smarter business operations.",
     hero: {
-      eyebrow: "BUSINESS AND TECHNOLOGY SERVICES",
-      title: "Business Support Meets Technology",
-      positioning: "Virtual Assistance, Digital Operations & Technology Solutions",
-      description: "We help businesses streamline operations, manage digital tasks, generate leads, and build practical technology solutions. From virtual assistance and business support to web development, automation, and AI-driven solutions, we combine reliable human support with technical expertise."
+      eyebrow: "DIGITAL BUSINESS & TECHNOLOGY SOLUTIONS",
+      title: "Business Operations Meet Technology",
+      positioning: "We Make Business Operations Smarter.",
+      description: "We help businesses streamline operations, manage digital tasks, generate leads, and build practical technology solutions. From virtual assistance and digital marketing to web development, automation, and AI solutions, we combine reliable business support with technical expertise."
     },
-    heroNote: "Business understanding + technical execution.",
-    footerTagline: "Business Support & Technology Solutions",
+    heroNote: "Human expertise + technology = smarter operations",
+    footerTagline: "Digital Business & Technology Solutions",
     canonicalUrl: "https://lebad280324.github.io/our-services-website/",
     structuredDataEnabled: true
   },
@@ -26,18 +27,24 @@ window.PORTFOLIO_CONTENT = {
   sectionText: {
     navigation: { home: "Home", about: "About", services: "Services", expertise: "Expertise", projects: "Projects", contact: "Contact" },
     heroActions: { services: "Explore Our Services", projects: "View Our Work", contact: "Contact Us" },
-    aboutLabel: "About Business And Technology",
-    aboutTitle: "Business expertise meets technology.",
+    audienceLabel: "Who we support",
+    audienceTitle: "Who We Support",
+    audienceIntroduction: "Flexible business and technology support for organizations at different stages of growth.",
+    aboutLabel: "About A&G",
+    aboutTitle: "Business understanding meets technical execution.",
     teamLabel: "Our team",
     teamTitle: "Founders with complementary expertise.",
-    teamIntroduction: "Gizzle leads business services, client coordination and operational support, while Andrew Leba leads software development, system architecture and AI-powered solutions. Together, they combine reliable human support with technical expertise to deliver practical solutions for businesses.",
-    servicesLabel: "Our services",
-    servicesTitle: "Business services and technology solutions.",
-    servicesIntroduction: "Choose focused business support, practical technology delivery, or a coordinated combination of both.",
+    teamIntroduction: "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture, automation and technical implementation. Together, they combine reliable human support with practical technology expertise.",
+    servicesLabel: "Our Services",
+    servicesTitle: "Business support and technology solutions built around real operational needs.",
+    servicesIntroduction: "From daily business support to web development, automation and digital transformation, A&G provides practical services that help organizations work more efficiently.",
     servicesActionLabel: "View all services",
-    expertiseLabel: "Expertise",
-    expertiseTitle: "Focused support across business and technology.",
-    expertiseIntroduction: "Detailed capabilities are grouped by the team member responsible for delivery.",
+    whyChooseLabel: "WHY CHOOSE A&G?",
+    whyChooseTitle: "Why Businesses Work With Us",
+    whyChooseIntroduction: "A&G brings business understanding and technical execution together to provide flexible, practical and reliable support.",
+    expertiseLabel: "Technology Capabilities",
+    expertiseTitle: "Detailed business and technology capabilities.",
+    expertiseIntroduction: "Explore the complete service capabilities grouped by the team member responsible for delivery.",
     projectsLabel: "Projects & samples",
     projectsTitle: "Selected Work & Service Samples",
     projectsIntroduction: "Each item is labeled by its current status. Images remain hidden until approved materials are available.",
@@ -49,8 +56,26 @@ window.PORTFOLIO_CONTENT = {
   },
 
   about: [
-    "Business And Technology brings together business services and technology solutions for organizations that need dependable operational support and practical digital delivery.",
-    "Gizzle leads business services, client coordination and operational support, while Andrew Leba leads software development, system architecture and AI-powered solutions. Together, they combine reliable human support with technical expertise to deliver practical solutions for businesses."
+    "A&G Business & Technology brings together dependable operational support and practical digital delivery for organizations that want to work more efficiently.",
+    "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture, automation and technical implementation. Together, they combine reliable human support with practical technology expertise."
+  ],
+
+  audiences: [
+    "Startups & Small Businesses",
+    "Online Businesses",
+    "Entrepreneurs",
+    "Professional Service Providers",
+    "E-commerce Businesses",
+    "International Clients",
+    "Organizations Needing Digital Support"
+  ],
+
+  whyChoose: [
+    { title: "Business Understanding", description: "We understand business operations—not just technology." },
+    { title: "Technical Expertise", description: "We combine business support with web, software, automation, and AI capabilities." },
+    { title: "Flexible Support", description: "From individual tasks to ongoing operational support." },
+    { title: "Practical Solutions", description: "We focus on solutions that businesses can actually use." },
+    { title: "International Collaboration", description: "Built to work with businesses and clients across different markets." }
   ],
 
   team: [
@@ -91,12 +116,11 @@ window.PORTFOLIO_CONTENT = {
   ],
 
   services: [
-    { icon: "B", leadName: "Gizzle Montemayor", title: "Business Services — Gizzle", description: "Business development, project coordination and operational support for daily business needs.", tags: ["Virtual Assistance", "Digital Marketing", "CRM Management", "Lead Generation", "Bookkeeping Support", "Project Coordination", "Research & Data Services", "Technology-driven Business Support"] },
-    { icon: "T", leadName: "Andrew Leba", title: "Technology Services — Andrew Leba", description: "End-to-end web development, business systems, integrations, deployment and automation designed around operational needs.", expertiseGroups: [
-      { title: "Full-Stack Engineering", skills: ["Frontend & Backend Development", "API Integration", "Database Design", "Deployment & Maintenance"] },
-      { title: "Business Technology", skills: ["Odoo ERP Development", "BI Dashboards", "Reporting Systems", "Business Automation"] },
-      { title: "Advanced Technology", skills: ["AI Agents & Automation", "System Architecture", "Cloud/Server Deployment"] }
-    ] }
+    { icon: "VA", title: "Virtual Business Support", description: "Reliable administrative and operational assistance that helps businesses stay organized, responsive and focused.", featured: ["Administrative Assistance", "Calendar & Email Management", "Data Entry", "Document Management", "Customer Support", "Bookkeeping Support"], leadNames: ["Gizzle Montemayor"], responsible: "Gizzle — Founder & Business Services Lead" },
+    { icon: "DM", title: "Digital Marketing", description: "Organized digital marketing support designed to improve visibility, lead management and customer communication.", featured: ["Social Media Management", "Lead Generation", "CRM Management", "Email Marketing", "Market Research", "Content Support"], leadNames: ["Gizzle Montemayor"], responsible: "Gizzle — Founder & Business Services Lead" },
+    { icon: "DEV", title: "Web & Software Development", description: "Responsive websites and practical software solutions designed around business requirements and maintainable technology.", featured: ["Business Websites", "Landing Pages", "Front-End Development", "Website Maintenance"], leadNames: ["Andrew Leba"], responsible: "Andrew — Co-Founder & Technology Lead", actionLabel: "View Full Technology Capabilities", actionHref: "#expertise" },
+    { icon: "AI", title: "Automation & AI", description: "Practical automation and AI-assisted solutions that reduce repetitive work, improve data processing and support better business decisions.", featured: ["Business Process Automation", "AI-Assisted Workflows", "CRM Automation", "Data Processing", "AI Business Solutions"], leadNames: ["Gizzle Montemayor", "Andrew Leba"], responsible: "Gizzle & Andrew" },
+    { icon: "BT", title: "Business Technology", description: "Technology planning, systems and support focused on improving operations, scalability and long-term digital capability.", featured: ["Digital Transformation", "Technology Consulting", "Process Optimization", "Business Systems", "Technical Support"], leadNames: ["Andrew Leba"], responsible: "Andrew — Co-Founder & Technology Lead" }
   ],
 
   serviceProfiles: [
@@ -125,7 +149,7 @@ window.PORTFOLIO_CONTENT = {
         { icon: "GIT", title: "Version Control & Collaboration", description: "Organized development workflows using Git and GitHub, with clear documentation and controlled code changes.", featured: ["Git & GitHub", "Branch-based development", "Code review and documentation"], services: ["Git", "GitHub", "Branch-Based Development", "Code Review", "Issue Tracking", "Existing Codebase Analysis", "Technical Documentation", "Deployment Documentation", "Change Management"] },
         { icon: "OPS", title: "Deployment, Cloud & Infrastructure", description: "Application deployment and infrastructure support for secure, stable and maintainable business systems.", featured: ["Docker & Docker Compose", "Linux servers & Nginx", "Cloud deployment and CI/CD"], services: ["Docker", "Docker Compose", "Linux Servers", "Nginx", "Cloudflare", "Cloud Deployment", "Secure Remote Access", "Environment Configuration", "CI/CD", "Automated Deployment", "Monitoring", "Backup Management", "Application Troubleshooting"] },
         { icon: "FIX", title: "Debugging & Technical Support", description: "Systematic troubleshooting across frontend, backend, databases, APIs and deployment environments.", featured: ["Frontend and backend debugging", "API and database troubleshooting", "Deployment issue resolution"], services: ["Debugging frontend and backend issues", "Reading and understanding existing codebases", "API troubleshooting", "Database troubleshooting", "Deployment issue resolution", "Performance investigation", "Error logging and monitoring", "Code maintenance and refactoring", "Technical documentation", "Independent problem solving"] },
-        { icon: "AI", title: "AI-Assisted Development & Automation", description: "Practical use of AI and automation to accelerate business workflows, reporting, document processing and customer support.", featured: ["AI-assisted software development", "AI agents and reporting assistants", "Workflow automation"], services: ["AI-Assisted Software Development", "AI Agents", "Large Language Models", "Retrieval-Augmented Generation", "Prompt Engineering", "Workflow Automation", "AI Reporting Assistants", "Document Processing", "Data Extraction", "Customer Support Chatbots", "CRM and Email Automation", "AI Integration with Existing Systems"] },
+        { icon: "AI", title: "AI-Assisted Development & Automation", description: "Practical use of AI and automation to accelerate business workflows, reporting, document processing and customer support.", featured: ["AI-assisted software development", "AI agents and reporting assistants", "Workflow automation"], services: ["AI-Assisted Software Development", "AI Agents", "Large Language Models", "Retrieval-Augmented Generation", "Prompt Engineering", "Workflow Automation", "AI Reporting Assistants", "Document Processing", "Data Extraction", "Customer Support Chatbots", "CRM and Email Automation", "Email and Lead Follow-Up Automation", "AI Integration with Existing Systems"] },
         { icon: "DEL", title: "Professional Delivery", description: "We combine technical implementation with clear communication, documentation and responsible project delivery. We can work with both new projects and existing codebases, investigate technical problems and recommend maintainable solutions.", featured: ["Clear communication", "Responsible project delivery", "Post-delivery technical support"], services: ["Clear Communication", "Technical Documentation", "Responsible Project Delivery", "Deadline Awareness", "Structured Problem Solving", "Ability to Work with Existing Systems", "Continuous Learning", "Maintainable Implementation", "Post-Delivery Technical Support"] }
       ]
     }
