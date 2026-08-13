@@ -24,7 +24,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
 p, h1, h2, h3, blockquote, figure { margin-top: 0; }
 h1, h2, h3 { line-height: 1.08; letter-spacing: 0; }
-h1 { margin-bottom: 1.5rem; font-size: clamp(3rem, 7vw, 6.65rem); font-weight: 650; max-width: 970px; }
+h1 { max-width: 870px; margin-bottom: 1.25rem; overflow-wrap: break-word; font-size: clamp(3rem, 7vw, 6.65rem); font-weight: 650; text-wrap: balance; }
 h2 { margin-bottom: 1.4rem; font-size: clamp(2.35rem, 4vw, 4.25rem); font-weight: 620; }
 h3 { font-size: 1.6rem; font-weight: 620; }
 ::selection { color: var(--navy); background: var(--accent); }
@@ -61,7 +61,8 @@ h3 { font-size: 1.6rem; font-weight: 620; }
 .hero-copy { padding-block: 3rem; }
 .eyebrow { margin-bottom: 1.25rem; color: var(--accent-dark); font-size: .76rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
 .hero .eyebrow, .section-dark .eyebrow, .contact-section .eyebrow { color: var(--accent-dark); }
-.hero-intro { max-width: 720px; margin-bottom: 2.2rem; overflow-wrap: break-word; color: var(--ink-soft); font-size: clamp(1.05rem, 1.8vw, 1.3rem); }
+.hero-positioning { max-width: 760px; margin-bottom: 1.1rem; overflow-wrap: break-word; color: var(--accent-dark); font-size: clamp(1.12rem, 2vw, 1.45rem); font-weight: 750; line-height: 1.4; text-wrap: balance; }
+.hero-intro { max-width: 760px; margin-bottom: 2.2rem; overflow-wrap: break-word; color: var(--ink-soft); font-size: clamp(1rem, 1.45vw, 1.16rem); }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
 .hero .text-link { color: var(--navy); }
 .hero-panel { position: relative; width: 100%; padding: 2.2rem; overflow: hidden; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 24px 70px rgba(11,18,32,.1); }
@@ -248,7 +249,7 @@ h3 { font-size: 1.6rem; font-weight: 620; }
   .hero { min-height: auto; padding-top: 5rem; }
   .hero-copy { padding-block: 0; }
   .hero-layout { gap: 2rem; }
-  .hero-copy, .hero-intro, .hero-panel { max-width: 100%; }
+  .hero-copy, .hero-positioning, .hero-intro, .hero-panel { max-width: 100%; }
   .split-layout, .skills-layout, .services-heading, .heading-row, .gizzle-services-heading, .contact-card { grid-template-columns: 1fr; gap: 2rem; }
   .about-body { padding-top: 0; }
   .team-grid, .projects-grid, .proof-grid { grid-template-columns: 1fr; }
@@ -265,7 +266,7 @@ h3 { font-size: 1.6rem; font-weight: 620; }
   h2 { font-size: clamp(2.15rem, 11vw, 3.25rem); }
   .hero-actions { align-items: stretch; flex-direction: column; }
   .hero-actions .button { width: 100%; }
-  .hero-intro, .panel-note { overflow-wrap: anywhere; }
+  .hero-positioning, .hero-intro, .panel-note { overflow-wrap: break-word; }
   .hero-actions .text-link { align-self: flex-start; }
   .hero-panel { padding: 1.6rem; }
   .team-card { grid-template-columns: 1fr; }

@@ -21,6 +21,8 @@
       'meta[name="description"]': business.description,
       'meta[property="og:title"]': business.websiteTitle,
       'meta[property="og:description"]': business.description,
+      'meta[name="twitter:title"]': business.websiteTitle,
+      'meta[name="twitter:description"]': business.description,
       'meta[property="og:url"]': business.canonicalUrl
     };
     Object.entries(metadata).forEach(([selector, value]) => { const tag = $(selector); if (tag && value) tag.content = value; });
@@ -49,9 +51,10 @@
     const { business, sectionText } = content;
     $$('[data-business-name]').forEach((element) => { element.textContent = business.name; });
     $$("[data-nav]").forEach((element) => { element.textContent = sectionText.navigation[element.dataset.nav] || ""; });
-    setText("#hero-eyebrow", business.heroEyebrow);
-    setText("#hero-title", business.heroTitle);
-    setText("#hero-intro", business.heroIntroduction);
+    setText("#hero-eyebrow", business.hero.eyebrow);
+    setText("#hero-title", business.hero.title);
+    setText("#hero-positioning", business.hero.positioning);
+    setText("#hero-intro", business.hero.description);
     setText("#hero-note", business.heroNote);
     setText("#hero-services-action", sectionText.heroActions.services);
     setText("#hero-projects-action", sectionText.heroActions.projects);

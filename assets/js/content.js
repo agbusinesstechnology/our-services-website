@@ -8,11 +8,14 @@ window.PORTFOLIO_CONTENT = {
     // Public business name used throughout the website.
     name: "Leba",
     shortName: "Leba",
-    websiteTitle: "Leba | Business Services and Technology Services",
-    description: "Business development, virtual assistance, digital marketing, CRM, lead generation, web development, ERP, BI and AI automation services by Gizzle and Andrew.",
-    heroEyebrow: "Business and technology services",
-    heroTitle: "Business Expertise Meets Technology",
-    heroIntroduction: "Gizzle leads business development, project coordination and operational support, while Andrew leads software development, system architecture and AI research. Together, they provide practical business and technology solutions.",
+    websiteTitle: "Business Support & Technology Solutions | Gizzle and Andrew",
+    description: "Virtual assistance, digital operations, lead generation, web development, automation and AI-driven solutions for growing businesses.",
+    hero: {
+      eyebrow: "Business and Technology Services",
+      title: "Business Support Meets Technology",
+      positioning: "Virtual Assistance, Digital Operations & Technology Solutions",
+      description: "We help businesses streamline operations, manage digital tasks, generate leads, and build practical technology solutions. From virtual assistance and business support to web development, automation, and AI-driven solutions, we combine reliable human support with technical expertise."
+    },
     heroNote: "Two co-founders combining organized business support with dependable technical delivery.",
     footerTagline: "Business support and technology services for practical operations.",
     canonicalUrl: "", // EDIT HERE: Add the final GitHub Pages or custom-domain URL.
@@ -21,12 +24,12 @@ window.PORTFOLIO_CONTENT = {
 
   sectionText: {
     navigation: { home: "Home", about: "About", services: "Services", skills: "Expertise", work: "Projects", contact: "Contact" },
-    heroActions: { services: "Explore Our Services", projects: "View Projects", contact: "Contact Us" },
+    heroActions: { services: "Explore Our Services", projects: "View Our Work", contact: "Contact Us" },
     aboutLabel: "About us",
     aboutTitle: "Business Expertise Meets Technology",
     teamLabel: "Our team",
     teamTitle: "Two co-founders, two complementary roles.",
-    teamIntroduction: "Gizzle leads Business Development. Andrew leads Technical Delivery.",
+    teamIntroduction: "Gizzle leads business development, project coordination and operational support, while Andrew leads software development, system architecture and AI research. Together, they combine reliable business support with technical expertise to deliver practical solutions for growing businesses.",
     servicesLabel: "Our services",
     servicesTitle: "Business Expertise Meets Technology",
     servicesIntroduction: "Gizzle leads business development, project coordination and operational support, while Andrew leads software development, system architecture and AI research. Together, they provide practical business and technology solutions.",
@@ -50,7 +53,7 @@ window.PORTFOLIO_CONTENT = {
   },
 
   about: [
-    "We combine business development, project coordination and operational support with software development, system architecture and AI research.",
+    "Gizzle leads business development, project coordination and operational support, while Andrew leads software development, system architecture and AI research. Together, they combine reliable business support with technical expertise to deliver practical solutions for growing businesses.",
     "The team is intentionally small and collaborative. Gizzle helps organize business functions and growth support, while Andrew builds maintainable digital systems for ERP, APIs, reporting, automation and deployment."
   ],
 
