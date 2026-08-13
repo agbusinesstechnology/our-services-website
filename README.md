@@ -1,4 +1,4 @@
-# LEBA — Business Services & Technology Solutions
+# Leba — Business Support & Technology Solutions
 
 A responsive English-language website for a founder-led business services and technology solutions team. The site uses only HTML5, CSS3 and vanilla JavaScript, with no backend, database, package installation, paid library or build process.
 
@@ -43,14 +43,14 @@ Routine content is stored in [`assets/js/content.js`](assets/js/content.js). Edi
 - navigation and section text;
 - team members, roles, biographies, images and links;
 - Gizzle and Andrew service profiles, expertise groups and credentials;
-- projects, status, descriptions, functions, technology and repository visibility;
+- projects, categories, descriptions, deliverables, tools and repository visibility;
 - portfolio projects and the collaborative working process;
-- email, LinkedIn, GitHub, WhatsApp and location;
+- email, Calendly, LinkedIn, GitHub, WhatsApp and location;
 - canonical URL and structured-data setting.
 
 Search for `EDIT HERE` to locate missing or unconfirmed information. Preserve quotes, brackets and commas when editing JavaScript.
 
-The LEBA Medical ERP repository URL is stored in `content.js`, but `showRepository` is initially `false`. After confirming that the repository is public, change it to:
+The Leba Medical ERP repository URL is stored in `content.js`, but `showRepository` is initially `false`. After confirming that the repository is public, change it to:
 
 ```javascript
 showRepository: true
@@ -60,12 +60,12 @@ Contact methods without real information are hidden. WhatsApp must use digits on
 
 ## Information still needed
 
-- Approved portrait for Andrew
-- Gizzle portrait at `assets/images/profile-gizzle.png`
-- Public email, LinkedIn and WhatsApp details
-- Final GitHub Pages or custom-domain URL
-- Approved project screenshots or diagrams
-- Confirmation that the LEBA Medical ERP repository is public
+- Gizzle's real Calendly URL, if scheduling should be shown
+- Approved LinkedIn URLs and optional WhatsApp details
+- Approved images for the six business service samples
+- Confirmation that the Leba Medical ERP repository is public
+
+The current Gizzle and Andrew portrait files are present and used by the website. The supplied raster logo artwork still contains the older “AG” lettering. The header therefore uses the existing favicon mark beside the HTML text “Leba”; a newly supplied logo asset is required to remove “AG” from the raster artwork itself without altering the original image.
 
 No client names, testimonials, certificates, commercial results or statistics should be added without factual evidence and permission.
 
@@ -82,7 +82,7 @@ Suggested sizes:
 - Project screenshots: about 1200 × 780 pixels
 - Open Graph image: 1200 × 630 pixels
 
-Replace `assets/images/og-image.svg` with a PNG or JPEG for broader social-platform support, then update the `og:image` value in `index.html`. Do not publish confidential internal data, employee details, client logos or unapproved screenshots.
+Add an approved PNG or JPEG sharing image before restoring an `og:image` value in `index.html`. Do not publish confidential internal data, employee details, client logos or unapproved screenshots.
 
 ## Commit and push
 
@@ -115,7 +115,7 @@ https://lebad280324.github.io/REPOSITORY_NAME/
 
 Do not assume the root URL `https://lebad280324.github.io/` unless the repository itself is named `lebad280324.github.io`.
 
-After deployment, add the exact public URL to `business.canonicalUrl` in `content.js`, update the static Open Graph URL in `index.html`, and enable structured data only after confirming the final public business name and URL.
+The configured project URL is `https://lebad280324.github.io/our-services-website/`. If the repository path or domain changes, update `business.canonicalUrl` in `content.js` and the static canonical/Open Graph URL in `index.html`.
 
 ## Check GitHub Actions
 
