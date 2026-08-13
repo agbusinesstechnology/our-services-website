@@ -76,9 +76,9 @@ window.PORTFOLIO_CONTENT = {
       displayName: "Andrew Leba",
       vietnameseName: "Lê Bá Dũng",
       role: "Co-Founder & Technology Lead",
-      extendedRole: "Web Developer | Programmer | AI Researcher | Technology Specialist",
-      bio: "Andrew Leba leads software development, ERP implementation, system architecture, reporting, deployment and AI-powered automation solutions.",
-      roleDescription: "As Co-Founder & Technology Lead, Andrew Leba translates business requirements into practical, reliable and user-focused technology solutions.",
+      extendedRole: "Full-Stack Developer | Programmer | AI Researcher | Technology Specialist",
+      bio: "Andrew Leba leads full-stack software development, system architecture, API integration, database design, deployment and AI-assisted automation. He works across existing and new codebases to build, troubleshoot and deliver practical business systems.",
+      roleDescription: "As Co-Founder & Technology Lead, Andrew Leba combines technical implementation with clear communication, documentation and responsible project delivery across new projects and existing systems.",
       image: "./assets/images/profile-dung-placeholder.jpeg",
       imageAlt: "Andrew Leba — Co-Founder and Technology Lead",
       serviceRole: "Co-Founder & Technology Lead",
@@ -86,14 +86,14 @@ window.PORTFOLIO_CONTENT = {
       serviceImageAlt: "Andrew Leba — Co-Founder and Technology Lead",
       github: "https://github.com/lebad280324",
       linkedin: "", // EDIT HERE: Add the real LinkedIn URL when available.
-      services: ["Web Development", "Software Solutions", "AI & Technology"]
+      services: ["Full-Stack Development", "API & System Integration", "Database Systems", "Deployment & Infrastructure", "AI & Automation"]
     }
   ],
 
   services: [
     { icon: "B", leadName: "Gizzle Montemayor", title: "Business Services — Gizzle", description: "Business development, project coordination and operational support for daily business needs.", tags: ["Virtual Assistance", "Digital Marketing", "CRM Management", "Lead Generation", "Bookkeeping Support", "Project Coordination", "Research & Data Services", "Technology-driven Business Support"] },
-    { icon: "T", leadName: "Andrew Leba", title: "Technology Services — Andrew Leba", description: "Software, ERP, reporting, deployment and automation services for business systems.", expertiseGroups: [
-      { title: "Web & Software", skills: ["Custom Web Development", "Business Web Applications", "API Integration", "Database Systems"] },
+    { icon: "T", leadName: "Andrew Leba", title: "Technology Services — Andrew Leba", description: "End-to-end web development, business systems, integrations, deployment and automation designed around operational needs.", expertiseGroups: [
+      { title: "Full-Stack Engineering", skills: ["Frontend & Backend Development", "API Integration", "Database Design", "Deployment & Maintenance"] },
       { title: "Business Technology", skills: ["Odoo ERP Development", "BI Dashboards", "Reporting Systems", "Business Automation"] },
       { title: "Advanced Technology", skills: ["AI Agents & Automation", "System Architecture", "Cloud/Server Deployment"] }
     ] }
@@ -115,12 +115,18 @@ window.PORTFOLIO_CONTENT = {
     {
       id: "andrew",
       eyebrow: "Andrew Leba — Co-Founder & Technology Lead",
-      title: "Web Development • Software • ERP • Automation • AI",
-      description: "Andrew Leba leads software development, ERP implementation, system architecture, reporting, deployment and AI-powered automation solutions.",
+      title: "Full-Stack Engineering Capabilities",
+      description: "We provide end-to-end full-stack development, covering user interfaces, backend services, databases, API integrations, deployment and ongoing technical support. Our approach focuses on building maintainable, secure and practical systems that support real business operations.",
       groups: [
-        { icon: "WEB", title: "Web Development", description: "Responsive, maintainable web experiences built around business goals and real users.", featured: ["Business websites", "Responsive websites", "Web applications"], services: ["Business websites", "Responsive websites", "Responsive Web Design", "Landing pages", "Web applications", "Front-End Development", "HTML, CSS & JavaScript", "Website Maintenance", "Website maintenance and optimization"] },
-        { icon: "DEV", title: "Programming & Software", description: "Application and system development covering data, integrations, implementation and ongoing maintenance.", featured: ["Application development", "Database-driven systems", "API integration"], services: ["Application development", "Software Development", "Back-End Development", "Database Development & Management", "Database-driven systems", "API Integration", "Software architecture and implementation", "Problem solving and debugging", "Programming & Debugging", "Git & Version Control"] },
-        { icon: "AI", title: "AI & Emerging Technology", description: "Research and experimentation focused on useful automation and future-ready business technology.", featured: ["AI research", "AI-assisted solutions", "Business process automation"], services: ["AI research", "AI & Technology Research", "AI-assisted solutions", "Technology experimentation", "Business process automation", "Automation & Digital Solutions", "Emerging web technologies"] }
+        { icon: "FE", title: "Frontend Development", description: "Responsive and maintainable interfaces for websites, dashboards, portals and business applications.", featured: ["JavaScript & TypeScript", "Vue.js, React & Next.js", "Responsive and accessible interfaces"], services: ["JavaScript", "TypeScript", "HTML5", "CSS3", "Responsive Web Design", "Vue.js", "React", "Next.js", "Component-Based User Interfaces", "Mobile-Friendly Interfaces", "Accessible Web Interfaces", "Dashboard and Portal Development"] },
+        { icon: "BE", title: "Backend Development", description: "Backend services designed to manage business logic, users, permissions, records, workflows and integrations securely.", featured: ["Node.js & Python", "FastAPI", "Authentication and authorization"], services: ["Node.js", "Python", "FastAPI", "Authentication and Authorization", "Business Logic Development", "Background Processing", "File and Document Management", "Reporting Services", "Server-Side Validation", "PHP (supporting technology)", "Laravel (supporting technology)"], note: "PHP and Laravel are available as supporting technology options and are not presented as completed client implementations." },
+        { icon: "API", title: "API & System Integration", description: "APIs and integrations that connect websites, business applications, CRM platforms, ERP systems and external services.", featured: ["REST API development", "CRM and ERP integration", "Third-party integrations"], services: ["REST API Development", "REST API Integration", "Third-Party API Integration", "CRM and ERP Integration", "Email and Notification Integration", "Payment and Booking Integration", "Data Synchronization", "Webhooks", "Import and Export Workflows", "Legacy System Integration"] },
+        { icon: "DB", title: "Database Capabilities", description: "Structured and scalable data management for operational systems, reporting platforms and customer-facing applications.", featured: ["PostgreSQL & SQL", "Relational database design", "Data migration and reporting"], services: ["PostgreSQL", "MySQL", "SQL", "Relational Database Design", "Database Schema Design", "Data Migration", "Data Cleaning", "Record Management", "Query Optimization", "Reporting Databases", "Backup and Recovery Planning", "Supabase (available technology option)", "MongoDB (available technology option)"], note: "Supabase and MongoDB are available technology options and are not presented as completed client deployments." },
+        { icon: "GIT", title: "Version Control & Collaboration", description: "Organized development workflows using Git and GitHub, with clear documentation and controlled code changes.", featured: ["Git & GitHub", "Branch-based development", "Code review and documentation"], services: ["Git", "GitHub", "Branch-Based Development", "Code Review", "Issue Tracking", "Existing Codebase Analysis", "Technical Documentation", "Deployment Documentation", "Change Management"] },
+        { icon: "OPS", title: "Deployment, Cloud & Infrastructure", description: "Application deployment and infrastructure support for secure, stable and maintainable business systems.", featured: ["Docker & Docker Compose", "Linux servers & Nginx", "Cloud deployment and CI/CD"], services: ["Docker", "Docker Compose", "Linux Servers", "Nginx", "Cloudflare", "Cloud Deployment", "Secure Remote Access", "Environment Configuration", "CI/CD", "Automated Deployment", "Monitoring", "Backup Management", "Application Troubleshooting"] },
+        { icon: "FIX", title: "Debugging & Technical Support", description: "Systematic troubleshooting across frontend, backend, databases, APIs and deployment environments.", featured: ["Frontend and backend debugging", "API and database troubleshooting", "Deployment issue resolution"], services: ["Debugging frontend and backend issues", "Reading and understanding existing codebases", "API troubleshooting", "Database troubleshooting", "Deployment issue resolution", "Performance investigation", "Error logging and monitoring", "Code maintenance and refactoring", "Technical documentation", "Independent problem solving"] },
+        { icon: "AI", title: "AI-Assisted Development & Automation", description: "Practical use of AI and automation to accelerate business workflows, reporting, document processing and customer support.", featured: ["AI-assisted software development", "AI agents and reporting assistants", "Workflow automation"], services: ["AI-Assisted Software Development", "AI Agents", "Large Language Models", "Retrieval-Augmented Generation", "Prompt Engineering", "Workflow Automation", "AI Reporting Assistants", "Document Processing", "Data Extraction", "Customer Support Chatbots", "CRM and Email Automation", "AI Integration with Existing Systems"] },
+        { icon: "DEL", title: "Professional Delivery", description: "We combine technical implementation with clear communication, documentation and responsible project delivery. We can work with both new projects and existing codebases, investigate technical problems and recommend maintainable solutions.", featured: ["Clear communication", "Responsible project delivery", "Post-delivery technical support"], services: ["Clear Communication", "Technical Documentation", "Responsible Project Delivery", "Deadline Awareness", "Structured Problem Solving", "Ability to Work with Existing Systems", "Continuous Learning", "Maintainable Implementation", "Post-Delivery Technical Support"] }
       ]
     }
   ],
