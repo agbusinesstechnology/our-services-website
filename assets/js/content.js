@@ -6,10 +6,10 @@
 window.PORTFOLIO_CONTENT = {
   business: {
     // Public business name used throughout the website.
-    name: "Leba",
-    shortName: "Leba",
-    websiteTitle: "Leba | Business Support & Technology Solutions",
-    description: "Virtual assistance, business services, lead generation, web development, ERP, automation and AI-powered technology solutions by Leba.",
+    name: "Business And Technology",
+    shortName: "Business And Technology",
+    websiteTitle: "Business And Technology | Business Support & Technology Solutions",
+    description: "Virtual assistance, business services, lead generation, web development, ERP, automation and AI-powered technology solutions by Business And Technology.",
     openGraphDescription: "Virtual assistance, business services and practical technology solutions for businesses.",
     hero: {
       eyebrow: "BUSINESS AND TECHNOLOGY SERVICES",
@@ -26,11 +26,11 @@ window.PORTFOLIO_CONTENT = {
   sectionText: {
     navigation: { home: "Home", about: "About", services: "Services", expertise: "Expertise", projects: "Projects", contact: "Contact" },
     heroActions: { services: "Explore Our Services", projects: "View Our Work", contact: "Contact Us" },
-    aboutLabel: "About Leba",
+    aboutLabel: "About Business And Technology",
     aboutTitle: "Business expertise meets technology.",
     teamLabel: "Our team",
     teamTitle: "Founders with complementary expertise.",
-    teamIntroduction: "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture and AI-powered solutions. Together, they combine reliable human support with technical expertise to deliver practical solutions for businesses.",
+    teamIntroduction: "Gizzle leads business services, client coordination and operational support, while Andrew Leba leads software development, system architecture and AI-powered solutions. Together, they combine reliable human support with technical expertise to deliver practical solutions for businesses.",
     servicesLabel: "Our services",
     servicesTitle: "Business services and technology solutions.",
     servicesIntroduction: "Choose focused business support, practical technology delivery, or a coordinated combination of both.",
@@ -49,8 +49,8 @@ window.PORTFOLIO_CONTENT = {
   },
 
   about: [
-    "Leba brings together business services and technology solutions for organizations that need dependable operational support and practical digital delivery.",
-    "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture and AI-powered solutions. Together, they combine reliable human support with technical expertise to deliver practical solutions for businesses."
+    "Business And Technology brings together business services and technology solutions for organizations that need dependable operational support and practical digital delivery.",
+    "Gizzle leads business services, client coordination and operational support, while Andrew Leba leads software development, system architecture and AI-powered solutions. Together, they combine reliable human support with technical expertise to deliver practical solutions for businesses."
   ],
 
   team: [
@@ -72,17 +72,18 @@ window.PORTFOLIO_CONTENT = {
       credentials: ["TESOL Certified", "EFL Certified", "Bachelor of Science in Computer Science", "QuickBooks Bookkeeping Trainer", "Virtual Assistant since 2017"]
     },
     {
-      name: "Andrew",
+      name: "Andrew Leba",
+      displayName: "Andrew Leba",
       vietnameseName: "Lê Bá Dũng",
       role: "Co-Founder & Technology Lead",
       extendedRole: "Web Developer | Programmer | AI Researcher | Technology Specialist",
-      bio: "Andrew leads software development, ERP implementation, system architecture, reporting, deployment and AI-powered automation solutions.",
-      roleDescription: "As Co-Founder & Technology Lead, Andrew translates business requirements into practical, reliable and user-focused technology solutions.",
+      bio: "Andrew Leba leads software development, ERP implementation, system architecture, reporting, deployment and AI-powered automation solutions.",
+      roleDescription: "As Co-Founder & Technology Lead, Andrew Leba translates business requirements into practical, reliable and user-focused technology solutions.",
       image: "./assets/images/profile-dung-placeholder.jpeg",
-      imageAlt: "Andrew — Co-Founder and Technology Lead",
+      imageAlt: "Andrew Leba — Co-Founder and Technology Lead",
       serviceRole: "Co-Founder & Technology Lead",
       serviceCategory: "Technology Services",
-      serviceImageAlt: "Andrew — Co-Founder and Technology Lead",
+      serviceImageAlt: "Andrew Leba — Co-Founder and Technology Lead",
       github: "https://github.com/lebad280324",
       linkedin: "", // EDIT HERE: Add the real LinkedIn URL when available.
       services: ["Web Development", "Software Solutions", "AI & Technology"]
@@ -91,7 +92,7 @@ window.PORTFOLIO_CONTENT = {
 
   services: [
     { icon: "B", leadName: "Gizzle Montemayor", title: "Business Services — Gizzle", description: "Business development, project coordination and operational support for daily business needs.", tags: ["Virtual Assistance", "Digital Marketing", "CRM Management", "Lead Generation", "Bookkeeping Support", "Project Coordination", "Research & Data Services", "Technology-driven Business Support"] },
-    { icon: "T", leadName: "Andrew", title: "Technology Services — Andrew", description: "Software, ERP, reporting, deployment and automation services for business systems.", expertiseGroups: [
+    { icon: "T", leadName: "Andrew Leba", title: "Technology Services — Andrew Leba", description: "Software, ERP, reporting, deployment and automation services for business systems.", expertiseGroups: [
       { title: "Web & Software", skills: ["Custom Web Development", "Business Web Applications", "API Integration", "Database Systems"] },
       { title: "Business Technology", skills: ["Odoo ERP Development", "BI Dashboards", "Reporting Systems", "Business Automation"] },
       { title: "Advanced Technology", skills: ["AI Agents & Automation", "System Architecture", "Cloud/Server Deployment"] }
@@ -113,9 +114,9 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       id: "andrew",
-      eyebrow: "Andrew — Co-Founder & Technology Lead",
+      eyebrow: "Andrew Leba — Co-Founder & Technology Lead",
       title: "Web Development • Software • ERP • Automation • AI",
-      description: "Andrew leads software development, ERP implementation, system architecture, reporting, deployment and AI-powered automation solutions.",
+      description: "Andrew Leba leads software development, ERP implementation, system architecture, reporting, deployment and AI-powered automation solutions.",
       groups: [
         { icon: "WEB", title: "Web Development", description: "Responsive, maintainable web experiences built around business goals and real users.", featured: ["Business websites", "Responsive websites", "Web applications"], services: ["Business websites", "Responsive websites", "Responsive Web Design", "Landing pages", "Web applications", "Front-End Development", "HTML, CSS & JavaScript", "Website Maintenance", "Website maintenance and optimization"] },
         { icon: "DEV", title: "Programming & Software", description: "Application and system development covering data, integrations, implementation and ongoing maintenance.", featured: ["Application development", "Database-driven systems", "API integration"], services: ["Application development", "Software Development", "Back-End Development", "Database Development & Management", "Database-driven systems", "API Integration", "Software architecture and implementation", "Problem solving and debugging", "Programming & Debugging", "Git & Version Control"] },
@@ -306,7 +307,10 @@ window.PORTFOLIO_CONTENT = {
   ],
 
   contact: {
-    email: "gizzlesy@gmail.com",
+    emails: [
+      { label: "Email Gizzle", address: "gizzlesy@gmail.com" },
+      { label: "Email Andrew Leba", address: "lebadung561@gmail.com" }
+    ],
     calendlyUrl: "", // EDIT HERE: Add Gizzle's real Calendly URL when available.
     whatsapp: "", // EDIT HERE: Add digits only, including country code.
     linkedin: "", // EDIT HERE: Add the real LinkedIn URL.

@@ -1,4 +1,4 @@
-# Leba — Business Support & Technology Solutions
+# Business And Technology — Business Support & Technology Solutions
 
 A responsive English-language website for a founder-led business services and technology solutions team. The site uses only HTML5, CSS3 and vanilla JavaScript, with no backend, database, package installation, paid library or build process.
 
@@ -42,7 +42,7 @@ Routine content is stored in [`assets/js/content.js`](assets/js/content.js). Edi
 - business name, title, description and hero content;
 - navigation and section text;
 - team members, roles, biographies, images and links;
-- Gizzle and Andrew service profiles, expertise groups and credentials;
+- Gizzle and Andrew Leba service profiles, expertise groups and credentials;
 - projects, categories, descriptions, deliverables, tools and repository visibility;
 - portfolio projects and the collaborative working process;
 - email, Calendly, LinkedIn, GitHub, WhatsApp and location;
@@ -65,7 +65,7 @@ Contact methods without real information are hidden. WhatsApp must use digits on
 - Approved images for the six business service samples
 - Confirmation that the Leba Medical ERP repository is public
 
-The current Gizzle and Andrew portrait files are present and used by the website. The supplied raster logo artwork still contains the older “AG” lettering. The header therefore uses the existing favicon mark beside the HTML text “Leba”; a newly supplied logo asset is required to remove “AG” from the raster artwork itself without altering the original image.
+The current Gizzle and Andrew Leba portrait files are present and used by the website. The supplied raster logo artwork still contains the older “AG” lettering. The header therefore uses the existing favicon mark beside the HTML text “Business And Technology”; a newly supplied logo asset is required to remove “AG” from the raster artwork itself without altering the original image.
 
 No client names, testimonials, certificates, commercial results or statistics should be added without factual evidence and permission.
 

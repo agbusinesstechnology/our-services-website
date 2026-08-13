@@ -360,13 +360,13 @@
 
   function renderContact() {
     const contact = content.contact;
-    const emailReady = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email);
+    const emails = (contact.emails || []).filter((item) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(item.address));
     const calendlyReady = Boolean(safeUrl(contact.calendlyUrl));
     const linkedInReady = Boolean(safeUrl(contact.linkedin));
     const githubReady = Boolean(safeUrl(contact.github));
     const whatsappReady = /^\d{8,15}$/.test(contact.whatsapp);
     const items = [
-      { label: "Email Gizzle", icon: "@", href: emailReady ? `mailto:${contact.email}` : "", ready: emailReady },
+      ...emails.map((item) => ({ label: item.label, icon: "@", href: `mailto:${item.address}`, ready: true })),
       { label: "Schedule a Call", icon: "CAL", href: calendlyReady ? contact.calendlyUrl : "", ready: calendlyReady },
       { label: "GitHub", icon: "gh", href: githubReady ? contact.github : "", ready: githubReady },
       { label: "LinkedIn", icon: "in", href: linkedInReady ? contact.linkedin : "", ready: linkedInReady },
