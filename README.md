@@ -116,7 +116,7 @@ https://agbusinesstechnology.github.io/REPOSITORY_NAME/
 
 Do not assume the root URL `https://agbusinesstechnology.github.io/` unless the repository itself is named `agbusinesstechnology.github.io`.
 
-The configured project URL is `https://agbusinesstechnology.github.io/our-services-website/`. If the repository path or domain changes, update `business.canonicalUrl` in `content.js` and the static canonical/Open Graph URL in `index.html`.
+The configured canonical URL is `https://agbusinesstechnology.com/`. The relative asset paths also remain compatible with the GitHub Pages project URL. If the custom domain changes, update `business.canonicalUrl` in `content.js` and the static canonical/Open Graph URL in `index.html`.
 
 ## Check GitHub Actions
 

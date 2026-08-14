@@ -8,25 +8,26 @@ window.PORTFOLIO_CONTENT = {
     // Public business name used throughout the website.
     name: "A&G Business & Technology",
     shortName: "A&G",
-    websiteTitle: "A&G Business & Technology | Business Support & Technology Solutions",
-    description: "A&G provides virtual business support, digital marketing, web and software development, automation, AI solutions, and practical business technology services.",
+    websiteTitle: "A&G Business & Technology | Digital Business & Technology Solutions",
+    description: "A&G provides business support, digital marketing, project management, web and software development, automation, AI solutions, and practical business technology services.",
     openGraphTitle: "A&G Business & Technology",
-    openGraphDescription: "Business support and practical technology solutions for smarter operations.",
+    openGraphDescription: "Business, digital and technology solutions for modern organizations.",
     hero: {
       eyebrow: "DIGITAL BUSINESS & TECHNOLOGY SOLUTIONS",
-      titleLines: ["Business Support.", "Technology.", "Results."],
-      description: "Virtual assistance, digital operations, marketing, automation, web development, and AI solutions for growing businesses.",
-      primaryAction: { label: "Let's Work Together", target: "#contact" },
-      secondaryAction: { label: "View Our Services", target: "#services" },
-      projectAction: { label: "View Our Projects", target: "#projects" }
+      titleLines: ["Business, Digital & Technology Solutions", "for Modern Organizations."],
+      description: "We help businesses streamline operations, strengthen their digital presence, generate opportunities, and adopt practical technology solutions.",
+      primaryAction: { label: "View Our Services", target: "#services" },
+      secondaryAction: { label: "Contact Us", target: "#contact" }
     },
     valueProposition: {
-      business: "Business Thinking",
-      technology: "Technical Delivery",
+      businessSupport: "Business Support",
+      digitalMarketing: "Digital Marketing",
+      technology: "Technology",
+      projectManagement: "Project Management",
       supportingText: "Human expertise combined with practical technology."
     },
-    footerTagline: "Business Support & Technology Solutions",
-    canonicalUrl: "https://agbusinesstechnology.github.io/our-services-website/",
+    footerTagline: "Business, digital and technology solutions for modern organizations.",
+    canonicalUrl: "https://agbusinesstechnology.com/",
     structuredDataEnabled: true
   },
 
@@ -42,14 +43,14 @@ window.PORTFOLIO_CONTENT = {
     teamIntroduction: "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture, automation and technical implementation. Together, they combine reliable human support with practical technology expertise.",
     servicesLabel: "Our Services",
     servicesTitle: "Business support and technology solutions built around real operational needs.",
-    servicesIntroduction: "From daily business support to web development, automation and digital transformation, A&G provides practical services that help organizations work more efficiently.",
-    servicesActionLabel: "View all services",
+    servicesIntroduction: "Explore nine focused service areas designed to support operations, digital growth and practical technology adoption.",
+    servicesActionLabel: "View Services",
     whyChooseLabel: "WHY CHOOSE A&G?",
     whyChooseTitle: "Why Businesses Work With Us",
     whyChooseIntroduction: "A&G brings business understanding and technical execution together to provide flexible, practical and reliable support.",
     expertiseLabel: "OUR EXPERTISE",
-    expertiseTitle: "Business capability and technical delivery in one team.",
-    expertiseIntroduction: "A&G combines the operational expertise businesses need with the technology required to build, automate and improve their systems.",
+    expertiseTitle: "Business, Digital & Technology Solutions",
+    expertiseIntroduction: "Business support, digital capability and technical delivery brought together by one complementary team.",
     expertiseDetailsLabel: "Detailed capabilities",
     projectsLabel: "Projects",
     projectsTitle: "Selected Work & Service Samples",
@@ -127,31 +128,100 @@ window.PORTFOLIO_CONTENT = {
   ],
 
   services: [
-    { icon: "VA", title: "Virtual Business Support", description: "Reliable administrative and operational assistance that helps businesses stay organized, responsive and focused.", featured: ["Administrative Assistance", "Calendar & Email Management", "Data Entry", "Document Management", "Customer Support", "Bookkeeping Support"], leadNames: ["Gizzle Montemayor"], responsible: "Gizzle — Founder & Business Services Lead" },
-    { icon: "DM", title: "Digital Marketing", description: "Organized digital marketing support designed to improve visibility, lead management and customer communication.", featured: ["Social Media Management", "Lead Generation", "CRM Management", "Email Marketing", "Market Research", "Content Support"], leadNames: ["Gizzle Montemayor"], responsible: "Gizzle — Founder & Business Services Lead" },
-    { icon: "DEV", title: "Web & Software Development", description: "Responsive websites and practical software solutions designed around business requirements and maintainable technology.", featured: ["Business Websites", "Landing Pages", "Front-End Development", "Full-Stack Applications", "Business Portals", "CRM and ERP Systems", "Website Maintenance", "API and Database Development"], leadNames: ["Andrew Leba"], responsible: "Andrew — Co-Founder & Technology Lead", actionLabel: "View Capabilities", actionHref: "#expertise" },
-    { icon: "AI", title: "Automation & AI", description: "Practical automation and AI-assisted solutions that reduce repetitive work, improve data processing and support better business decisions.", featured: ["Business Process Automation", "AI-Assisted Workflows", "CRM Automation", "Data Processing", "AI Reporting Assistants", "Document Processing", "AI Business Solutions"], leadNames: ["Gizzle Montemayor", "Andrew Leba"], responsible: "Gizzle & Andrew" },
-    { icon: "BT", title: "Business Technology", description: "Technology planning, systems and support focused on improving operations, scalability and long-term digital capability.", featured: ["Digital Transformation", "Technology Consulting", "Process Optimization", "Business Systems", "System Integration", "Cloud Deployment", "Technical Support"], leadNames: ["Andrew Leba"], responsible: "Andrew — Co-Founder & Technology Lead" }
+    {
+      icon: "VA",
+      title: "Business & Virtual Assistance",
+      description: "Professional administrative and operational support designed to help businesses save time and stay organized.",
+      featured: ["Administrative Support", "Data Entry & Data Management", "Virtual Executive Assistance"],
+      services: ["Administrative Support", "Data Entry & Data Management", "Calendar & Schedule Management", "Email Management", "Document Preparation", "Online Research", "Customer Support", "Business Process Support", "Virtual Executive Assistance"],
+      leadNames: ["Gizzle Montemayor"],
+      responsible: "Gizzle — Founder & Business Services Lead"
+    },
+    {
+      icon: "DM",
+      title: "Digital Marketing",
+      description: "Digital marketing solutions that help businesses build their online presence and reach the right audience.",
+      featured: ["Social Media Management", "Content Planning", "Digital Marketing Strategy"],
+      services: ["Social Media Management", "Content Planning", "Content Management", "Digital Marketing Strategy", "Social Media Marketing", "Campaign Management", "Marketing Research", "Analytics & Performance Reporting"],
+      leadNames: ["Gizzle Montemayor"],
+      responsible: "Gizzle — Founder & Business Services Lead"
+    },
+    {
+      icon: "CRM",
+      title: "CRM & Lead Generation",
+      description: "Helping businesses organize customer information, manage prospects, and build a more effective sales pipeline.",
+      featured: ["CRM Setup & Management", "Lead Generation", "Sales Pipeline Management"],
+      services: ["CRM Setup & Management", "Lead Generation", "Lead Qualification", "Contact Database Management", "Sales Pipeline Management", "Customer Data Organization", "Prospect Research", "Follow-up Management", "CRM Reporting"],
+      leadNames: ["Gizzle Montemayor"],
+      responsible: "Gizzle — Founder & Business Services Lead"
+    },
+    {
+      icon: "EM",
+      title: "Email Marketing & Management",
+      description: "Professional email solutions for customer engagement, marketing, and business communication.",
+      featured: ["Email Campaign Management", "Newsletter Management", "Basic Email Automation"],
+      services: ["Email Campaign Management", "Email Marketing", "Newsletter Management", "Email List Management", "Campaign Scheduling", "Email Content Management", "Basic Email Automation", "Campaign Performance Tracking"],
+      leadNames: ["Gizzle Montemayor"],
+      responsible: "Gizzle — Founder & Business Services Lead"
+    },
+    {
+      icon: "PM",
+      title: "Project Management",
+      description: "Organizing people, processes, timelines, and deliverables to keep projects moving efficiently.",
+      featured: ["Project Planning", "Task & Workflow Management", "Progress Tracking"],
+      services: ["Project Planning", "Task & Workflow Management", "Project Coordination", "Timeline Management", "Team Coordination", "Progress Tracking", "Documentation", "Project Reporting", "Client & Stakeholder Communication"],
+      leadNames: ["Gizzle Montemayor", "Andrew Leba"],
+      responsible: "Gizzle & Andrew"
+    },
+    {
+      icon: "BK",
+      title: "Bookkeeping & Business Administration",
+      description: "Organized financial and administrative support for day-to-day business operations.",
+      featured: ["Bookkeeping Support", "Expense Tracking", "Financial Administration Support"],
+      services: ["Bookkeeping Support", "Expense Tracking", "Invoice Management", "Financial Data Entry", "Account Reconciliation Support", "Payroll Data Support", "Business Documentation", "Administrative Reporting"],
+      note: "Administrative bookkeeping support only. This does not represent licensed accounting, tax or financial advisory services.",
+      leadNames: ["Gizzle Montemayor"],
+      responsible: "Gizzle — Founder & Business Services Lead"
+    },
+    {
+      icon: "WEB",
+      title: "Web Development & Digital Solutions",
+      description: "Practical web and digital solutions designed around business requirements.",
+      featured: ["Business Website Development", "Responsive Web Design", "Website Maintenance"],
+      services: ["Business Website Development", "Responsive Web Design", "Front-End Development", "HTML, CSS & JavaScript", "Website Maintenance", "Landing Pages", "Website Content Updates", "Basic E-commerce Solutions", "Website Optimization"],
+      leadNames: ["Andrew Leba"],
+      responsible: "Andrew Leba — Co-Founder & Technology Lead"
+    },
+    {
+      icon: "SYS",
+      title: "Software & Technology Solutions",
+      description: "Technology solutions that help businesses improve processes and manage information more effectively.",
+      featured: ["Business Software Solutions", "Database Solutions", "API & System Integration"],
+      services: ["Business Software Solutions", "Web-Based Systems", "Database Solutions", "Business Process Digitization", "System Requirements Analysis", "CRUD-Based Business Applications", "Technology Consulting", "Technical Documentation", "API & System Integration", "Business Dashboards and Reporting"],
+      leadNames: ["Andrew Leba"],
+      responsible: "Andrew Leba — Co-Founder & Technology Lead"
+    },
+    {
+      icon: "AI",
+      title: "AI & Automation Solutions",
+      description: "Practical AI and automation solutions for improving productivity and business workflows.",
+      featured: ["AI-Assisted Business Workflows", "Workflow Automation", "Document Processing"],
+      services: ["AI-Assisted Business Workflows", "Workflow Automation", "AI Research", "Process Automation", "Productivity Automation", "AI-Powered Content Assistance", "Business Process Optimization", "CRM and Follow-up Automation", "Document Processing and Data Extraction"],
+      leadNames: ["Gizzle Montemayor", "Andrew Leba"],
+      responsible: "Gizzle & Andrew"
+    }
   ],
 
   expertise: {
     business: {
       title: "Business",
       responsible: "Gizzle — Founder & Business Services Lead",
-      items: ["Virtual Assistance", "Digital Operations", "CRM & Lead Generation", "Digital Marketing", "Bookkeeping Support", "Project Management"]
+      items: ["Virtual Assistance", "Digital Operations", "CRM & Lead Generation", "Digital Marketing", "Email Marketing", "Bookkeeping Support", "Project Management"]
     },
     technology: {
       title: "Technology",
       responsible: "Andrew — Co-Founder & Technology Lead",
-      items: ["Web Development", "Software Development", "Automation", "AI Solutions", "Data & Systems", "Technical Consulting"],
-      details: [
-        { title: "Web Development", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "Vue.js", "React", "Next.js", "Responsive Web Design"] },
-        { title: "Software Development", items: ["Python", "FastAPI", "Node.js", "REST APIs", "Odoo ERP", "CRM and ERP Systems", "Business Portals", "Booking Systems"] },
-        { title: "Automation", items: ["Workflow Automation", "CRM Automation", "Email Automation", "Data Processing", "Business Process Automation", "API Integration"] },
-        { title: "AI Solutions", items: ["AI Agents", "Large Language Models", "Retrieval-Augmented Generation", "AI Reporting Assistants", "Document Processing", "Customer Support Chatbots"] },
-        { title: "Data & Systems", items: ["PostgreSQL", "SQL", "MySQL", "Database Design", "Business Intelligence", "Reporting Systems", "Dashboards", "Data Integration"] },
-        { title: "Technical Consulting", items: ["System Architecture", "Existing Codebase Analysis", "Docker", "Linux", "Nginx", "Cloudflare", "Deployment", "CI/CD", "Monitoring", "Backup Planning"] }
-      ]
+      items: ["Web Development", "Software Development", "Automation", "AI Solutions", "Data & Systems", "Technical Consulting"]
     }
   },
 
@@ -419,8 +489,6 @@ window.PORTFOLIO_CONTENT = {
   ],
 
   footerLinks: [
-    { label: "Services", target: "#services" },
-    { label: "Expertise", target: "#expertise" },
     { label: "Projects", target: "#projects" },
     { label: "Contact", target: "#contact" }
   ],
@@ -433,7 +501,6 @@ window.PORTFOLIO_CONTENT = {
     calendlyUrl: "", // EDIT HERE: Add Gizzle's real Calendly URL when available.
     whatsapp: "", // EDIT HERE: Add digits only, including country code.
     linkedin: "", // EDIT HERE: Add the real LinkedIn URL.
-    github: "https://github.com/lebad280324",
     whatsappMessage: "Hello, I would like to discuss a business technology project.",
     location: "Vietnam / Available for remote collaboration"
   }

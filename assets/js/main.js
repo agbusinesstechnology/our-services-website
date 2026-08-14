@@ -68,16 +68,17 @@
     setText("#hero-intro", business.hero.description);
     [
       ["#hero-primary-action", business.hero.primaryAction],
-      ["#hero-secondary-action", business.hero.secondaryAction],
-      ["#hero-project-action", business.hero.projectAction]
+      ["#hero-secondary-action", business.hero.secondaryAction]
     ].forEach(([selector, action]) => {
       const link = $(selector);
       if (!link || !action || !/^#[a-z0-9-]+$/i.test(action.target)) return;
       link.href = action.target;
       $("span", link).textContent = action.label;
     });
-    setText("#value-business", business.valueProposition.business);
+    setText("#value-business-support", business.valueProposition.businessSupport);
+    setText("#value-digital-marketing", business.valueProposition.digitalMarketing);
     setText("#value-technology", business.valueProposition.technology);
+    setText("#value-project-management", business.valueProposition.projectManagement);
     setText("#value-support", business.valueProposition.supportingText);
     setText("#audience-label", sectionText.audienceLabel);
     setText("#audience-title", sectionText.audienceTitle);
@@ -230,6 +231,28 @@
       article.append(top, createElement("h3", "", service.title), createElement("p", "service-description", service.description));
       article.append(createList(service.featured || [], "tag-list service-featured", `${service.title} featured services`));
 
+      const panelId = `service-panel-${index}`;
+      const buttonId = `service-button-${index}`;
+      const disclosureButton = createElement("button", "service-action service-disclosure-toggle");
+      disclosureButton.type = "button";
+      disclosureButton.id = buttonId;
+      disclosureButton.setAttribute("aria-expanded", "false");
+      disclosureButton.setAttribute("aria-controls", panelId);
+      disclosureButton.setAttribute("data-accordion-toggle", "");
+      disclosureButton.append(document.createTextNode(`${content.sectionText.servicesActionLabel} `));
+      const disclosureSymbol = createElement("span", "", "+");
+      disclosureSymbol.setAttribute("aria-hidden", "true");
+      disclosureButton.append(disclosureSymbol);
+
+      const disclosurePanel = createElement("div", "service-details");
+      disclosurePanel.id = panelId;
+      disclosurePanel.hidden = true;
+      disclosurePanel.setAttribute("role", "region");
+      disclosurePanel.setAttribute("aria-labelledby", buttonId);
+      disclosurePanel.append(createList(service.services || [], "service-full-list", `${service.title} services`));
+      if (service.note) disclosurePanel.append(createElement("p", "service-note", service.note));
+      article.append(disclosureButton, disclosurePanel);
+
       const responsible = createElement("div", "service-lead service-responsible");
       const avatars = createElement("div", "service-avatars");
       leads.forEach((lead) => {
@@ -259,62 +282,7 @@
       responsible.append(avatars, leadCopy);
       article.append(responsible);
 
-      if (service.actionLabel && /^#[a-z0-9-]+$/i.test(service.actionHref || "")) {
-        const action = createElement("a", "service-action", `${service.actionLabel} →`);
-        action.href = service.actionHref;
-        article.append(action);
-      }
       servicesGrid.append(article);
-    });
-
-    const serviceProfiles = $("#service-profiles");
-    serviceProfiles.replaceChildren();
-    content.serviceProfiles.forEach((profile) => {
-      const profileId = String(profile.id).replace(/[^a-z0-9-]/gi, "-");
-      const profileSection = createElement("section", "service-profile reveal");
-      profileSection.setAttribute("aria-labelledby", `${profileId}-services-title`);
-      const heading = createElement("div", "service-profile-heading");
-      const headingCopy = createElement("div");
-      headingCopy.append(createElement("p", "eyebrow", profile.eyebrow));
-      const title = createElement("h3", "", profile.title);
-      title.id = `${profileId}-services-title`;
-      headingCopy.append(title);
-      heading.append(headingCopy, createElement("p", "", profile.description));
-
-      const accordionGrid = createElement("div", "accordion-grid");
-      profile.groups.forEach((group, index) => {
-        const panelId = `${profileId}-service-panel-${index}`;
-        const buttonId = `${profileId}-service-button-${index}`;
-        const card = createElement("article", "accordion-card");
-        const accordionIcon = createElement("div", "accordion-icon", group.icon);
-        accordionIcon.setAttribute("aria-hidden", "true");
-        card.append(accordionIcon, createElement("h4", "", group.title));
-        card.append(createElement("p", "", group.description));
-        card.append(createList(group.featured, "featured-services", "Featured services"));
-
-        const button = createElement("button", "accordion-toggle");
-        button.type = "button";
-        button.id = buttonId;
-        button.setAttribute("aria-expanded", "false");
-        button.setAttribute("aria-controls", panelId);
-        button.setAttribute("data-accordion-toggle", "");
-        button.append(document.createTextNode(`${content.sectionText.servicesActionLabel} `));
-        const symbol = createElement("span", "", "+");
-        symbol.setAttribute("aria-hidden", "true");
-        button.append(symbol);
-
-        const panel = createElement("div", "accordion-panel");
-        panel.id = panelId;
-        panel.hidden = true;
-        panel.setAttribute("role", "region");
-        panel.setAttribute("aria-labelledby", buttonId);
-        panel.append(createList(group.services, "", `${group.title} services`));
-        if (group.note) panel.append(createElement("p", "service-note", group.note));
-        card.append(button, panel);
-        accordionGrid.append(card);
-      });
-      profileSection.append(heading, accordionGrid);
-      serviceProfiles.append(profileSection);
     });
   }
 
@@ -425,12 +393,10 @@
     const emails = (contact.emails || []).filter((item) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(item.address));
     const calendlyReady = Boolean(safeUrl(contact.calendlyUrl));
     const linkedInReady = Boolean(safeUrl(contact.linkedin));
-    const githubReady = Boolean(safeUrl(contact.github));
     const whatsappReady = /^\d{8,15}$/.test(contact.whatsapp);
     const items = [
       ...emails.map((item) => ({ label: item.label, icon: "@", href: `mailto:${item.address}`, ready: true })),
       { label: "Schedule a Call", icon: "CAL", href: calendlyReady ? contact.calendlyUrl : "", ready: calendlyReady },
-      { label: "GitHub", icon: "gh", href: githubReady ? contact.github : "", ready: githubReady },
       { label: "LinkedIn", icon: "in", href: linkedInReady ? contact.linkedin : "", ready: linkedInReady },
       { label: "WhatsApp", icon: "wa", href: whatsappReady ? `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(contact.whatsappMessage)}` : "", ready: whatsappReady }
     ];
@@ -447,17 +413,6 @@
       icon.setAttribute("aria-hidden", "true");
       link.append(icon, document.createTextNode(item.label));
       contactActions.append(link);
-    });
-
-    const socialLinks = $("#social-links");
-    socialLinks.replaceChildren();
-    [["GitHub", contact.github, githubReady], ["LinkedIn", contact.linkedin, linkedInReady]].forEach(([label, value, ready]) => {
-      if (!ready) return;
-      const link = createElement("a", "", `${label} ↗`);
-      link.href = value;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      socialLinks.append(link);
     });
 
     const footerLinks = $("#footer-links");
