@@ -111,12 +111,12 @@ Adjust the branch name if the repository does not use `main`. Never commit passw
 For a normal project repository, the expected URL has this form:
 
 ```text
-https://lebad280324.github.io/REPOSITORY_NAME/
+https://agbusinesstechnology.github.io/REPOSITORY_NAME/
 ```
 
-Do not assume the root URL `https://lebad280324.github.io/` unless the repository itself is named `lebad280324.github.io`.
+Do not assume the root URL `https://agbusinesstechnology.github.io/` unless the repository itself is named `agbusinesstechnology.github.io`.
 
-The configured project URL is `https://lebad280324.github.io/our-services-website/`. If the repository path or domain changes, update `business.canonicalUrl` in `content.js` and the static canonical/Open Graph URL in `index.html`.
+The configured project URL is `https://agbusinesstechnology.github.io/our-services-website/`. If the repository path or domain changes, update `business.canonicalUrl` in `content.js` and the static canonical/Open Graph URL in `index.html`.
 
 ## Check GitHub Actions
 
@@ -154,7 +154,7 @@ Add the real value in `assets/js/content.js`. For repositories, also set `showRe
 1. Open **Settings → Pages → Custom domain**.
 2. Enter the domain you own.
 3. Use the current DNS records shown by GitHub for that domain.
-4. For `www` or another subdomain, a `CNAME` record normally points to `lebad280324.github.io`.
+4. For `www` or another subdomain, a `CNAME` record normally points to `agbusinesstechnology.github.io`.
 5. For an apex domain, use GitHub’s current documented IP records; do not copy old IP addresses from tutorials.
 6. Wait for DNS verification, then enable **Enforce HTTPS**.
 7. Update the canonical and Open Graph URLs to the final HTTPS domain.

@@ -8,30 +8,35 @@ window.PORTFOLIO_CONTENT = {
     // Public business name used throughout the website.
     name: "A&G Business & Technology",
     shortName: "A&G",
-    websiteTitle: "A&G Business & Technology | Digital Business & Technology Solutions",
-    description: "A&G provides virtual business support, digital marketing, web and software development, business automation, AI solutions and practical technology support for growing organizations.",
+    websiteTitle: "A&G Business & Technology | Business Support & Technology Solutions",
+    description: "A&G provides virtual business support, digital marketing, web and software development, automation, AI solutions, and practical business technology services.",
     openGraphTitle: "A&G Business & Technology",
-    openGraphDescription: "Human expertise and practical technology solutions for smarter business operations.",
+    openGraphDescription: "Business support and practical technology solutions for smarter operations.",
     hero: {
       eyebrow: "DIGITAL BUSINESS & TECHNOLOGY SOLUTIONS",
-      title: "Business Operations Meet Technology",
-      positioning: "We Make Business Operations Smarter.",
-      description: "We help businesses streamline operations, manage digital tasks, generate leads, and build practical technology solutions. From virtual assistance and digital marketing to web development, automation, and AI solutions, we combine reliable business support with technical expertise."
+      titleLines: ["Business Support.", "Technology.", "Results."],
+      description: "Virtual assistance, digital operations, marketing, automation, web development, and AI solutions for growing businesses.",
+      primaryAction: { label: "Let's Work Together", target: "#contact" },
+      secondaryAction: { label: "View Our Services", target: "#services" },
+      projectAction: { label: "View Our Projects", target: "#projects" }
     },
-    heroNote: "Human expertise + technology = smarter operations",
-    footerTagline: "Digital Business & Technology Solutions",
-    canonicalUrl: "https://lebad280324.github.io/our-services-website/",
+    valueProposition: {
+      business: "Business Thinking",
+      technology: "Technical Delivery",
+      supportingText: "Human expertise combined with practical technology."
+    },
+    footerTagline: "Business Support & Technology Solutions",
+    canonicalUrl: "https://agbusinesstechnology.github.io/our-services-website/",
     structuredDataEnabled: true
   },
 
   sectionText: {
     navigation: { home: "Home", about: "About", services: "Services", expertise: "Expertise", projects: "Projects", contact: "Contact" },
-    heroActions: { services: "Explore Our Services", projects: "View Our Work", contact: "Contact Us" },
-    audienceLabel: "Who we support",
-    audienceTitle: "Who We Support",
+    audienceLabel: "Who we help",
+    audienceTitle: "Who We Help",
     audienceIntroduction: "Flexible business and technology support for organizations at different stages of growth.",
     aboutLabel: "About A&G",
-    aboutTitle: "Business understanding meets technical execution.",
+    aboutTitle: "Business expertise meets technology.",
     teamLabel: "Our team",
     teamTitle: "Founders with complementary expertise.",
     teamIntroduction: "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture, automation and technical implementation. Together, they combine reliable human support with practical technology expertise.",
@@ -42,28 +47,34 @@ window.PORTFOLIO_CONTENT = {
     whyChooseLabel: "WHY CHOOSE A&G?",
     whyChooseTitle: "Why Businesses Work With Us",
     whyChooseIntroduction: "A&G brings business understanding and technical execution together to provide flexible, practical and reliable support.",
-    expertiseLabel: "Technology Capabilities",
-    expertiseTitle: "Detailed business and technology capabilities.",
-    expertiseIntroduction: "Explore the complete service capabilities grouped by the team member responsible for delivery.",
-    projectsLabel: "Projects & samples",
+    expertiseLabel: "OUR EXPERTISE",
+    expertiseTitle: "Business capability and technical delivery in one team.",
+    expertiseIntroduction: "A&G combines the operational expertise businesses need with the technology required to build, automate and improve their systems.",
+    expertiseDetailsLabel: "Detailed capabilities",
+    projectsLabel: "Projects",
     projectsTitle: "Selected Work & Service Samples",
-    projectsIntroduction: "Each item is labeled by its current status. Images remain hidden until approved materials are available.",
-    processLabel: "How we work",
-    processTitle: "A clear path from business need to practical delivery.",
+    projectsIntroduction: "Case studies showing the business need, practical solution, technology and current outcome.",
+    processLabel: "How We Work",
+    processTitle: "How We Work",
+    processIntroduction: "A clear process from business need to practical delivery.",
+    finalCtaTitle: "Ready to improve your business operations?",
+    finalCtaIntroduction: "Tell us what you need to organize, improve, automate, or build.",
+    finalCtaAction: "Let's Work Together",
     contactLabel: "Contact",
     contactTitle: "Let’s Work Together",
-    contactIntroduction: "Share the business support, workflow or technology need you would like to discuss."
+    contactIntroduction: "Share the business support, workflow, or technology solution you would like to discuss."
   },
 
   about: [
-    "A&G Business & Technology brings together dependable operational support and practical digital delivery for organizations that want to work more efficiently.",
-    "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture, automation and technical implementation. Together, they combine reliable human support with practical technology expertise."
+    "A&G Business & Technology combines practical business support with technical delivery. We help organizations improve daily operations, strengthen their digital presence, automate repetitive work, and build maintainable technology solutions.",
+    "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture, automation and technical implementation."
   ],
 
   audiences: [
-    "Startups & Small Businesses",
-    "Online Businesses",
+    "Startups",
+    "Small Businesses",
     "Entrepreneurs",
+    "Online Businesses",
     "Professional Service Providers",
     "E-commerce Businesses",
     "International Clients",
@@ -118,10 +129,31 @@ window.PORTFOLIO_CONTENT = {
   services: [
     { icon: "VA", title: "Virtual Business Support", description: "Reliable administrative and operational assistance that helps businesses stay organized, responsive and focused.", featured: ["Administrative Assistance", "Calendar & Email Management", "Data Entry", "Document Management", "Customer Support", "Bookkeeping Support"], leadNames: ["Gizzle Montemayor"], responsible: "Gizzle — Founder & Business Services Lead" },
     { icon: "DM", title: "Digital Marketing", description: "Organized digital marketing support designed to improve visibility, lead management and customer communication.", featured: ["Social Media Management", "Lead Generation", "CRM Management", "Email Marketing", "Market Research", "Content Support"], leadNames: ["Gizzle Montemayor"], responsible: "Gizzle — Founder & Business Services Lead" },
-    { icon: "DEV", title: "Web & Software Development", description: "Responsive websites and practical software solutions designed around business requirements and maintainable technology.", featured: ["Business Websites", "Landing Pages", "Front-End Development", "Website Maintenance"], leadNames: ["Andrew Leba"], responsible: "Andrew — Co-Founder & Technology Lead", actionLabel: "View Full Technology Capabilities", actionHref: "#expertise" },
-    { icon: "AI", title: "Automation & AI", description: "Practical automation and AI-assisted solutions that reduce repetitive work, improve data processing and support better business decisions.", featured: ["Business Process Automation", "AI-Assisted Workflows", "CRM Automation", "Data Processing", "AI Business Solutions"], leadNames: ["Gizzle Montemayor", "Andrew Leba"], responsible: "Gizzle & Andrew" },
-    { icon: "BT", title: "Business Technology", description: "Technology planning, systems and support focused on improving operations, scalability and long-term digital capability.", featured: ["Digital Transformation", "Technology Consulting", "Process Optimization", "Business Systems", "Technical Support"], leadNames: ["Andrew Leba"], responsible: "Andrew — Co-Founder & Technology Lead" }
+    { icon: "DEV", title: "Web & Software Development", description: "Responsive websites and practical software solutions designed around business requirements and maintainable technology.", featured: ["Business Websites", "Landing Pages", "Front-End Development", "Full-Stack Applications", "Business Portals", "CRM and ERP Systems", "Website Maintenance", "API and Database Development"], leadNames: ["Andrew Leba"], responsible: "Andrew — Co-Founder & Technology Lead", actionLabel: "View Capabilities", actionHref: "#expertise" },
+    { icon: "AI", title: "Automation & AI", description: "Practical automation and AI-assisted solutions that reduce repetitive work, improve data processing and support better business decisions.", featured: ["Business Process Automation", "AI-Assisted Workflows", "CRM Automation", "Data Processing", "AI Reporting Assistants", "Document Processing", "AI Business Solutions"], leadNames: ["Gizzle Montemayor", "Andrew Leba"], responsible: "Gizzle & Andrew" },
+    { icon: "BT", title: "Business Technology", description: "Technology planning, systems and support focused on improving operations, scalability and long-term digital capability.", featured: ["Digital Transformation", "Technology Consulting", "Process Optimization", "Business Systems", "System Integration", "Cloud Deployment", "Technical Support"], leadNames: ["Andrew Leba"], responsible: "Andrew — Co-Founder & Technology Lead" }
   ],
+
+  expertise: {
+    business: {
+      title: "Business",
+      responsible: "Gizzle — Founder & Business Services Lead",
+      items: ["Virtual Assistance", "Digital Operations", "CRM & Lead Generation", "Digital Marketing", "Bookkeeping Support", "Project Management"]
+    },
+    technology: {
+      title: "Technology",
+      responsible: "Andrew — Co-Founder & Technology Lead",
+      items: ["Web Development", "Software Development", "Automation", "AI Solutions", "Data & Systems", "Technical Consulting"],
+      details: [
+        { title: "Web Development", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "Vue.js", "React", "Next.js", "Responsive Web Design"] },
+        { title: "Software Development", items: ["Python", "FastAPI", "Node.js", "REST APIs", "Odoo ERP", "CRM and ERP Systems", "Business Portals", "Booking Systems"] },
+        { title: "Automation", items: ["Workflow Automation", "CRM Automation", "Email Automation", "Data Processing", "Business Process Automation", "API Integration"] },
+        { title: "AI Solutions", items: ["AI Agents", "Large Language Models", "Retrieval-Augmented Generation", "AI Reporting Assistants", "Document Processing", "Customer Support Chatbots"] },
+        { title: "Data & Systems", items: ["PostgreSQL", "SQL", "MySQL", "Database Design", "Business Intelligence", "Reporting Systems", "Dashboards", "Data Integration"] },
+        { title: "Technical Consulting", items: ["System Architecture", "Existing Codebase Analysis", "Docker", "Linux", "Nginx", "Cloudflare", "Deployment", "CI/CD", "Monitoring", "Backup Planning"] }
+      ]
+    }
+  },
 
   serviceProfiles: [
     {
@@ -159,11 +191,14 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "CRM Pipeline Management",
       category: "Business Services",
-      status: "Sample image coming soon",
+      status: "Demonstration",
       image: "",
       imageAlt: "",
       description: "A service sample for organizing CRM stages, lead information and follow-up activity.",
       details: "An example of a structured CRM workflow that keeps pipeline stages, lead records and follow-up activity organized.",
+      problem: "Lead records and follow-up activities can become difficult to track without a clear pipeline structure.",
+      solution: "A structured CRM workflow for organizing pipeline stages, lead information and follow-up activity.",
+      outcome: "Demonstrates an organized pipeline, consistent lead records and a repeatable follow-up workflow.",
       deliverables: ["Pipeline structure", "Lead organization", "Follow-up workflow"],
       tools: ["CRM", "Spreadsheets"],
       repositoryUrl: "",
@@ -172,11 +207,14 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Lead Generation Research",
       category: "Business Services",
-      status: "Sample image coming soon",
+      status: "Demonstration",
       image: "",
       imageAlt: "",
       description: "A service sample for structured prospect research and organized lead information.",
       details: "An example of a repeatable research process for collecting, reviewing and organizing relevant prospect information.",
+      problem: "Prospect research needs a consistent method for collecting relevant information and retaining useful context.",
+      solution: "A repeatable research process with an organized lead list and supporting research notes.",
+      outcome: "Demonstrates structured prospect research and lead information prepared for review and follow-up.",
       deliverables: ["Prospect research", "Lead list organization", "Research notes"],
       tools: ["Web research", "Spreadsheets"],
       repositoryUrl: "",
@@ -185,11 +223,14 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Virtual Assistance Workflow",
       category: "Business Services",
-      status: "Sample image coming soon",
+      status: "Demonstration",
       image: "",
       imageAlt: "",
       description: "A service sample showing how recurring administrative tasks can be organized and tracked.",
       details: "An example of a practical administrative workflow for recurring tasks, priorities and progress visibility.",
+      problem: "Recurring administrative tasks need clear priorities, ownership and progress visibility.",
+      solution: "A practical workflow combining an administrative checklist, task tracking and progress updates.",
+      outcome: "Demonstrates a repeatable way to organize and monitor recurring virtual assistance tasks.",
       deliverables: ["Task workflow", "Administrative checklist", "Progress tracker"],
       tools: ["Task management", "Documents"],
       repositoryUrl: "",
@@ -198,11 +239,14 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Marketing Performance Report",
       category: "Business Services",
-      status: "Sample image coming soon",
+      status: "Demonstration",
       image: "",
       imageAlt: "",
       description: "A service sample for organizing campaign activity and marketing performance information.",
       details: "An example report structure that brings campaign activity and performance information into a clear review format.",
+      problem: "Marketing activity and performance data can be difficult to review when they are stored across separate sources.",
+      solution: "A structured reporting format that organizes campaign activity, tracking information and performance summaries.",
+      outcome: "Demonstrates a clear format for reviewing marketing activity and performance information.",
       deliverables: ["Performance summary", "Campaign tracker", "Reporting format"],
       tools: ["Analytics", "Spreadsheets"],
       repositoryUrl: "",
@@ -211,11 +255,14 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Operations and Project Tracker",
       category: "Business Services",
-      status: "Sample image coming soon",
+      status: "Demonstration",
       image: "",
       imageAlt: "",
       description: "A service sample for coordinating tasks, owners, due dates and project progress.",
       details: "An example tracker for coordinating responsibilities, deadlines and status updates across business operations.",
+      problem: "Teams need a shared view of tasks, owners, deadlines and project status.",
+      solution: "An operations tracker that coordinates task ownership, due dates and progress updates.",
+      outcome: "Demonstrates a consistent operational view for coordinating work and monitoring project progress.",
       deliverables: ["Operations tracker", "Task ownership", "Status overview"],
       tools: ["Project management", "Spreadsheets"],
       repositoryUrl: "",
@@ -224,11 +271,14 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Bookkeeping Administration Sample",
       category: "Business Services",
-      status: "Sample image coming soon",
+      status: "Demonstration",
       image: "",
       imageAlt: "",
       description: "A service sample for routine bookkeeping administration and financial data organization.",
       details: "An example workflow for organizing routine expense, invoice and financial record administration.",
+      problem: "Routine expenses, invoices and financial records need consistent organization for administrative review.",
+      solution: "A bookkeeping administration workflow for expense organization, invoice tracking and record filing.",
+      outcome: "Demonstrates an organized approach to routine bookkeeping administration and financial data filing.",
       deliverables: ["Expense organization", "Invoice tracking", "Financial data filing"],
       tools: ["QuickBooks", "Spreadsheets"],
       repositoryUrl: "",
@@ -240,6 +290,9 @@ window.PORTFOLIO_CONTENT = {
       status: "In Development",
       description: "A custom ERP platform designed for dental clinics and medical business operations, combining Odoo 19 as the ERP foundation, PostgreSQL as the database and a Vue.js frontend.",
       details: "A custom ERP platform in active development for dental clinics and medical business operations, with a separate frontend and structured reporting capabilities.",
+      problem: "Dental clinic and medical operations require coordinated patient, appointment, inventory and reporting workflows.",
+      solution: "An ERP platform in active development using Odoo as the operational foundation, PostgreSQL for data and Vue.js for the frontend.",
+      outcome: "Core ERP architecture, demo data, role-based access and reporting capabilities are being developed; future mobile integration remains planned.",
       deliverables: ["Patient and customer management", "Appointment management", "Accounting and revenue reporting", "Inventory and business operations", "Statistical dashboards", "REST APIs", "Role-based access control", "Demo database and reporting data", "Future mobile application integration"],
       tools: ["Odoo 19", "Python", "PostgreSQL 17", "Vue.js", "TypeScript", "Vite", "Docker Compose"],
       image: "",
@@ -253,6 +306,9 @@ window.PORTFOLIO_CONTENT = {
       status: "Prototype / In Development",
       description: "An AI reporting assistant for natural-language business questions. It is designed to connect to controlled analytics views rather than expose unrestricted database access and is not presented as production-ready.",
       details: "A research prototype for controlled natural-language reporting over business analytics views, with safeguards around generated SQL and database access.",
+      problem: "Business users need a simpler way to ask reporting questions without unrestricted access to operational databases.",
+      solution: "A controlled natural-language reporting prototype connected to read-only analytics views with SQL validation safeguards.",
+      outcome: "The prototype establishes a FastAPI service, analytics schema and controlled reporting workflow; ERP dashboard integration remains in preparation.",
       deliverables: ["FastAPI service", "PostgreSQL analytics schema", "Read-only reporting account", "Natural-language reporting", "Local LLM through Ollama", "SQL validation and controlled database access", "ERP dashboard integration preparation"],
       tools: ["Python", "FastAPI", "PostgreSQL", "Psycopg", "SQLGlot", "Ollama", "Qwen", "Docker Compose"],
       image: "",
@@ -263,9 +319,12 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Odoo Resource Booking System",
       category: "Technology Services",
-      status: "Developed for Internal Operations",
+      status: "Internal Project",
       description: "A resource booking workflow for managing meeting rooms and company vehicles in Odoo, including booking requests, approval states, notifications, email processing and permission groups.",
       details: "An internal Odoo workflow that coordinates resource requests, approvals, permissions and notifications for meeting rooms and company vehicles.",
+      problem: "Internal meeting room and vehicle requests require clear availability, approval and notification workflows.",
+      solution: "An Odoo booking workflow with request states, approver notifications, permission groups and calendar integration.",
+      outcome: "A coordinated internal process for booking resources, managing approvals and sending scheduled notifications.",
       deliverables: ["Meeting room booking", "Vehicle booking", "Approval workflow", "Dynamic approver notifications", "User and manager permission groups", "Email queue and scheduled notifications", "Resource calendar integration"],
       tools: ["Odoo", "Python", "XML", "PostgreSQL", "Odoo mail framework"],
       image: "",
@@ -276,9 +335,12 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Employee Meal Registration Module",
       category: "Technology Services",
-      status: "Developed / Internal Workflow",
+      status: "Internal Project",
       description: "An Odoo module designed to help kitchen and HR teams manage employee meal registration and allowance-related information.",
       details: "An internal workflow module for managing employee meal registration, daily quantities, role permissions and allowance-related information.",
+      problem: "Kitchen and HR teams need a consistent way to manage meal registration, daily quantities and allowance-related records.",
+      solution: "An Odoo module with regular and non-regular meal workflows, employee actions, summaries and role-based permissions.",
+      outcome: "An internal workflow for coordinating registrations, quantities, summaries and controlled access.",
       deliverables: ["Regular and non-regular meal workflows", "Default registration rules", "Employee cancellation and registration", "Summary and payment permission groups", "Daily meal quantity support", "Role-based access control"],
       tools: ["Odoo", "Python", "XML", "PostgreSQL"],
       image: "",
@@ -289,9 +351,12 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Document and ISO Workflow Digitalization",
       category: "Technology Services",
-      status: "Workflow Design and Development",
+      status: "In Development",
       description: "Digitalization of internal document and ISO-related processes. This work concerns workflow management only and does not represent or imply ISO certification.",
       details: "Workflow design and development for internal forms, reviews and document status management; it does not represent or imply ISO certification.",
+      problem: "Internal forms, document reviews and approval steps need traceable status and role-based execution.",
+      solution: "A digital workflow design covering electronic forms, conditional approvals, review checklists and document status tracking.",
+      outcome: "Workflow structures and document organization are being prepared; this work does not represent or imply ISO certification.",
       deliverables: ["Electronic forms", "Multi-step approval processes", "Conditional workflow steps", "Document status tracking", "Role-based execution", "Review and compliance checklists", "Document storage structure preparation"],
       tools: ["Odoo", "Python", "XML", "Workflow analysis", "Nextcloud-related organization"],
       image: "",
@@ -302,9 +367,12 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Dockerized Business Application Infrastructure",
       category: "Technology Services",
-      status: "Implemented Development Infrastructure",
+      status: "Internal Project",
       description: "A Docker Compose architecture used to run an ERP platform with isolated application, frontend and database services.",
       details: "A containerized application environment with isolated ERP, frontend and database services, persistent storage and deployment-oriented configuration.",
+      problem: "An ERP application, frontend and database need isolated services and repeatable environment configuration.",
+      solution: "A Docker Compose architecture with persistent volumes, an internal network, environment configuration and Cloudflare connectivity.",
+      outcome: "A repeatable development infrastructure that separates application, frontend and database services and supports deployment preparation.",
       deliverables: ["Odoo container", "PostgreSQL container", "Vue and Vite frontend container", "Internal Docker network", "Persistent volumes", "Environment-based configuration", "Cloudflare Tunnel connectivity", "Development and production deployment preparation"],
       tools: ["Docker", "Docker Compose", "Ubuntu/Linux", "PostgreSQL", "Odoo", "Vue.js", "Cloudflare Tunnel", "Nginx"],
       image: "",
@@ -315,11 +383,27 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Internal Knowledge AI Assistant",
       category: "Technology Services",
-      status: "Research and Prototype",
+      status: "Research Concept",
       description: "A FastAPI-based concept for an internal policy and document assistant. Retrieval components and planned functions remain under development and are not presented as completed.",
       details: "A research concept for an internal policy and document assistant; retrieval functions remain planned or under development and are not presented as complete.",
+      problem: "Internal policy and document information can be difficult to retrieve quickly from a growing knowledge base.",
+      solution: "A FastAPI-based research concept for document ingestion, retrieval and locally generated responses.",
+      outcome: "Endpoint design is established while ingestion, vector search and retrieval functions remain planned or under development.",
       deliverables: ["Planned document upload and ingestion", "Planned text chunking", "Planned vector search with FAISS or Chroma", "Planned relevant-section retrieval", "Planned local LLM response generation", "FastAPI endpoint design"],
       tools: ["Python", "FastAPI", "Ollama", "FAISS or Chroma", "Retrieval-Augmented Generation"],
+      image: "",
+      imageAlt: "",
+      repositoryUrl: "",
+      showRepository: false
+    },
+    {
+      title: "Business Website Development",
+      category: "Technology Services",
+      status: "Internal Project",
+      problem: "The business needed a professional online presence that clearly communicated its services and made it easier for potential customers to get in touch.",
+      solution: "A responsive business website with structured service information, clear calls to action, portfolio content, and mobile-friendly navigation.",
+      outcome: "A professional digital presence with clear service positioning and lead-generation capability.",
+      tools: ["HTML5", "CSS3", "JavaScript"],
       image: "",
       imageAlt: "",
       repositoryUrl: "",
@@ -328,18 +412,23 @@ window.PORTFOLIO_CONTENT = {
   ],
 
   process: [
-    "Understand the business requirements",
-    "Analyze the workflow",
-    "Design the solution",
-    "Develop and integrate",
-    "Test and document",
-    "Deploy and improve"
+    { number: "01", title: "Discover", description: "Understand your business and requirements." },
+    { number: "02", title: "Plan", description: "Identify the right workflow, tools, and technology." },
+    { number: "03", title: "Build", description: "Implement the solution or provide the required business support." },
+    { number: "04", title: "Optimize", description: "Improve processes and measure results." }
+  ],
+
+  footerLinks: [
+    { label: "Services", target: "#services" },
+    { label: "Expertise", target: "#expertise" },
+    { label: "Projects", target: "#projects" },
+    { label: "Contact", target: "#contact" }
   ],
 
   contact: {
     emails: [
-      { label: "Email Gizzle", address: "gizzlesy@gmail.com" },
-      { label: "Email Andrew Leba", address: "lebadung561@gmail.com" }
+      { label: "Email Gizzle", address: "gizzle@agbusinesstechnology.com" },
+      { label: "Email Andrew Leba", address: "andrewleba@agbusinesstechnology.com" }
     ],
     calendlyUrl: "", // EDIT HERE: Add Gizzle's real Calendly URL when available.
     whatsapp: "", // EDIT HERE: Add digits only, including country code.

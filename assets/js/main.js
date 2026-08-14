@@ -63,13 +63,22 @@
     $$('[data-business-name]').forEach((element) => { element.textContent = business.name; });
     $$("[data-nav]").forEach((element) => { element.textContent = sectionText.navigation[element.dataset.nav] || ""; });
     setText("#hero-eyebrow", business.hero.eyebrow);
-    setText("#hero-title", business.hero.title);
-    setText("#hero-positioning", business.hero.positioning);
+    const heroTitle = $("#hero-title");
+    heroTitle.replaceChildren(...business.hero.titleLines.map((line) => createElement("span", "hero-title-line", line)));
     setText("#hero-intro", business.hero.description);
-    setText("#hero-note", business.heroNote);
-    setText("#hero-services-action", sectionText.heroActions.services);
-    setText("#hero-projects-action", sectionText.heroActions.projects);
-    setText("#hero-contact-action", sectionText.heroActions.contact);
+    [
+      ["#hero-primary-action", business.hero.primaryAction],
+      ["#hero-secondary-action", business.hero.secondaryAction],
+      ["#hero-project-action", business.hero.projectAction]
+    ].forEach(([selector, action]) => {
+      const link = $(selector);
+      if (!link || !action || !/^#[a-z0-9-]+$/i.test(action.target)) return;
+      link.href = action.target;
+      $("span", link).textContent = action.label;
+    });
+    setText("#value-business", business.valueProposition.business);
+    setText("#value-technology", business.valueProposition.technology);
+    setText("#value-support", business.valueProposition.supportingText);
     setText("#audience-label", sectionText.audienceLabel);
     setText("#audience-title", sectionText.audienceTitle);
     setText("#audience-intro", sectionText.audienceIntroduction);
@@ -89,17 +98,48 @@
     setText("#expertise-label", sectionText.expertiseLabel);
     setText("#expertise-title", sectionText.expertiseTitle);
     setText("#expertise-intro", sectionText.expertiseIntroduction);
+    setText("#expertise-details-label", sectionText.expertiseDetailsLabel);
     setText("#projects-label", sectionText.projectsLabel);
     setText("#projects-title", sectionText.projectsTitle);
     setText("#projects-intro", sectionText.projectsIntroduction);
     setText("#process-label", sectionText.processLabel);
     setText("#process-title", sectionText.processTitle);
+    setText("#process-intro", sectionText.processIntroduction);
+    setText("#final-cta-title", sectionText.finalCtaTitle);
+    setText("#final-cta-intro", sectionText.finalCtaIntroduction);
+    const finalAction = $("#final-cta-action span");
+    if (finalAction) finalAction.textContent = sectionText.finalCtaAction;
     setText("#contact-label", sectionText.contactLabel);
     setText("#contact-title", sectionText.contactTitle);
     setText("#contact-intro", sectionText.contactIntroduction);
     setText("#contact-location", content.contact.location);
     setText("#footer-tagline", business.footerTagline);
     setText("#current-year", new Date().getFullYear());
+  }
+
+  function renderExpertiseOverview() {
+    const overview = $("#expertise-overview");
+    overview.replaceChildren();
+    Object.values(content.expertise).forEach((area) => {
+      const article = createElement("article", "expertise-card reveal");
+      article.append(createElement("h3", "", area.title));
+      article.append(createList(area.items, "expertise-list", `${area.title} expertise`));
+      if (area.details?.length) {
+        const disclosure = createElement("details", "expertise-disclosure");
+        disclosure.append(createElement("summary", "", "Explore technology capabilities"));
+        const groups = createElement("div", "expertise-detail-groups");
+        area.details.forEach((group) => {
+          const section = createElement("section", "expertise-detail-group");
+          section.append(createElement("h4", "", group.title));
+          section.append(createList(group.items, "tag-list", `${group.title} technologies`));
+          groups.append(section);
+        });
+        disclosure.append(groups);
+        article.append(disclosure);
+      }
+      article.append(createElement("p", "expertise-responsible", area.responsible));
+      overview.append(article);
+    });
   }
 
   function renderAudience() {
@@ -279,12 +319,19 @@
   }
 
   function normalizedProject(project) {
+    const status = project.status || "In Development";
+    const outcomeLabel = status === "Demonstration"
+      ? "Demonstrated Outcome"
+      : /development|prototype|research/i.test(status) ? "Current Outcome" : "Result";
     return {
       ...project,
       category: project.category || "Technology Services",
-      deliverables: project.deliverables || project.capabilities || [],
+      status,
+      problem: project.problem || project.description || "",
+      solution: project.solution || project.details || "",
       tools: project.tools || project.technologies || [],
-      details: project.details || project.description || ""
+      outcome: project.outcome || "",
+      outcomeLabel
     };
   }
 
@@ -295,16 +342,15 @@
     dialogContent.append(createElement("p", "project-type", `${project.category} · ${project.status}`));
     const title = createElement("h2", "", project.title);
     title.id = "dialog-title";
-    dialogContent.append(title, createElement("p", "dialog-description", project.details));
-
-    if (project.deliverables.length) {
-      dialogContent.append(createElement("h3", "", "Deliverables"));
-      dialogContent.append(createList(project.deliverables, "capability-list", "Project deliverables"));
-    }
+    dialogContent.append(title);
+    [["Problem", project.problem], ["Solution", project.solution]].forEach(([label, value]) => {
+      dialogContent.append(createElement("h3", "", label), createElement("p", "dialog-description", value));
+    });
     if (project.tools.length) {
-      dialogContent.append(createElement("h3", "", "Tools and technology"));
+      dialogContent.append(createElement("h3", "", "Technology"));
       dialogContent.append(createList(project.tools, "tag-list dialog-tags", "Project tools and technology"));
     }
+    dialogContent.append(createElement("h3", "", project.outcomeLabel), createElement("p", "dialog-description", project.outcome));
 
     const repositoryUrl = project.showRepository ? safeUrl(project.repositoryUrl) : "";
     if (repositoryUrl) {
@@ -322,36 +368,27 @@
     content.projects.forEach((projectData, index) => {
       const project = normalizedProject(projectData);
       const article = createElement("article", "project-card reveal");
-      const imagePath = safeAssetPath(project.image);
-      const media = createElement("div", imagePath ? "project-image" : "project-image project-image-placeholder");
-      if (imagePath) {
-        const image = createElement("img");
-        image.src = imagePath;
-        image.alt = project.imageAlt || `${project.title} preview`;
-        image.width = 800;
-        image.height = 520;
-        image.loading = "lazy";
-        image.decoding = "async";
-        image.addEventListener("error", () => {
-          media.classList.add("project-image-placeholder");
-          media.replaceChildren(createElement("span", "", "Sample image coming soon"));
-        });
-        media.append(image);
-      } else {
-        media.append(createElement("span", "", project.status === "Sample image coming soon" ? project.status : "Sample image coming soon"));
-      }
-
       const body = createElement("div", "project-body");
       const type = createElement("p", "project-type");
       const statusDot = createElement("span", "status-dot");
       statusDot.setAttribute("aria-hidden", "true");
       type.append(statusDot, document.createTextNode(`${project.category} · ${project.status}`));
-      body.append(type, createElement("h3", "", project.title), createElement("p", "", project.description));
-      if (project.deliverables.length) body.append(createList(project.deliverables.slice(0, 3), "project-highlights", "Main deliverables"));
-      if (project.tools.length) body.append(createList(project.tools.slice(0, 5), "tag-list dark-tags", "Tools and technology"));
+      body.append(type, createElement("h3", "", project.title));
+      const caseStudy = createElement("dl", "project-case-study");
+      [["Problem", project.problem], ["Solution", project.solution]].forEach(([label, value]) => {
+        caseStudy.append(createElement("dt", "", label), createElement("dd", "", value));
+      });
+      if (project.tools.length) {
+        caseStudy.append(createElement("dt", "", "Technology"));
+        const technology = createElement("dd");
+        technology.append(createList(project.tools, "tag-list dark-tags", "Project technology"));
+        caseStudy.append(technology);
+      }
+      caseStudy.append(createElement("dt", "", project.outcomeLabel), createElement("dd", "", project.outcome));
+      body.append(caseStudy);
 
       const actions = createElement("div", "project-actions");
-      const details = createElement("button", "details-button", "View details →");
+      const details = createElement("button", "details-button", "View Case Study →");
       details.type = "button";
       details.dataset.projectIndex = String(index);
       actions.append(details);
@@ -364,7 +401,7 @@
         actions.append(repository);
       }
       body.append(actions);
-      article.append(media, body);
+      article.append(body);
       projectsGrid.append(article);
     });
   }
@@ -374,7 +411,11 @@
     processGrid.replaceChildren();
     content.process.forEach((step, index) => {
       const item = createElement("li", "reveal");
-      item.append(createElement("span", "", String(index + 1).padStart(2, "0")), createElement("strong", "", step));
+      item.append(
+        createElement("span", "", step.number || String(index + 1).padStart(2, "0")),
+        createElement("strong", "", step.title),
+        createElement("p", "", step.description)
+      );
       processGrid.append(item);
     });
   }
@@ -418,6 +459,23 @@
       link.rel = "noopener noreferrer";
       socialLinks.append(link);
     });
+
+    const footerLinks = $("#footer-links");
+    footerLinks.replaceChildren();
+    content.footerLinks.forEach((item) => {
+      if (!/^#[a-z0-9-]+$/i.test(item.target)) return;
+      const link = createElement("a", "", item.label);
+      link.href = item.target;
+      footerLinks.append(link);
+    });
+
+    const footerContact = $("#footer-contact");
+    footerContact.replaceChildren();
+    emails.forEach((item) => {
+      const link = createElement("a", "", item.address);
+      link.href = `mailto:${item.address}`;
+      footerContact.append(link);
+    });
   }
 
   function setupProjectDialog() {
@@ -447,15 +505,39 @@
   function setupNavigation() {
     const button = $(".nav-toggle");
     const menu = $("#nav-menu");
-    const closeMenu = () => { button.setAttribute("aria-expanded", "false"); menu.classList.remove("is-open"); document.body.classList.remove("menu-open"); };
+    const label = $(".sr-only", button);
+    const setMenuState = (open) => {
+      button.setAttribute("aria-expanded", String(open));
+      button.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+      label.textContent = open ? "Close navigation menu" : "Open navigation menu";
+      menu.classList.toggle("is-open", open);
+      document.body.classList.toggle("menu-open", open);
+    };
+    const closeMenu = () => setMenuState(false);
     button.addEventListener("click", () => {
       const opening = button.getAttribute("aria-expanded") !== "true";
-      button.setAttribute("aria-expanded", String(opening));
-      menu.classList.toggle("is-open", opening);
-      document.body.classList.toggle("menu-open", opening);
+      setMenuState(opening);
     });
     $$("a", menu).forEach((link) => link.addEventListener("click", closeMenu));
     document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
+
+    const navigationLinks = $$("a[href^='#']", menu);
+    const navigationSections = navigationLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+    let scheduled = false;
+    const updateCurrentLink = () => {
+      const current = [...navigationSections].reverse().find((section) => section.getBoundingClientRect().top <= 150) || navigationSections[0];
+      navigationLinks.forEach((link) => {
+        if (link.getAttribute("href") === `#${current.id}`) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+      scheduled = false;
+    };
+    window.addEventListener("scroll", () => {
+      if (scheduled) return;
+      scheduled = true;
+      window.requestAnimationFrame(updateCurrentLink);
+    }, { passive: true });
+    updateCurrentLink();
   }
 
   function setupReveal() {
@@ -472,6 +554,7 @@
 
   renderMetadata();
   renderBaseContent();
+  renderExpertiseOverview();
   renderAudience();
   renderWhyChoose();
   renderTeam();
