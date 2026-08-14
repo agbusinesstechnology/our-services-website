@@ -40,7 +40,7 @@ window.PORTFOLIO_CONTENT = {
     aboutTitle: "Business expertise meets technology.",
     teamLabel: "Our team",
     teamTitle: "Founders with complementary expertise.",
-    teamIntroduction: "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture, automation and technical implementation. Together, they combine reliable human support with practical technology expertise.",
+    teamIntroduction: "Gizzle leads business operations, virtual assistance, CRM, lead generation and technology-aware client support, while Andrew leads software development, system architecture, automation and technical implementation. Together, they combine reliable human support with practical technology expertise.",
     servicesLabel: "Our Services",
     servicesTitle: "Business support and technology solutions built around real operational needs.",
     servicesIntroduction: "Explore nine focused service areas designed to support operations, digital growth and practical technology adoption.",
@@ -68,7 +68,7 @@ window.PORTFOLIO_CONTENT = {
 
   about: [
     "A&G Business & Technology combines practical business support with technical delivery. We help organizations improve daily operations, strengthen their digital presence, automate repetitive work, and build maintainable technology solutions.",
-    "Gizzle leads business services, client coordination and operational support, while Andrew leads software development, system architecture, automation and technical implementation."
+    "Gizzle leads business operations, virtual assistance, CRM, lead generation and technology-aware client support, while Andrew leads software development, system architecture, automation and technical implementation."
   ],
 
   audiences: [
@@ -93,20 +93,49 @@ window.PORTFOLIO_CONTENT = {
   team: [
     {
       name: "Gizzle Montemayor",
-      displayName: "Gizzle",
-      role: "Founder & Business Services Lead",
+      displayName: "GIZZLE",
+      role: "Founder & Business Technology Professional",
       experience: "Since 2017",
-      extendedRole: "Since 2017",
-      bio: "Business services professional with experience since 2017, providing virtual assistance, digital marketing, CRM management, lead generation, bookkeeping support and technology-driven business operations.",
+      extendedRole: "Virtual Assistance • CRM • Lead Generation • Cybersecurity • Computer Science",
+      bio: "Business Technology and Operations Professional with experience supporting international clients through virtual assistance, executive administration, CRM management, lead generation, digital marketing, business research and technology-driven operations.",
+      roleDescription: "With a background in Computer Science and extensive experience in remote business support, Gizzle bridges the gap between people, processes and technology—helping businesses improve organization, customer engagement, workflow efficiency and digital operations.",
       image: "./assets/images/profile-gizzle.png",
-      imageAlt: "Gizzle Montemayor — Founder and Business Services Lead",
-      serviceRole: "Founder & Business Services Lead",
-      serviceCategory: "Business Services",
-      serviceImageAlt: "Gizzle Montemayor — Founder and Business Services Lead",
+      imageAlt: "Gizzle Montemayor — Founder and Business Technology Professional",
+      serviceRole: "Founder & Business Technology Professional",
+      serviceCategory: "Business Technology",
+      serviceImageAlt: "Gizzle Montemayor — Founder and Business Technology Professional",
       github: "",
       linkedin: "", // EDIT HERE: Add the real LinkedIn URL when available.
-      services: ["Virtual Assistance", "Digital Marketing", "CRM Management", "Lead Generation", "Bookkeeping Support", "Project Coordination", "Research & Data Services", "Technology-driven Business Support"],
-      credentials: ["TESOL Certified", "EFL Certified", "Bachelor of Science in Computer Science", "QuickBooks Bookkeeping Trainer", "Virtual Assistant since 2017"]
+      services: ["Virtual Assistance", "Executive Support", "CRM", "Lead Generation", "Lead Conversion", "Digital Marketing", "Business Operations", "Cybersecurity", "Training"],
+      credentials: ["Bachelor of Science in Computer Science", "TESOL Certified", "EFL Certified", "QuickBooks Bookkeeping Training", "Virtual Assistant Professional Experience", "Cybersecurity Training & Professional Development"],
+      professionalProfile: {
+        summaryLabel: "View Professional Profile",
+        introduction: [
+          "Gizzle also provides training and professional development in virtual assistance, digital tools, business systems and cybersecurity fundamentals, with a strong focus on practical and business-oriented applications."
+        ],
+        expertiseGroups: [
+          { title: "Virtual Assistance & Executive Support", items: ["Executive Administrative Assistance", "Calendar & Schedule Management", "Email Management", "Business Correspondence", "Document & File Management", "Online Research", "Data Entry & Data Management", "Client Communication", "Meeting & Task Coordination", "Administrative Workflow Support"] },
+          { title: "CRM & Lead Management", items: ["CRM Setup & Management", "Lead Generation", "Lead Qualification", "Lead Nurturing", "Customer Database Management", "Pipeline Management", "Follow-Up Systems", "Lead Conversion Support", "Customer Relationship Management", "Sales & Marketing Coordination"] },
+          { title: "Digital Marketing", items: ["Social Media Management", "Email Marketing & Campaign Management", "Marketing Research", "Content Coordination", "Digital Campaign Support", "Audience Research", "Lead Generation Campaigns", "Customer Engagement", "Marketing Automation Support"] },
+          { title: "Business Operations", items: ["Project Coordination", "Workflow Development", "Process Documentation", "Business Research", "Operations Support", "Reporting & Data Organization", "Administrative Systems", "Technology-Driven Business Support"] },
+          { title: "Cybersecurity & Technology", items: ["Cybersecurity Fundamentals", "Cybersecurity Awareness & Training", "Digital Security Practices", "Technology Risk Awareness", "Computer & Information Systems", "Web & Digital Technology", "Data Protection Practices", "Cybersecurity Research", "Computer Science Applications"] },
+          { title: "Training & Professional Development", items: ["Virtual Assistance Training", "Digital Skills Training", "Business Technology Training", "Productivity Tools Training", "CRM & Business Systems Training", "Cybersecurity Fundamentals Training"] }
+        ],
+        roles: [
+          { title: "Virtual Assistance Trainer", description: "Training and developing professionals in virtual assistance, productivity tools, business systems, client support and digital workflows." },
+          { title: "Cybersecurity Professional — Philippines", description: "Applying computer science and cybersecurity knowledge to promote responsible, secure and technology-aware business operations." },
+          { title: "Computer Science Professional", description: "Combining programming, information technology, systems thinking and digital tools to support practical business solutions." },
+          { title: "Executive Administrative Assistant", description: "Providing reliable administrative, organizational, communication, research and executive support." },
+          { title: "CRM Expert", description: "Managing customer relationship systems, databases, pipelines, workflows, follow-ups and business information." },
+          { title: "Lead Conversion Consultant", description: "Helping businesses organize lead-generation processes, improve follow-up, qualify prospects and create structured conversion workflows." }
+        ],
+        industries: ["Real Estate", "Property Management", "Construction", "Professional Services", "Technology & IT", "E-commerce", "Digital Marketing Agencies", "Consulting", "Education & Training", "Startups & Small Businesses", "International Remote Businesses"],
+        valueHeading: "People + Process + Technology",
+        valueDescription: "Gizzle helps businesses become more organized, responsive and technology-driven by combining administrative expertise with CRM, marketing, cybersecurity and computer science knowledge.",
+        approach: "Organize → Automate → Optimize → Grow",
+        valueProposition: "I don't just provide administrative support—I help businesses build better systems, manage information, strengthen customer relationships and use technology more effectively.",
+        closing: "Whether you need executive support, CRM management, lead generation, digital marketing assistance, business research, project coordination or technology-focused operational support, Gizzle can help transform day-to-day tasks into organized and scalable business processes."
+      }
     },
     {
       name: "Andrew Leba",
@@ -135,7 +164,7 @@ window.PORTFOLIO_CONTENT = {
       featured: ["Administrative Support", "Data Entry & Data Management", "Virtual Executive Assistance"],
       services: ["Administrative Support", "Data Entry & Data Management", "Calendar & Schedule Management", "Email Management", "Document Preparation", "Online Research", "Customer Support", "Business Process Support", "Virtual Executive Assistance"],
       leadNames: ["Gizzle Montemayor"],
-      responsible: "Gizzle — Founder & Business Services Lead"
+      responsible: "Gizzle — Founder & Business Technology Professional"
     },
     {
       icon: "DM",
@@ -144,7 +173,7 @@ window.PORTFOLIO_CONTENT = {
       featured: ["Social Media Management", "Content Planning", "Digital Marketing Strategy"],
       services: ["Social Media Management", "Content Planning", "Content Management", "Digital Marketing Strategy", "Social Media Marketing", "Campaign Management", "Marketing Research", "Analytics & Performance Reporting"],
       leadNames: ["Gizzle Montemayor"],
-      responsible: "Gizzle — Founder & Business Services Lead"
+      responsible: "Gizzle — Founder & Business Technology Professional"
     },
     {
       icon: "CRM",
@@ -153,7 +182,7 @@ window.PORTFOLIO_CONTENT = {
       featured: ["CRM Setup & Management", "Lead Generation", "Sales Pipeline Management"],
       services: ["CRM Setup & Management", "Lead Generation", "Lead Qualification", "Contact Database Management", "Sales Pipeline Management", "Customer Data Organization", "Prospect Research", "Follow-up Management", "CRM Reporting"],
       leadNames: ["Gizzle Montemayor"],
-      responsible: "Gizzle — Founder & Business Services Lead"
+      responsible: "Gizzle — Founder & Business Technology Professional"
     },
     {
       icon: "EM",
@@ -162,7 +191,7 @@ window.PORTFOLIO_CONTENT = {
       featured: ["Email Campaign Management", "Newsletter Management", "Basic Email Automation"],
       services: ["Email Campaign Management", "Email Marketing", "Newsletter Management", "Email List Management", "Campaign Scheduling", "Email Content Management", "Basic Email Automation", "Campaign Performance Tracking"],
       leadNames: ["Gizzle Montemayor"],
-      responsible: "Gizzle — Founder & Business Services Lead"
+      responsible: "Gizzle — Founder & Business Technology Professional"
     },
     {
       icon: "PM",
@@ -181,7 +210,7 @@ window.PORTFOLIO_CONTENT = {
       services: ["Bookkeeping Support", "Expense Tracking", "Invoice Management", "Financial Data Entry", "Account Reconciliation Support", "Payroll Data Support", "Business Documentation", "Administrative Reporting"],
       note: "Administrative bookkeeping support only. This does not represent licensed accounting, tax or financial advisory services.",
       leadNames: ["Gizzle Montemayor"],
-      responsible: "Gizzle — Founder & Business Services Lead"
+      responsible: "Gizzle — Founder & Business Technology Professional"
     },
     {
       icon: "WEB",
@@ -215,7 +244,7 @@ window.PORTFOLIO_CONTENT = {
   expertise: {
     business: {
       title: "Business",
-      responsible: "Gizzle — Founder & Business Services Lead",
+      responsible: "Gizzle — Founder & Business Technology Professional",
       items: ["Virtual Assistance", "Digital Operations", "CRM & Lead Generation", "Digital Marketing", "Email Marketing", "Bookkeeping Support", "Project Management"]
     },
     technology: {
@@ -228,7 +257,7 @@ window.PORTFOLIO_CONTENT = {
   serviceProfiles: [
     {
       id: "gizzle",
-      eyebrow: "Gizzle — Founder & Business Services Lead",
+      eyebrow: "Gizzle — Founder & Business Technology Professional",
       title: "Virtual Assistance • Digital Marketing • CRM • Lead Generation • Bookkeeping Support",
       description: "Business services professional with experience since 2017, providing organized, technology-driven operational support.",
       groups: [
@@ -488,15 +517,10 @@ window.PORTFOLIO_CONTENT = {
     { number: "04", title: "Optimize", description: "Improve processes and measure results." }
   ],
 
-  footerLinks: [
-    { label: "Projects", target: "#projects" },
-    { label: "Contact", target: "#contact" }
-  ],
-
   contact: {
     emails: [
-      { label: "Email Gizzle", address: "gizzle@agbusinesstechnology.com" },
-      { label: "Email Andrew Leba", address: "andrewleba@agbusinesstechnology.com" }
+      { label: "Email Gizzle", department: "BUSINESS & GROWTH", address: "gizzle@agbusinesstechnology.com" },
+      { label: "Email Andrew Leba", department: "TECHNOLOGY & ENGINEERING", address: "andrewleba@agbusinesstechnology.com" }
     ],
     calendlyUrl: "", // EDIT HERE: Add Gizzle's real Calendly URL when available.
     whatsapp: "", // EDIT HERE: Add digits only, including country code.

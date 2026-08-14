@@ -167,6 +167,58 @@
     });
   }
 
+  function createProfessionalProfile(profile, memberName) {
+    const disclosure = createElement("details", "member-profile");
+    disclosure.append(createElement("summary", "", profile.summaryLabel || "View Professional Profile"));
+    const profileBody = createElement("div", "member-profile-body");
+
+    (profile.introduction || []).forEach((paragraph) => profileBody.append(createElement("p", "member-profile-intro", paragraph)));
+
+    if (profile.expertiseGroups?.length) {
+      const expertiseSection = createElement("section", "member-profile-section");
+      expertiseSection.append(createElement("h4", "", "Core Expertise"));
+      const expertiseGrid = createElement("div", "member-profile-expertise");
+      profile.expertiseGroups.forEach((group) => {
+        const groupSection = createElement("section", "member-profile-group");
+        groupSection.append(createElement("h5", "", group.title));
+        groupSection.append(createList(group.items, "", `${group.title} capabilities`));
+        expertiseGrid.append(groupSection);
+      });
+      expertiseSection.append(expertiseGrid);
+      profileBody.append(expertiseSection);
+    }
+
+    if (profile.roles?.length) {
+      const rolesSection = createElement("section", "member-profile-section");
+      rolesSection.append(createElement("h4", "", "Professional Roles"));
+      const roles = createElement("dl", "member-profile-roles");
+      profile.roles.forEach((role) => roles.append(createElement("dt", "", role.title), createElement("dd", "", role.description)));
+      rolesSection.append(roles);
+      profileBody.append(rolesSection);
+    }
+
+    if (profile.industries?.length) {
+      const industriesSection = createElement("section", "member-profile-section");
+      industriesSection.append(createElement("h4", "", "Industries I Can Support"));
+      industriesSection.append(createList(profile.industries, "member-profile-industries", `${memberName} supported industries`));
+      profileBody.append(industriesSection);
+    }
+
+    if (profile.valueHeading || profile.valueDescription || profile.approach || profile.valueProposition) {
+      const valueSection = createElement("section", "member-profile-section member-profile-value");
+      valueSection.append(createElement("h4", "", "What I Bring to a Business"));
+      if (profile.valueHeading) valueSection.append(createElement("p", "member-profile-value-heading", profile.valueHeading));
+      if (profile.valueDescription) valueSection.append(createElement("p", "", profile.valueDescription));
+      if (profile.approach) valueSection.append(createElement("p", "member-profile-approach", profile.approach));
+      if (profile.valueProposition) valueSection.append(createElement("blockquote", "member-profile-quote", profile.valueProposition));
+      profileBody.append(valueSection);
+    }
+
+    if (profile.closing) profileBody.append(createElement("p", "member-profile-closing", profile.closing));
+    disclosure.append(profileBody);
+    return disclosure;
+  }
+
   function renderTeam() {
     const teamGrid = $("#team-grid");
     teamGrid.replaceChildren();
@@ -200,6 +252,7 @@
         credentials.append(createList(member.credentials));
         body.append(credentials);
       }
+      if (member.professionalProfile) body.append(createProfessionalProfile(member.professionalProfile, member.displayName || member.name));
       const links = createElement("div", "member-links");
       [["GitHub", member.github], ["LinkedIn", member.linkedin]].forEach(([label, value]) => {
         const url = safeUrl(value);
@@ -415,21 +468,15 @@
       contactActions.append(link);
     });
 
-    const footerLinks = $("#footer-links");
-    footerLinks.replaceChildren();
-    content.footerLinks.forEach((item) => {
-      if (!/^#[a-z0-9-]+$/i.test(item.target)) return;
-      const link = createElement("a", "", item.label);
-      link.href = item.target;
-      footerLinks.append(link);
-    });
-
     const footerContact = $("#footer-contact");
     footerContact.replaceChildren();
     emails.forEach((item) => {
+      const row = createElement("div", "footer-contact-row");
+      row.append(createElement("p", "footer-contact-label", item.department || item.label));
       const link = createElement("a", "", item.address);
       link.href = `mailto:${item.address}`;
-      footerContact.append(link);
+      row.append(link);
+      footerContact.append(row);
     });
   }
 

@@ -113,6 +113,28 @@ h3 { font-size: 1.6rem; font-weight: 620; }
 .member-credentials h4 { margin: 0 0 .75rem; font-size: .82rem; }
 .member-credentials ul { display: flex; flex-wrap: wrap; gap: .45rem; padding: 0; margin: 0; list-style: none; }
 .member-credentials li { padding: .3rem .65rem; color: #344256; background: #f6fafb; border: 1px solid var(--line); border-radius: .35rem; font-size: .72rem; font-weight: 650; }
+.member-profile { margin-top: 1.5rem; border-top: 1px solid var(--line); }
+.member-profile > summary { width: fit-content; padding: 1rem 0 .3rem; color: var(--accent-dark); border-bottom: 1px solid currentColor; font-size: .84rem; font-weight: 800; cursor: pointer; }
+.member-profile-body { display: grid; gap: 2rem; padding-top: 1.5rem; }
+.member-profile-intro, .member-profile-closing { margin: 0; color: var(--ink-soft); }
+.member-profile-section { min-width: 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.member-profile-section h4 { margin: 0 0 1rem; font-size: 1rem; }
+.member-profile-expertise { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 2rem; }
+.member-profile-group { min-width: 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
+.member-profile-group h5 { margin: 0 0 .65rem; overflow-wrap: break-word; font-size: .86rem; }
+.member-profile-group ul { display: grid; gap: .25rem; padding-left: 1.05rem; margin: 0; color: var(--ink-soft); font-size: .78rem; }
+.member-profile-roles { display: grid; grid-template-columns: minmax(150px, .6fr) minmax(0, 1.4fr); margin: 0; border-top: 1px solid var(--line); }
+.member-profile-roles dt, .member-profile-roles dd { min-width: 0; padding: .8rem 0; border-bottom: 1px solid var(--line); overflow-wrap: break-word; }
+.member-profile-roles dt { padding-right: 1rem; color: var(--ink); font-size: .8rem; font-weight: 800; }
+.member-profile-roles dd { margin: 0; color: var(--ink-soft); font-size: .8rem; }
+.member-profile-industries { display: flex; flex-wrap: wrap; gap: .45rem; padding: 0; margin: 0; list-style: none; }
+.member-profile-industries li { padding: .3rem .6rem; color: #344256; background: #f6fafb; border: 1px solid var(--line); border-radius: .35rem; font-size: .72rem; font-weight: 700; }
+.member-profile-value { padding-left: 1rem; border-left: 3px solid var(--accent); }
+.member-profile-value-heading { margin: 0 0 .6rem; color: var(--ink) !important; font-size: 1.1rem; font-weight: 800; }
+.member-profile-value p { color: var(--ink-soft); }
+.member-profile-approach { color: var(--accent-dark) !important; font-weight: 800; }
+.member-profile-quote { margin: 1.25rem 0 0; color: var(--ink); font-size: 1rem; font-weight: 700; }
+.team-card:has(.member-profile[open]) .portrait-wrap { position: sticky; top: 6rem; min-height: 0; height: min(42rem, calc(100vh - 7rem)); }
 .member-pending { margin: 1.2rem 0; color: #7b8590 !important; font-size: .78rem; font-style: italic; }
 
 .services-heading, .heading-row { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(250px, .65fr); align-items: end; gap: 3rem; margin-bottom: clamp(3rem, 6vw, 5rem); }
@@ -256,12 +278,14 @@ h3 { font-size: 1.6rem; font-weight: 620; }
 .contact-location { grid-column: 1 / -1; margin: 0; color: #6f7b89; font-size: .8rem; }
 
 .footer { padding: 3rem 0; color: var(--ink-soft); background: var(--white); border-top: 1px solid var(--line); }
-.footer-layout { display: grid; grid-template-columns: minmax(240px, 1.4fr) repeat(2, auto); align-items: start; gap: 2rem 3rem; }
+.footer-layout { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr); align-items: start; gap: 2rem 4rem; }
 .brand-footer { color: var(--ink); }
 .footer-layout > div:first-child p { margin: 1rem 0 0; font-size: .82rem; }
-.footer-links, .footer-contact { display: flex; flex-direction: column; gap: .65rem; color: var(--ink); font-size: .82rem; font-weight: 700; }
-.footer-links a:hover { color: var(--accent-dark); }
-.footer-contact a { overflow-wrap: anywhere; }
+.footer-contact { display: grid; color: var(--ink); font-style: normal; }
+.footer-contact-row { display: grid; grid-template-columns: minmax(180px, .65fr) minmax(0, 1.35fr); align-items: baseline; gap: 1rem 2rem; padding: .85rem 0; border-bottom: 1px solid var(--line); }
+.footer-contact-row:first-child { padding-top: 0; }
+.footer-contact-label { margin: 0; color: var(--ink); font-size: .72rem; font-weight: 850; letter-spacing: .08em; }
+.footer-contact a { overflow-wrap: anywhere; font-size: .9rem; font-weight: 750; }
 .footer-contact a:hover { color: var(--accent-dark); }
 .footer-placeholder { color: #6f7b89; font-size: .75rem; }
 .copyright { grid-column: 1 / -1; margin: 1.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: .72rem; }
@@ -312,10 +336,11 @@ h3 { font-size: 1.6rem; font-weight: 620; }
   .accordion-grid { grid-template-columns: 1fr; }
   .team-card { grid-template-columns: 1fr; }
   .portrait-wrap { aspect-ratio: 1.35; }
+  .team-card:has(.member-profile[open]) .portrait-wrap { position: static; height: auto; }
   .contact-location { grid-column: auto; }
   .final-cta-layout { grid-template-columns: 1fr; }
   .final-cta-layout .button { justify-self: start; }
-  .footer-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 540px) {
@@ -334,6 +359,9 @@ h3 { font-size: 1.6rem; font-weight: 620; }
   .value-support { margin-top: .65rem; }
   .team-card { grid-template-columns: 1fr; }
   .portrait-wrap { aspect-ratio: 1.25; }
+  .member-profile-expertise, .member-profile-roles { grid-template-columns: 1fr; }
+  .member-profile-roles dt { padding-bottom: .2rem; border-bottom: 0; }
+  .member-profile-roles dd { padding-top: 0; }
   .audience-list, .services-grid, .why-grid { grid-template-columns: 1fr; }
   .expertise-list { grid-template-columns: 1fr; }
   .service-card { padding: 1.4rem; }
@@ -346,6 +374,7 @@ h3 { font-size: 1.6rem; font-weight: 620; }
   .service-top { margin-bottom: 1.5rem; }
   .capability-list { grid-template-columns: 1fr; }
   .footer-layout { grid-template-columns: 1fr; align-items: start; }
+  .footer-contact-row { grid-template-columns: 1fr; gap: .25rem; }
 }
 
 @media (max-width: 420px) {
