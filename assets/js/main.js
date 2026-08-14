@@ -480,6 +480,122 @@
     });
   }
 
+  function setupContactForm() {
+    const form = $("#contact-form");
+    if (!form) return;
+
+    const submitButton = $("button[type='submit']", form);
+    const status = $("#contact-form-status", form);
+    const endpoint = safeUrl(content.contact.formEndpoint);
+    const idleButtonLabel = submitButton.textContent.trim() || "Send Inquiry";
+    const fieldRules = [
+      { name: "name", requiredMessage: "Please enter your full name." },
+      { name: "email", requiredMessage: "Please enter your business email.", invalidMessage: "Please enter a valid email address." },
+      { name: "company" },
+      { name: "website", invalidMessage: "Please enter a complete website URL, including https://." },
+      { name: "service", requiredMessage: "Please select a service." },
+      { name: "message", requiredMessage: "Please enter your message." }
+    ];
+    let isSubmitting = false;
+
+    const setStatus = (message = "", state = "") => {
+      status.textContent = message;
+      status.classList.toggle("is-success", state === "success");
+      status.classList.toggle("is-error", state === "error");
+    };
+
+    const setFieldError = (field, message = "") => {
+      const error = document.getElementById(`${field.id}-error`);
+      if (error) error.textContent = message;
+      if (message) field.setAttribute("aria-invalid", "true");
+      else field.removeAttribute("aria-invalid");
+    };
+
+    const validateField = (rule) => {
+      const field = form.elements.namedItem(rule.name);
+      if (!(field instanceof HTMLElement)) return true;
+      const value = String(field.value || "").trim();
+      let message = "";
+      if (field.required && !value) message = rule.requiredMessage;
+      else if (value && !field.validity.valid) message = rule.invalidMessage || "Please check this field.";
+      setFieldError(field, message);
+      return !message;
+    };
+
+    const validateForm = () => {
+      let firstInvalid = null;
+      fieldRules.forEach((rule) => {
+        const valid = validateField(rule);
+        if (!valid && !firstInvalid) firstInvalid = form.elements.namedItem(rule.name);
+      });
+      if (firstInvalid instanceof HTMLElement) firstInvalid.focus();
+      return !firstInvalid;
+    };
+
+    fieldRules.forEach((rule) => {
+      const field = form.elements.namedItem(rule.name);
+      if (!(field instanceof HTMLElement)) return;
+      const eventName = field.tagName === "SELECT" ? "change" : "input";
+      field.addEventListener(eventName, () => {
+        if (field.getAttribute("aria-invalid") === "true") validateField(rule);
+        if (!isSubmitting && status.textContent) setStatus();
+      });
+      field.addEventListener("blur", () => validateField(rule));
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (isSubmitting || !validateForm()) return;
+
+      const formData = new FormData(form);
+      const payload = {
+        name: String(formData.get("name") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        company: String(formData.get("company") || "").trim(),
+        website: String(formData.get("website") || "").trim(),
+        service: String(formData.get("service") || "").trim(),
+        message: String(formData.get("message") || "").trim(),
+        companyFax: String(formData.get("companyFax") || "").trim()
+      };
+
+      isSubmitting = true;
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+      form.setAttribute("aria-busy", "true");
+      setStatus();
+
+      try {
+        if (!endpoint) throw new Error("Contact endpoint is not configured.");
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const responseText = await response.text();
+        let responseData = null;
+        if (responseText) {
+          try { responseData = JSON.parse(responseText); }
+          catch { responseData = null; }
+        }
+        if (!response.ok || responseData?.success === false) throw new Error("Contact request failed.");
+
+        form.reset();
+        fieldRules.forEach((rule) => {
+          const field = form.elements.namedItem(rule.name);
+          if (field instanceof HTMLElement) setFieldError(field);
+        });
+        setStatus("Thank you. Your inquiry has been sent successfully.", "success");
+      } catch {
+        setStatus("We could not send your inquiry. Please try again or email us directly.", "error");
+      } finally {
+        isSubmitting = false;
+        submitButton.disabled = false;
+        submitButton.textContent = idleButtonLabel;
+        form.removeAttribute("aria-busy");
+      }
+    });
+  }
+
   function setupProjectDialog() {
     const dialog = $("#project-dialog");
     $("#projects-grid").addEventListener("click", (event) => {
@@ -564,6 +680,7 @@
   renderProjects();
   renderProcess();
   renderContact();
+  setupContactForm();
   setupProjectDialog();
   setupAccordions();
   setupNavigation();

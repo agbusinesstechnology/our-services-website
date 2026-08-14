@@ -264,6 +264,58 @@
           <a href="mailto:gizzle@agbusinesstechnology.com"><span aria-hidden="true">@</span>Email Gizzle</a>
           <a href="mailto:andrewleba@agbusinesstechnology.com"><span aria-hidden="true">@</span>Email Andrew Leba</a>
         </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-field">
+            <label for="contact-name">Full Name <span aria-hidden="true">*</span></label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="120" required aria-describedby="contact-name-error">
+            <p class="field-error" id="contact-name-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="contact-email">Business Email <span aria-hidden="true">*</span></label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="contact-email-error">
+            <p class="field-error" id="contact-email-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="contact-company">Company Name</label>
+            <input id="contact-company" name="company" type="text" autocomplete="organization" maxlength="200" aria-describedby="contact-company-error">
+            <p class="field-error" id="contact-company-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="contact-website">Company Website</label>
+            <input id="contact-website" name="website" type="url" autocomplete="url" inputmode="url" maxlength="2048" placeholder="https://" aria-describedby="contact-website-error">
+            <p class="field-error" id="contact-website-error"></p>
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="contact-service">Service Interested In <span aria-hidden="true">*</span></label>
+            <select id="contact-service" name="service" required aria-describedby="contact-service-error">
+              <option value="">Select a service</option>
+              <option>Business &amp; Virtual Assistance</option>
+              <option>Digital Marketing</option>
+              <option>CRM &amp; Lead Generation</option>
+              <option>Email Marketing &amp; Management</option>
+              <option>Project Management</option>
+              <option>Bookkeeping &amp; Business Administration</option>
+              <option>Web Development &amp; Digital Solutions</option>
+              <option>Software &amp; Technology Solutions</option>
+              <option>AI &amp; Automation Solutions</option>
+              <option>General Inquiry</option>
+            </select>
+            <p class="field-error" id="contact-service-error"></p>
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="contact-message">Message <span aria-hidden="true">*</span></label>
+            <textarea id="contact-message" name="message" rows="7" maxlength="5000" required aria-describedby="contact-message-error"></textarea>
+            <p class="field-error" id="contact-message-error"></p>
+          </div>
+          <div class="contact-honeypot" aria-hidden="true">
+            <label for="contact-company-fax">Company Fax</label>
+            <input id="contact-company-fax" name="companyFax" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="contact-form-footer form-field-wide">
+            <p class="form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+            <button class="button contact-submit" type="submit">Send Inquiry</button>
+          </div>
+        </form>
         <p class="contact-location" id="contact-location">Vietnam / Available for remote collaboration</p>
       </div>
     </section>

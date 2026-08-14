@@ -518,6 +518,7 @@ window.PORTFOLIO_CONTENT = {
   ],
 
   contact: {
+    formEndpoint: "https://ag-contact-api.lebadung2803.workers.dev/",
     emails: [
       { label: "Email Gizzle", department: "BUSINESS & GROWTH", address: "gizzle@agbusinesstechnology.com" },
       { label: "Email Andrew Leba", department: "TECHNOLOGY & ENGINEERING", address: "andrewleba@agbusinesstechnology.com" }
