@@ -160,6 +160,7 @@ window.PORTFOLIO_CONTENT = {
     {
       icon: "VA",
       title: "Business & Virtual Assistance",
+      tagline: "Get things done. Save time.",
       description: "Professional administrative and operational support designed to help businesses save time and stay organized.",
       featured: ["Administrative Support", "Data Entry & Data Management", "Virtual Executive Assistance"],
       services: ["Administrative Support", "Data Entry & Data Management", "Calendar & Schedule Management", "Email Management", "Document Preparation", "Online Research", "Customer Support", "Business Process Support", "Virtual Executive Assistance"],
@@ -169,6 +170,7 @@ window.PORTFOLIO_CONTENT = {
     {
       icon: "DM",
       title: "Digital Marketing",
+      tagline: "Build visibility. Reach the right audience.",
       description: "Digital marketing solutions that help businesses build their online presence and reach the right audience.",
       featured: ["Social Media Management", "Content Planning", "Digital Marketing Strategy"],
       services: ["Social Media Management", "Content Planning", "Content Management", "Digital Marketing Strategy", "Social Media Marketing", "Campaign Management", "Marketing Research", "Analytics & Performance Reporting"],
@@ -178,6 +180,7 @@ window.PORTFOLIO_CONTENT = {
     {
       icon: "CRM",
       title: "CRM & Lead Generation",
+      tagline: "Turn opportunities into growth.",
       description: "Helping businesses organize customer information, manage prospects, and build a more effective sales pipeline.",
       featured: ["CRM Setup & Management", "Lead Generation", "Sales Pipeline Management"],
       services: ["CRM Setup & Management", "Lead Generation", "Lead Qualification", "Contact Database Management", "Sales Pipeline Management", "Customer Data Organization", "Prospect Research", "Follow-up Management", "CRM Reporting"],
@@ -186,7 +189,8 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       icon: "EM",
-      title: "Email Marketing & Management",
+      title: "Email Marketing",
+      tagline: "Meaningful connections. Real results.",
       description: "Professional email solutions for customer engagement, marketing, and business communication.",
       featured: ["Email Campaign Management", "Newsletter Management", "Basic Email Automation"],
       services: ["Email Campaign Management", "Email Marketing", "Newsletter Management", "Email List Management", "Campaign Scheduling", "Email Content Management", "Basic Email Automation", "Campaign Performance Tracking"],
@@ -196,6 +200,7 @@ window.PORTFOLIO_CONTENT = {
     {
       icon: "PM",
       title: "Project Management",
+      tagline: "Keep projects on track.",
       description: "Organizing people, processes, timelines, and deliverables to keep projects moving efficiently.",
       featured: ["Project Planning", "Task & Workflow Management", "Progress Tracking"],
       services: ["Project Planning", "Task & Workflow Management", "Project Coordination", "Timeline Management", "Team Coordination", "Progress Tracking", "Documentation", "Project Reporting", "Client & Stakeholder Communication"],
@@ -205,6 +210,7 @@ window.PORTFOLIO_CONTENT = {
     {
       icon: "BK",
       title: "Bookkeeping & Business Administration",
+      tagline: "Organized support for smoother operations.",
       description: "Organized financial and administrative support for day-to-day business operations.",
       featured: ["Bookkeeping Support", "Expense Tracking", "Financial Administration Support"],
       services: ["Bookkeeping Support", "Expense Tracking", "Invoice Management", "Financial Data Entry", "Account Reconciliation Support", "Payroll Data Support", "Business Documentation", "Administrative Reporting"],
@@ -215,6 +221,7 @@ window.PORTFOLIO_CONTENT = {
     {
       icon: "WEB",
       title: "Web Development & Digital Solutions",
+      tagline: "Modern websites for modern businesses.",
       description: "Practical web and digital solutions designed around business requirements.",
       featured: ["Business Website Development", "Responsive Web Design", "Website Maintenance"],
       services: ["Business Website Development", "Responsive Web Design", "Front-End Development", "HTML, CSS & JavaScript", "Website Maintenance", "Landing Pages", "Website Content Updates", "Basic E-commerce Solutions", "Website Optimization"],
@@ -224,6 +231,7 @@ window.PORTFOLIO_CONTENT = {
     {
       icon: "SYS",
       title: "Software & Technology Solutions",
+      tagline: "Customized tools for real-world needs.",
       description: "Technology solutions that help businesses improve processes and manage information more effectively.",
       featured: ["Business Software Solutions", "Database Solutions", "API & System Integration"],
       services: ["Business Software Solutions", "Web-Based Systems", "Database Solutions", "Business Process Digitization", "System Requirements Analysis", "CRUD-Based Business Applications", "Technology Consulting", "Technical Documentation", "API & System Integration", "Business Dashboards and Reporting"],
@@ -233,6 +241,7 @@ window.PORTFOLIO_CONTENT = {
     {
       icon: "AI",
       title: "AI & Automation Solutions",
+      tagline: "Work smarter. Do more.",
       description: "Practical AI and automation solutions for improving productivity and business workflows.",
       featured: ["AI-Assisted Business Workflows", "Workflow Automation", "Document Processing"],
       services: ["AI-Assisted Business Workflows", "Workflow Automation", "AI Research", "Process Automation", "Productivity Automation", "AI-Powered Content Assistance", "Business Process Optimization", "CRM and Follow-up Automation", "Document Processing and Data Extraction"],

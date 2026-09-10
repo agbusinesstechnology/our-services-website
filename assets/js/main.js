@@ -281,7 +281,9 @@
       icon.setAttribute("aria-hidden", "true");
       top.append(number, icon);
 
-      article.append(top, createElement("h3", "", service.title), createElement("p", "service-description", service.description));
+      article.append(top, createElement("h3", "", service.title));
+      if (service.tagline) article.append(createElement("p", "service-tagline", service.tagline));
+      article.append(createElement("p", "service-description", service.description));
       article.append(createList(service.featured || [], "tag-list service-featured", `${service.title} featured services`));
 
       const panelId = `service-panel-${index}`;

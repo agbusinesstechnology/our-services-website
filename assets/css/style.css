@@ -162,6 +162,7 @@ h3 { font-size: 1.6rem; font-weight: 620; }
 .service-lead-experience { margin: .25rem 0 0; color: var(--accent-dark) !important; font-size: .75rem !important; font-weight: 750; }
 .service-category { margin-bottom: .55rem; color: var(--accent-dark) !important; font-size: .7rem !important; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .service-card h3 { margin-bottom: 1rem; }
+.service-tagline { margin: -.35rem 0 .85rem; color: var(--accent-dark); font-size: .85rem; font-weight: 800; line-height: 1.4; }
 .service-description { color: var(--ink-soft); font-size: .93rem; }
 .service-featured { margin: 1.25rem 0 1.5rem; }
 .service-action { display: inline-flex; width: fit-content; min-height: 2.75rem; align-items: center; align-self: flex-start; gap: .55rem; margin-top: .25rem; padding: 0; color: var(--accent-dark); background: transparent; border: 0; border-bottom: 1px solid currentColor; font-size: .82rem; font-weight: 800; cursor: pointer; }
