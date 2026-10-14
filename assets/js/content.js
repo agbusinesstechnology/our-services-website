@@ -315,16 +315,16 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Lead Generation Research",
       category: "Business Services",
-      status: "Demonstration",
-      image: "",
-      imageAlt: "",
-      description: "A service sample for structured prospect research and organized lead information.",
-      details: "An example of a repeatable research process for collecting, reviewing and organizing relevant prospect information.",
-      problem: "Prospect research needs a consistent method for collecting relevant information and retaining useful context.",
-      solution: "A repeatable research process with an organized lead list and supporting research notes.",
-      outcome: "Demonstrates structured prospect research and lead information prepared for review and follow-up.",
-      deliverables: ["Prospect research", "Lead list organization", "Research notes"],
-      tools: ["Web research", "Spreadsheets"],
+      status: "Work Sample · Illustrative Data",
+      image: "./assets/images/projects/lead-generation-work-sample.png",
+      imageAlt: "A&G lead generation work sample: research tracker, illustrative dashboard, industries, lead profile and outreach templates",
+      description: "Explore a complete prospecting workflow: research, lead qualification, CRM organization and outreach preparation.",
+      details: "A work sample illustrating a database of 1,000 potential business leads across 10 industries and 20+ countries. All companies, contact details and metrics shown are sample data, not verified client results.",
+      problem: "A growing business needs relevant prospects, consistent customer records and a clear process for following up.",
+      solution: "Research prospects, organize a lead tracker, qualify service needs and prepare personalized initial and follow-up emails.",
+      outcome: "Illustrative dashboard: 1,000 researched leads, 750 qualified leads, 500 outreach emails prepared and 120 potential clients. These figures describe the sample, not actual campaign results.",
+      deliverables: ["Prospect research across 10 industries and 20+ countries", "Lead tracker with company, industry, country, website, contact name, position, email, phone, source, status, priority, service need, notes and date added", "CRM organization and lead qualification", "Industry and country dashboard", "Sample lead profile", "Initial outreach and follow-up email templates"],
+      tools: ["Microsoft Excel", "LinkedIn", "Google Search", "Facebook", "HubSpot"],
       repositoryUrl: "",
       showRepository: false
     },
@@ -536,6 +536,8 @@ window.PORTFOLIO_CONTENT = {
     whatsapp: "", // EDIT HERE: Add digits only, including country code.
     linkedin: "", // EDIT HERE: Add the real LinkedIn URL.
     whatsappMessage: "Hello, I would like to discuss a business technology project.",
-    location: "Vietnam / Available for remote collaboration"
+    location: "255 Nguyễn Khang, Yên Hòa, Hà Nội 100000, Vietnam • Available for remote collaboration",
+    postalAddress: { streetAddress: "255 Nguyễn Khang, Yên Hòa", addressLocality: "Hà Nội", addressRegion: "Hà Nội", postalCode: "100000", addressCountry: "VN" },
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=255%20Nguy%E1%BB%85n%20Khang%2C%20Y%C3%AAn%20H%C3%B2a%2C%20H%C3%A0%20N%E1%BB%99i%20100000"
   }
 };

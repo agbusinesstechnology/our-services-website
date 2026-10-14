@@ -37,7 +37,7 @@ Open <http://localhost:5500> in a browser. Stop the server with `Ctrl+C`. You ca
 
 ## Edit website content
 
-Routine content is stored in [`assets/js/content.js`](assets/js/content.js). Edit this one file to update:
+Routine content is stored in [`assets/js/content.js`](assets/js/content.js). Edit this file to update:
 
 - business name, title, description and hero content;
 - navigation and section text;
@@ -48,6 +48,10 @@ Routine content is stored in [`assets/js/content.js`](assets/js/content.js). Edi
 - portfolio projects and the collaborative working process;
 - email, Calendly, LinkedIn, GitHub, WhatsApp and location;
 - canonical URL and structured-data setting.
+
+The dedicated Lead Generation Work Sample section is in `index.html`, with responsive styling in `assets/css/style.css`. Its reference image is `assets/images/projects/lead-generation-work-sample.png`. The metrics and contact records are illustrative sample data, not verified campaign results. The complete original ten-row tracker can be expanded and opened at full size.
+
+The supplied Hanoi address is shown in Contact and the footer and included in ProfessionalService structured data. Edit `contact.location`, `contact.postalAddress` and `contact.mapsUrl` in `content.js` when the address changes; also update the HTML fallback and footer address text in `main.js`.
 
 Search for `EDIT HERE` to locate missing or unconfirmed information. Preserve quotes, brackets and commas when editing JavaScript.
 

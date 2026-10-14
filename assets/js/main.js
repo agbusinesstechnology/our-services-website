@@ -52,7 +52,8 @@
         name: business.name,
         url: business.canonicalUrl,
         description: business.description,
-        areaServed: "Remote"
+        areaServed: "Remote",
+        address: { "@type": "PostalAddress", ...content.contact.postalAddress }
       });
       document.head.appendChild(script);
     }
@@ -470,6 +471,9 @@
       contactActions.append(link);
     });
 
+    const mapsLink = $("#contact-map");
+    if (mapsLink) mapsLink.href = safeUrl(contact.mapsUrl);
+
     const footerContact = $("#footer-contact");
     footerContact.replaceChildren();
     emails.forEach((item) => {
@@ -480,6 +484,14 @@
       row.append(link);
       footerContact.append(row);
     });
+    const addressRow = createElement("div", "footer-contact-row");
+    addressRow.append(createElement("p", "footer-contact-label", "HANOI ADDRESS"));
+    const addressLink = createElement("a", "", "255 Nguyễn Khang, Yên Hòa, Hà Nội 100000, Vietnam");
+    addressLink.href = safeUrl(contact.mapsUrl);
+    addressLink.target = "_blank";
+    addressLink.rel = "noopener noreferrer";
+    addressRow.append(addressLink);
+    footerContact.append(addressRow);
   }
 
   function setupContactForm() {
