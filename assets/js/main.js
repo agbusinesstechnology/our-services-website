@@ -297,6 +297,13 @@
         sampleLink.href = "#email-marketing";
         article.append(sampleLink);
       }
+      const businessTab = { VA: "virtual-assistance", PM: "operations", CRM: "crm", DM: "marketing-report" }[service.icon];
+      if (businessTab) {
+        const sampleLink = createElement("a", "text-link", "Explore the work sample →");
+        sampleLink.href = "#business-samples";
+        sampleLink.addEventListener("click", () => activateBusinessSample(businessTab));
+        article.append(sampleLink);
+      }
 
       const panelId = `service-panel-${index}`;
       const buttonId = `service-button-${index}`;
@@ -389,12 +396,13 @@
     if (project.deliverables?.length) {
       dialogContent.append(createElement("h3", "", "Deliverables"), createList(project.deliverables, "project-highlights"));
     }
-    const sampleTarget = /Email Marketing/.test(project.title) ? "#email-marketing" : /Lead Generation Research/.test(project.title) ? "#lead-generation" : "";
+    const sampleTarget = project.sampleTarget || (/Email Marketing/.test(project.title) ? "#email-marketing" : /Lead Generation Research/.test(project.title) ? "#lead-generation" : "");
     if (sampleTarget) {
       const sampleLink = createElement("a", "text-link", "Explore the complete work sample →");
       sampleLink.href = sampleTarget;
       sampleLink.addEventListener("click", () => {
         $("#project-dialog").close();
+        if (project.sampleTab) activateBusinessSample(project.sampleTab);
         const disclosure = $(`${sampleTarget} .work-sample-details`);
         if (disclosure) disclosure.open = true;
       });
@@ -749,6 +757,38 @@
     updateProjects();
   }
 
+  function activateBusinessSample(key, focus = false) {
+    const target = $$('[data-sample-tab]').find((tab) => tab.dataset.sampleTab === key);
+    if (!target) return;
+    $$('[data-sample-tab]').forEach((tab) => {
+      const selected = tab === target;
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      document.getElementById(tab.getAttribute("aria-controls")).hidden = !selected;
+    });
+    if (focus) target.focus();
+    window.dispatchEvent(new Event("resize"));
+  }
+
+  function setupBusinessSamples() {
+    const tabs = $$('[data-sample-tab]');
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activateBusinessSample(tab.dataset.sampleTab));
+      tab.addEventListener("keydown", (event) => {
+        const movement = { ArrowRight: (index + 1) % tabs.length, ArrowLeft: (index - 1 + tabs.length) % tabs.length, Home: 0, End: tabs.length - 1 };
+        if (!(event.key in movement)) return;
+        event.preventDefault();
+        activateBusinessSample(tabs[movement[event.key]].dataset.sampleTab, true);
+      });
+    });
+    const openLinkedSample = () => {
+      const key = window.location.hash.replace(/^#sample-panel-/, "");
+      if (tabs.some((tab) => tab.dataset.sampleTab === key)) activateBusinessSample(key);
+    };
+    window.addEventListener("hashchange", openLinkedSample);
+    openLinkedSample();
+  }
+
   function setupStudioMotion() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const progress = $(".scroll-progress");
@@ -820,6 +860,7 @@
   setupAccordions();
   setupNavigation();
   setupContentFilters();
+  setupBusinessSamples();
   setupStudioMotion();
   setupReveal();
 })();
