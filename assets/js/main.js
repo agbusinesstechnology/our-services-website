@@ -245,15 +245,20 @@
       if (member.vietnameseName) body.append(createElement("p", "member-local-name", member.vietnameseName));
       if (member.extendedRole) body.append(createElement("p", "member-extended", member.extendedRole));
       body.append(createElement("p", "", member.bio));
-      if (member.roleDescription) body.append(createElement("p", "member-role-description", member.roleDescription));
-      if (member.services?.length) body.append(createList(member.services, "member-services", "Areas of work"));
+      const background = createElement("details", "member-background");
+      background.append(createElement("summary", "", "Background, credentials & expertise"));
+      const backgroundBody = createElement("div", "member-background-body");
+      if (member.roleDescription) backgroundBody.append(createElement("p", "member-role-description", member.roleDescription));
+      if (member.services?.length) backgroundBody.append(createList(member.services, "member-services", "Areas of work"));
       if (member.credentials?.length) {
         const credentials = createElement("div", "member-credentials");
         credentials.append(createElement("h4", "", "Credentials"));
         credentials.append(createList(member.credentials));
-        body.append(credentials);
+        backgroundBody.append(credentials);
       }
-      if (member.professionalProfile) body.append(createProfessionalProfile(member.professionalProfile, member.displayName || member.name));
+      if (member.professionalProfile) backgroundBody.append(createProfessionalProfile(member.professionalProfile, member.displayName || member.name));
+      background.append(backgroundBody);
+      body.append(background);
       const links = createElement("div", "member-links");
       [["GitHub", member.github], ["LinkedIn", member.linkedin]].forEach(([label, value]) => {
         const url = safeUrl(value);
@@ -276,6 +281,7 @@
     content.services.forEach((service, index) => {
       const leads = (service.leadNames || [service.leadName]).map((name) => content.team.find((member) => member.name === name)).filter(Boolean);
       const article = createElement("article", "service-card reveal");
+      article.dataset.category = ["VA", "PM", "BK"].includes(service.icon) ? "operations" : ["DM", "CRM", "EM"].includes(service.icon) ? "growth" : "technology";
       const top = createElement("div", "service-top");
       const number = createElement("span", "", String(index + 1).padStart(2, "0"));
       const icon = createElement("span", "", service.icon || "↗");
@@ -380,6 +386,20 @@
       dialogContent.append(createList(project.tools, "tag-list dialog-tags", "Project tools and technology"));
     }
     dialogContent.append(createElement("h3", "", project.outcomeLabel), createElement("p", "dialog-description", project.outcome));
+    if (project.deliverables?.length) {
+      dialogContent.append(createElement("h3", "", "Deliverables"), createList(project.deliverables, "project-highlights"));
+    }
+    const sampleTarget = /Email Marketing/.test(project.title) ? "#email-marketing" : /Lead Generation Research/.test(project.title) ? "#lead-generation" : "";
+    if (sampleTarget) {
+      const sampleLink = createElement("a", "text-link", "Explore the complete work sample →");
+      sampleLink.href = sampleTarget;
+      sampleLink.addEventListener("click", () => {
+        $("#project-dialog").close();
+        const disclosure = $(`${sampleTarget} .work-sample-details`);
+        if (disclosure) disclosure.open = true;
+      });
+      dialogContent.append(sampleLink);
+    }
 
     const repositoryUrl = project.showRepository ? safeUrl(project.repositoryUrl) : "";
     if (repositoryUrl) {
@@ -397,40 +417,35 @@
     content.projects.forEach((projectData, index) => {
       const project = normalizedProject(projectData);
       const article = createElement("article", "project-card reveal");
-      const body = createElement("div", "project-body");
-      const type = createElement("p", "project-type");
-      const statusDot = createElement("span", "status-dot");
-      statusDot.setAttribute("aria-hidden", "true");
-      type.append(statusDot, document.createTextNode(`${project.category} · ${project.status}`));
-      body.append(type, createElement("h3", "", project.title));
-      const caseStudy = createElement("dl", "project-case-study");
-      [["Problem", project.problem], ["Solution", project.solution]].forEach(([label, value]) => {
-        caseStudy.append(createElement("dt", "", label), createElement("dd", "", value));
-      });
-      if (project.tools.length) {
-        caseStudy.append(createElement("dt", "", "Technology"));
-        const technology = createElement("dd");
-        technology.append(createList(project.tools, "tag-list dark-tags", "Project technology"));
-        caseStudy.append(technology);
+      article.dataset.category = /Business/i.test(project.category) ? "business" : "technology";
+      const visual = createElement("div", "project-visual");
+      const imagePath = safeAssetPath(project.image);
+      if (imagePath) {
+        const image = createElement("img");
+        image.src = imagePath;
+        image.alt = project.imageAlt || project.title;
+        image.loading = "lazy";
+        image.width = 600;
+        image.height = 400;
+        visual.append(image);
+      } else {
+        visual.classList.add("project-visual-abstract");
+        visual.append(createElement("span", "project-visual-number", String(index + 1).padStart(2, "0")));
+        visual.append(createElement("span", "project-visual-label", project.tools.slice(0, 3).join(" / ") || project.category));
       }
-      caseStudy.append(createElement("dt", "", project.outcomeLabel), createElement("dd", "", project.outcome));
-      body.append(caseStudy);
-
+      const body = createElement("div", "project-body");
+      const type = createElement("p", "project-type", project.category);
+      body.append(type, createElement("h3", "", project.title));
+      body.append(createElement("p", "project-summary", project.description || project.solution));
+      body.append(createElement("span", "project-status", project.status));
+      if (project.tools.length) body.append(createList(project.tools.slice(0, 4), "tag-list dark-tags", "Selected project tools"));
       const actions = createElement("div", "project-actions");
-      const details = createElement("button", "details-button", "View Case Study →");
+      const details = createElement("button", "details-button", "Explore project ↗");
       details.type = "button";
       details.dataset.projectIndex = String(index);
       actions.append(details);
-      const repositoryUrl = project.showRepository ? safeUrl(project.repositoryUrl) : "";
-      if (repositoryUrl) {
-        const repository = createElement("a", "member-link", "View GitHub ↗");
-        repository.href = repositoryUrl;
-        repository.target = "_blank";
-        repository.rel = "noopener noreferrer";
-        actions.append(repository);
-      }
       body.append(actions);
-      article.append(body);
+      article.append(visual, body);
       projectsGrid.append(article);
     });
   }
@@ -689,6 +704,107 @@
     items.forEach((item) => observer.observe(item));
   }
 
+  function setupContentFilters() {
+    const services = $$("#services-grid .service-card");
+    $$('[data-service-filter]').forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.dataset.serviceFilter;
+        $$('[data-service-filter]').forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        services.forEach((card) => {
+          card.hidden = category !== "all" && card.dataset.category !== category;
+          if (!card.hidden) card.classList.add("is-visible");
+        });
+        setText("#service-filter-status", `${services.filter((card) => !card.hidden).length} services shown.`);
+      });
+    });
+
+    const projects = $$("#projects-grid .project-card");
+    const moreButton = $("#projects-more");
+    let category = "all";
+    let expanded = false;
+    const updateProjects = () => {
+      const matching = projects.filter((card) => category === "all" || card.dataset.category === category);
+      projects.forEach((card) => { card.hidden = true; });
+      const selected = category === "all" && !expanded
+        ? ["business", "technology"].flatMap((group) => matching.filter((card) => card.dataset.category === group).slice(0, 3))
+        : matching.slice(0, expanded ? matching.length : 6);
+      selected.forEach((card) => {
+        card.hidden = false;
+        card.classList.add("is-visible");
+      });
+      moreButton.parentElement.hidden = matching.length <= 6;
+      moreButton.setAttribute("aria-expanded", String(expanded));
+      moreButton.textContent = expanded ? "Show fewer projects ↑" : `Show all ${matching.length} projects ↓`;
+      setText("#project-filter-status", `${expanded ? matching.length : Math.min(6, matching.length)} of ${matching.length} projects shown.`);
+    };
+    $$('[data-project-filter]').forEach((button) => {
+      button.addEventListener("click", () => {
+        category = button.dataset.projectFilter;
+        expanded = false;
+        $$('[data-project-filter]').forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        updateProjects();
+      });
+    });
+    moreButton.addEventListener("click", () => { expanded = !expanded; updateProjects(); });
+    updateProjects();
+  }
+
+  function setupStudioMotion() {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const progress = $(".scroll-progress");
+    const header = $(".site-header");
+    const backToTop = $(".back-to-top");
+    let scrollFrame = null;
+    const updateScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = `scaleX(${scrollable > 0 ? Math.min(1, window.scrollY / scrollable) : 0})`;
+      header.classList.toggle("is-scrolled", window.scrollY > 30);
+      backToTop.hidden = window.scrollY < 700;
+      scrollFrame = null;
+    };
+    const scheduleScroll = () => {
+      if (scrollFrame === null) scrollFrame = requestAnimationFrame(updateScroll);
+    };
+    window.addEventListener("scroll", scheduleScroll, { passive: true });
+    window.addEventListener("resize", scheduleScroll, { passive: true });
+    document.addEventListener("toggle", scheduleScroll, true);
+    $$('[data-project-filter], #projects-more, [data-service-filter]').forEach((button) => button.addEventListener("click", scheduleScroll));
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: reducedMotion.matches ? "instant" : "smooth" });
+      $(".brand").focus({ preventScroll: true });
+    });
+    updateScroll();
+    $$('[data-open-sample]').forEach((link) => link.addEventListener("click", () => {
+      const disclosure = $(link.getAttribute("href"));
+      if (disclosure) disclosure.open = true;
+    }));
+
+    $$(".lead-heading, .email-marketing-hero > div, .email-service, .sample-navigation > a, .work-sample-details, .email-services-heading").forEach((item) => item.classList.add("reveal"));
+    $$(".services-grid, .email-services-grid, .process-grid, .why-grid").forEach((group) => {
+      [...group.children].forEach((item, index) => item.style.setProperty("--reveal-delay", `${(index % 3) * 65}ms`));
+    });
+
+    const hero = $(".hero");
+    const studio = $(".hero-studio");
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    let pointerFrame = null;
+    let offset = { x: 0, y: 0 };
+    const drawPointer = () => {
+      studio.style.setProperty("--studio-x", `${offset.x}px`);
+      studio.style.setProperty("--studio-y", `${offset.y}px`);
+      pointerFrame = null;
+    };
+    const schedulePointer = () => { if (pointerFrame === null) pointerFrame = requestAnimationFrame(drawPointer); };
+    hero.addEventListener("pointermove", (event) => {
+      if (reducedMotion.matches) return;
+      const bounds = hero.getBoundingClientRect();
+      offset = { x: ((event.clientX - bounds.left) / bounds.width - .5) * 9, y: ((event.clientY - bounds.top) / bounds.height - .5) * 9 };
+      schedulePointer();
+    }, { passive: true });
+    hero.addEventListener("pointerleave", () => { offset = { x: 0, y: 0 }; schedulePointer(); });
+    reducedMotion.addEventListener("change", () => { offset = { x: 0, y: 0 }; schedulePointer(); });
+  }
+
   renderMetadata();
   renderBaseContent();
   renderExpertiseOverview();
@@ -703,5 +819,7 @@
   setupProjectDialog();
   setupAccordions();
   setupNavigation();
+  setupContentFilters();
+  setupStudioMotion();
   setupReveal();
 })();

@@ -11,6 +11,7 @@ A responsive English-language website for a founder-led business services and te
 ├── .nojekyll
 └── assets
     ├── css/style.css
+├── css/design.css
     ├── js/content.js
     ├── js/main.js
     └── images
@@ -176,3 +177,11 @@ GitHub may create a root `CNAME` file automatically. If not, create one containi
 - Confirm repository visibility before enabling GitHub buttons.
 - Confirm no secrets or confidential material are present.
 - Set the final canonical URL and Open Graph image.
+
+## Studio layout and interactions
+
+`assets/css/design.css` defines the current visual system over the base styles: cream and forest-green surfaces, responsive cards, typography, animated hero background and connected-capability graphic. CSS animations and native JavaScript provide motion without a CDN or third-party runtime. Reduced-motion preferences disable decorative animation and pointer movement.
+
+The page follows services → audience → selected work → detailed samples → approach → expertise → team → contact. Service filters group operations, growth and technology. The initial project selection includes three business and three technology projects; category filters and Show All expose every project. Case-study dialogs retain problem, solution, tools, outcome and deliverables. Detailed samples and team backgrounds use native expandable disclosures. Scroll progress, active navigation and a back-to-top button support the longer page.
+
+Update the version query on stylesheet and script URLs in `index.html` when deploying changes to avoid stale browser assets.
