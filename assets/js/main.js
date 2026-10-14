@@ -292,16 +292,11 @@
       if (service.tagline) article.append(createElement("p", "service-tagline", service.tagline));
       article.append(createElement("p", "service-description", service.description));
       article.append(createList(service.featured || [], "tag-list service-featured", `${service.title} featured services`));
-      if (service.icon === "EM") {
-        const sampleLink = createElement("a", "text-link", "Explore email marketing work sample →");
-        sampleLink.href = "#email-marketing";
-        article.append(sampleLink);
-      }
-      const businessTab = { VA: "virtual-assistance", PM: "operations", CRM: "crm", DM: "marketing-report" }[service.icon];
-      if (businessTab) {
+      const sampleTab = { VA: "virtual-assistance", DM: "marketing-report", CRM: "crm", EM: "email-marketing", PM: "operations", BK: "bookkeeping", WEB: "web-development", SYS: "software", AI: "ai-automation" }[service.icon];
+      if (sampleTab) {
         const sampleLink = createElement("a", "text-link", "Explore the work sample →");
-        sampleLink.href = "#business-samples";
-        sampleLink.addEventListener("click", () => activateBusinessSample(businessTab));
+        sampleLink.href = `#sample-panel-${sampleTab}`;
+        sampleLink.addEventListener("click", () => activateBusinessSample(sampleTab));
         article.append(sampleLink);
       }
 
@@ -403,6 +398,7 @@
       sampleLink.addEventListener("click", () => {
         $("#project-dialog").close();
         if (project.sampleTab) activateBusinessSample(project.sampleTab);
+        if (project.sampleDisclosure) document.getElementById(project.sampleDisclosure).open = true;
         const disclosure = $(`${sampleTarget} .work-sample-details`);
         if (disclosure) disclosure.open = true;
       });
@@ -474,6 +470,18 @@
 
   function renderContact() {
     const contact = content.contact;
+    const serviceSelect = $("#contact-service");
+    if (serviceSelect) {
+      serviceSelect.replaceChildren();
+      const placeholder = createElement("option", "", "Select a service");
+      placeholder.value = "";
+      serviceSelect.append(placeholder);
+      [...content.services.map((service) => service.title), "General Inquiry"].forEach((title) => {
+        const option = createElement("option", "", title);
+        option.value = title;
+        serviceSelect.append(option);
+      });
+    }
     const emails = (contact.emails || []).filter((item) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(item.address));
     const calendlyReady = Boolean(safeUrl(contact.calendlyUrl));
     const linkedInReady = Boolean(safeUrl(contact.linkedin));
@@ -514,7 +522,7 @@
     });
     const addressRow = createElement("div", "footer-contact-row");
     addressRow.append(createElement("p", "footer-contact-label", "HANOI ADDRESS"));
-    const addressLink = createElement("a", "", "255 Nguyễn Khang, Yên Hòa, Hà Nội 100000, Vietnam");
+    const addressLink = createElement("a", "", contact.addressLabel);
     addressLink.href = safeUrl(contact.mapsUrl);
     addressLink.target = "_blank";
     addressLink.rel = "noopener noreferrer";
@@ -757,6 +765,167 @@
     updateProjects();
   }
 
+  function renderServiceSampleLibrary() {
+    const container = $("#business-samples > .container");
+    const footer = $(":scope > .sample-cta", container);
+    const renderBlock = (block) => {
+      const section = createElement("section", "sample-block");
+      section.append(createElement("h4", "", block.title));
+      if (block.type === "table") {
+        const scroll = createElement("div", "sample-table-scroll");
+        scroll.tabIndex = 0;
+        scroll.setAttribute("role", "region");
+        scroll.setAttribute("aria-label", `${block.title}; scroll to view all columns`);
+        const table = createElement("table", "sample-data-table");
+        table.append(createElement("caption", "", "Illustrative sample data"));
+        const head = createElement("thead");
+        const headRow = createElement("tr");
+        block.headers.forEach((label) => {
+          const cell = createElement("th", "", label);
+          cell.scope = "col";
+          headRow.append(cell);
+        });
+        head.append(headRow);
+        const body = createElement("tbody");
+        block.rows.forEach((values) => {
+          const row = createElement("tr");
+          values.forEach((value) => row.append(createElement("td", "", value)));
+          body.append(row);
+        });
+        table.append(head, body);
+        scroll.append(table);
+        section.append(scroll);
+      } else if (block.type === "metrics") {
+        const metrics = createElement("div", "sample-metric-grid");
+        block.items.forEach((item) => {
+          const metric = createElement("div");
+          metric.append(createElement("span", "", item.label), createElement("strong", "", item.value));
+          metrics.append(metric);
+        });
+        section.append(metrics);
+      } else {
+        const items = createElement(block.type === "flow" ? "ol" : "div", block.type === "flow" ? "sample-flow" : "sample-capability-grid");
+        block.items.forEach((item, index) => {
+          const card = createElement(block.type === "flow" ? "li" : "article");
+          if (block.type === "flow") card.append(createElement("span", "", index + 1));
+          card.append(createElement(block.type === "flow" ? "strong" : "h5", "", item.title), createElement("p", "", item.text));
+          items.append(card);
+        });
+        section.append(items);
+      }
+      return section;
+    };
+    (window.SERVICE_SAMPLES || []).forEach((sample) => {
+      const service = content.services.find((item) => item.icon === sample.service);
+      const panel = createElement("div", "business-sample-panel");
+      panel.id = `sample-panel-${sample.key}`;
+      panel.hidden = true;
+      panel.tabIndex = 0;
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", `sample-tab-${sample.key}`);
+      const heading = createElement("div", "sample-panel-heading");
+      const copy = createElement("div");
+      copy.append(createElement("p", "eyebrow", "Service work sample"), createElement("h3", "", service.title), createElement("p", "", sample.intro));
+      heading.append(copy, createElement("span", "sample-badge", "Illustrative work sample"));
+      panel.append(heading, createElement("p", "sample-caption", sample.note));
+      const preview = createElement("a", "sample-cover");
+      preview.href = `./assets/images/projects/${sample.references[0]}.png`;
+      preview.target = "_blank";
+      preview.rel = "noopener noreferrer";
+      const image = createElement("img");
+      image.src = preview.href;
+      image.alt = `${service.title} reference design — select to view the full image`;
+      image.width = 1024;
+      image.height = 1536;
+      image.loading = "lazy";
+      preview.append(image);
+      panel.append(preview);
+      sample.blocks.forEach((block) => panel.append(renderBlock(block)));
+      panel.append(createList(sample.tools, "sample-tools", "Tools shown in the example"));
+      sample.references.forEach((reference, index) => {
+        const details = createElement("details", "sample-reference");
+        details.append(createElement("summary", "", sample.references.length > 1 ? `View complete reference ${index + 1}` : "View the complete original work sample"));
+        const link = createElement("a");
+        link.href = `./assets/images/projects/${reference}.png`;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        const full = createElement("img");
+        full.src = link.href;
+        full.alt = `${service.title} — complete supplied reference ${index + 1}`;
+        full.loading = "lazy";
+        full.width = 1024;
+        full.height = 1536;
+        link.append(full);
+        details.append(link);
+        panel.append(details);
+      });
+      container.insertBefore(panel, footer);
+    });
+    const order = [
+      ["virtual-assistance", "Virtual Assistance", "VA"], ["marketing-report", "Digital Marketing", "DM"],
+      ["crm", "CRM & Lead Generation", "CRM"], ["email-marketing", "Email Marketing", "EM"],
+      ["operations", "Project Management", "PM"], ["bookkeeping", "Bookkeeping", "BK"],
+      ["web-development", "Web Development", "WEB"], ["software", "Software & Systems", "SYS"],
+      ["ai-automation", "AI & Automation", "AI"]
+    ];
+    const tablist = $(".business-sample-tabs");
+    tablist.replaceChildren();
+    order.forEach(([key, label, icon], index) => {
+      const service = content.services.find((item) => item.icon === icon);
+      const panel = $(`#sample-panel-${key}`);
+      const tab = createElement("button", "", `${String(index + 1).padStart(2, "0")} / ${label}`);
+      tab.type = "button";
+      tab.id = `sample-tab-${key}`;
+      tab.dataset.sampleTab = key;
+      tab.setAttribute("role", "tab");
+      tab.setAttribute("aria-controls", panel.id);
+      tab.setAttribute("aria-selected", String(index === 0));
+      tab.tabIndex = index === 0 ? 0 : -1;
+      tablist.append(tab);
+      panel.hidden = index !== 0;
+      container.insertBefore(panel, footer);
+      const title = $(".sample-panel-heading h3", panel);
+      if (title) title.textContent = service.title;
+      const owner = createElement("p", "sample-owner", `Responsible: ${service.leadNames.map((name) => content.team.find((member) => member.name === name)?.name || name).join(" & ")}`);
+      panel.insertBefore(owner, panel.firstChild);
+    });
+    setText("#email-marketing-title", content.services.find((service) => service.icon === "EM").title);
+    setText("#lead-title", "Lead Generation Research");
+    // A portrait in the email sample uses the same approved team asset.
+    const emailPortrait = $(".email-responsible img");
+    if (emailPortrait) {
+      const frame = createElement("span", "gizzle-avatar-frame");
+      emailPortrait.replaceWith(frame);
+      frame.append(emailPortrait);
+    }
+  }
+
+  function renderTestimonials() {
+    const grid = $("#testimonials-grid");
+    (content.testimonials || []).forEach((item) => {
+      const card = createElement("figure", "testimonial-card");
+      const quote = createElement("blockquote", "", item.quote);
+      const attribution = createElement("figcaption");
+      attribution.append(createElement("strong", "", item.name), createElement("span", "", item.role));
+      const original = createElement("details", "testimonial-source");
+      original.append(createElement("summary", "", "View supplied testimonial"));
+      const link = createElement("a");
+      link.href = safeAssetPath(item.source);
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      const image = createElement("img");
+      image.src = safeAssetPath(item.source);
+      image.alt = `Supplied testimonial from ${item.name}, ${item.role}`;
+      image.loading = "lazy";
+      image.width = 2048;
+      image.height = 731;
+      link.append(image);
+      original.append(link);
+      card.append(quote, attribution, original);
+      grid.append(card);
+    });
+  }
+
   function activateBusinessSample(key, focus = false) {
     const target = $$('[data-sample-tab]').find((tab) => tab.dataset.sampleTab === key);
     if (!target) return;
@@ -782,7 +951,11 @@
       });
     });
     const openLinkedSample = () => {
-      const key = window.location.hash.replace(/^#sample-panel-/, "");
+      const aliases = { "#lead-generation": "crm", "#email-marketing": "email-marketing", "#lead-generation-details": "crm" };
+      const key = aliases[window.location.hash] || window.location.hash.replace(/^#sample-panel-/, "");
+      if (["#lead-generation", "#lead-generation-details"].includes(window.location.hash)) {
+        $("#lead-research-sample").open = true;
+      }
       if (tabs.some((tab) => tab.dataset.sampleTab === key)) activateBusinessSample(key);
     };
     window.addEventListener("hashchange", openLinkedSample);
@@ -855,6 +1028,8 @@
   renderProjects();
   renderProcess();
   renderContact();
+  renderServiceSampleLibrary();
+  renderTestimonials();
   setupContactForm();
   setupProjectDialog();
   setupAccordions();

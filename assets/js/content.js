@@ -93,13 +93,13 @@ window.PORTFOLIO_CONTENT = {
   team: [
     {
       name: "Gizzle Montemayor",
-      displayName: "GIZZLE",
+      displayName: "Gizzle Montemayor",
       role: "Founder & Business Technology Professional",
       experience: "Since 2017",
       extendedRole: "Virtual Assistance • CRM • Lead Generation • Cybersecurity • Computer Science",
       bio: "Business Technology and Operations Professional with experience supporting international clients through virtual assistance, executive administration, CRM management, lead generation, digital marketing, business research and technology-driven operations.",
       roleDescription: "With a background in Computer Science and extensive experience in remote business support, Gizzle bridges the gap between people, processes and technology—helping businesses improve organization, customer engagement, workflow efficiency and digital operations.",
-      image: "./assets/images/profile-gizzle.png",
+      image: "./assets/images/profile-gizzle-2026.png",
       imageAlt: "Gizzle Montemayor — Founder and Business Technology Professional",
       serviceRole: "Founder & Business Technology Professional",
       serviceCategory: "Business Technology",
@@ -205,7 +205,7 @@ window.PORTFOLIO_CONTENT = {
       featured: ["Project Planning", "Task & Workflow Management", "Progress Tracking"],
       services: ["Project Planning", "Task & Workflow Management", "Project Coordination", "Timeline Management", "Team Coordination", "Progress Tracking", "Documentation", "Project Reporting", "Client & Stakeholder Communication"],
       leadNames: ["Gizzle Montemayor", "Andrew Leba"],
-      responsible: "Gizzle & Andrew"
+      responsible: "Gizzle — Business Workflows · Andrew Leba — Technical Implementation"
     },
     {
       icon: "BK",
@@ -246,7 +246,7 @@ window.PORTFOLIO_CONTENT = {
       featured: ["AI-Assisted Business Workflows", "Workflow Automation", "Document Processing"],
       services: ["AI-Assisted Business Workflows", "Workflow Automation", "AI Research", "Process Automation", "Productivity Automation", "AI-Powered Content Assistance", "Business Process Optimization", "CRM and Follow-up Automation", "Document Processing and Data Extraction"],
       leadNames: ["Gizzle Montemayor", "Andrew Leba"],
-      responsible: "Gizzle & Andrew"
+      responsible: "Gizzle — Business Workflows · Andrew Leba — Technical Implementation"
     }
   ],
 
@@ -297,7 +297,107 @@ window.PORTFOLIO_CONTENT = {
 
   projects: [
     {
+      "title": "BloomNest Website Design Sample",
+      "category": "Technology Services",
+      "status": "Work Sample · Illustrative Data",
+      "image": "./assets/images/projects/web-development-sample.png",
+      "imageAlt": "A fictional plant-store website illustrating responsive web design, content, basic e-commerce and website maintenance.",
+      "description": "A fictional plant-store website illustrating responsive web design, content, basic e-commerce and website maintenance.",
+      "details": "Illustrative portfolio design supplied for this service. Screens, organizations, records and metrics are sample data, not a deployed system or verified client result.",
+      "problem": "Businesses need usable digital tools and clear workflows suited to their operational requirements.",
+      "solution": "A fictional plant-store website illustrating responsive web design, content, basic e-commerce and website maintenance.",
+      "outcome": "Demonstrates a proposed design and workflow; no live demo, production integration or measured business result is implied.",
+      "deliverables": [
+            "Desktop, tablet and mobile website layouts",
+            "Business websites and landing pages",
+            "Front-end development and content updates",
+            "Basic e-commerce design",
+            "Website maintenance and optimization"
+      ],
+      "tools": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "WordPress",
+            "WooCommerce",
+            "Elementor",
+            "Shopify",
+            "GitHub"
+      ],
+      "repositoryUrl": "",
+      "showRepository": false,
+      "sampleTarget": "#business-samples",
+      "sampleTab": "web-development"
+},
+    {
+      "title": "Software & Technology Solutions Sample",
+      "category": "Technology Services",
+      "status": "Work Sample · Illustrative Data",
+      "image": "./assets/images/projects/software-solutions-a.png",
+      "imageAlt": "Two illustrative application concepts covering business software, databases, integrations, dashboards and digitized workflows.",
+      "description": "Two illustrative application concepts covering business software, databases, integrations, dashboards and digitized workflows.",
+      "details": "Illustrative portfolio design supplied for this service. Screens, organizations, records and metrics are sample data, not a deployed system or verified client result.",
+      "problem": "Businesses need usable digital tools and clear workflows suited to their operational requirements.",
+      "solution": "Two illustrative application concepts covering business software, databases, integrations, dashboards and digitized workflows.",
+      "outcome": "Demonstrates a proposed design and workflow; no live demo, production integration or measured business result is implied.",
+      "deliverables": [
+            "Client, inventory and employee management examples",
+            "Web-based applications and CRUD modules",
+            "Database relationships and API integration diagrams",
+            "Business dashboards and reporting",
+            "Requirements and technical documentation"
+      ],
+      "tools": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "PHP",
+            "Laravel",
+            "MySQL",
+            "REST API",
+            "Google Sheets",
+            "QuickBooks",
+            "WordPress"
+      ],
+      "repositoryUrl": "",
+      "showRepository": false,
+      "sampleTarget": "#business-samples",
+      "sampleTab": "software"
+},
+    {
+      "title": "AI & Automation Workflow Sample",
+      "category": "Technology Services",
+      "status": "Work Sample · Illustrative Data",
+      "image": "./assets/images/projects/ai-automation-sample.png",
+      "imageAlt": "An illustrative workflow combining AI-assisted processing, human review, CRM updates, reporting and document extraction.",
+      "description": "An illustrative workflow combining AI-assisted processing, human review, CRM updates, reporting and document extraction.",
+      "details": "Illustrative portfolio design supplied for this service. Screens, organizations, records and metrics are sample data, not a deployed system or verified client result.",
+      "problem": "Businesses need usable digital tools and clear workflows suited to their operational requirements.",
+      "solution": "An illustrative workflow combining AI-assisted processing, human review, CRM updates, reporting and document extraction.",
+      "outcome": "Demonstrates a proposed design and workflow; no live demo, production integration or measured business result is implied.",
+      "deliverables": [
+            "Intake → AI-assisted processing → Human review → CRM/task update → Report",
+            "Meeting summary and action items",
+            "Workflow and productivity automation",
+            "AI research and content assistance",
+            "CRM follow-up and document data extraction"
+      ],
+      "tools": [
+            "AI assistant",
+            "Automation platform",
+            "Spreadsheet tool",
+            "CRM platform",
+            "Document tools"
+      ],
+      "repositoryUrl": "",
+      "showRepository": false,
+      "sampleTarget": "#business-samples",
+      "sampleTab": "ai-automation"
+},
+    {
       title: "Email Marketing & Automation",
+      sampleTarget: "#business-samples",
+      sampleTab: "email-marketing",
       category: "Business Services",
       status: "Work Sample · Illustrative Data",
       image: "./assets/images/projects/email-marketing-work-sample.png",
@@ -332,6 +432,9 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       title: "Lead Generation Research",
+      sampleTarget: "#business-samples",
+      sampleTab: "crm",
+      sampleDisclosure: "lead-research-sample",
       category: "Business Services",
       status: "Work Sample · Illustrative Data",
       image: "./assets/images/projects/lead-generation-work-sample.png",
@@ -403,18 +506,20 @@ window.PORTFOLIO_CONTENT = {
     {
       title: "Bookkeeping Administration Sample",
       category: "Business Services",
-      status: "Demonstration",
-      image: "",
-      imageAlt: "",
+      status: "Work Sample · Illustrative Data",
+      image: "./assets/images/projects/bookkeeping-administration.png",
+      imageAlt: "QuickBooks Online and Desktop bookkeeping administration sample, invoices, expenses and financial summaries",
       description: "A service sample for routine bookkeeping administration and financial data organization.",
       details: "An example workflow for organizing routine expense, invoice and financial record administration.",
       problem: "Routine expenses, invoices and financial records need consistent organization for administrative review.",
       solution: "A bookkeeping administration workflow for expense organization, invoice tracking and record filing.",
       outcome: "Demonstrates an organized approach to routine bookkeeping administration and financial data filing.",
       deliverables: ["Expense organization", "Invoice tracking", "Financial data filing"],
-      tools: ["QuickBooks", "Spreadsheets"],
+      tools: ["QuickBooks Online", "QuickBooks Desktop", "Microsoft Excel", "Google Sheets"],
       repositoryUrl: "",
-      showRepository: false
+      showRepository: false,
+      sampleTarget: "#business-samples",
+      sampleTab: "bookkeeping"
     },
     {
       title: "Leba Medical ERP",
@@ -550,6 +655,39 @@ window.PORTFOLIO_CONTENT = {
     { number: "04", title: "Optimize", description: "Improve processes and measure results." }
   ],
 
+  testimonials: [
+  {
+    "name": "Nische",
+    "role": "Digital Marketing Strategist",
+    "quote": "Working with Gizzle, as my Social Media Manager–Virtual Assistant has been a game-changer for my business. As a former Digital Marketer, she brought her expertise in online strategies to the table and helped me revamp my online presence. Thanks to her efforts, my brand visibility skyrocketed, and I started generating high-quality leads consistently. What's even better? Those leads quickly turned into loyal clients! I couldn’t have asked for a better partner to help me grow my business.",
+    "source": "./assets/images/testimonials/nische.png"
+  },
+  {
+    "name": "Jordan H",
+    "role": "CEO",
+    "quote": "Gizzle has been invaluable as my Executive Assistant. She keeps everything organized and ensures that I stay on top of my priorities. Her efficiency and attention to detail have made a huge difference in my productivity!",
+    "source": "./assets/images/testimonials/jordan-h.png"
+  },
+  {
+    "name": "Daraine D",
+    "role": "Business Owner, CEO",
+    "quote": "Gizzle has transformed our social media presence in the credit repair industry. Her strategies have driven engagement and attracted a steady stream of clients. She’s a true expert!",
+    "source": "./assets/images/testimonials/daraine-d.png"
+  },
+  {
+    "name": "Martin P",
+    "role": "Global Support Manager",
+    "quote": "Thanks to Gizzle, she has been with us for almost 7 years managing our Google My Business listing is always up-to-date, and any issues with listings are quickly resolved. She’s made managing our online presence effortless.",
+    "source": "./assets/images/testimonials/martin-p.png"
+  },
+  {
+    "name": "Sarah L",
+    "role": "MD, CEO, Business Owner",
+    "quote": "Gizzle’s social media strategies have made a significant impact on our brand visibility. Her dedication and insight have transformed our online presence. Highly recommended!",
+    "source": "./assets/images/testimonials/sarah-l.png"
+  }
+],
+
   contact: {
     formEndpoint: "https://ag-contact-api.lebadung2803.workers.dev/",
     emails: [
@@ -560,6 +698,7 @@ window.PORTFOLIO_CONTENT = {
     whatsapp: "", // EDIT HERE: Add digits only, including country code.
     linkedin: "", // EDIT HERE: Add the real LinkedIn URL.
     whatsappMessage: "Hello, I would like to discuss a business technology project.",
+    addressLabel: "255 Nguyễn Khang, Yên Hòa, Hà Nội 100000, Vietnam",
     location: "255 Nguyễn Khang, Yên Hòa, Hà Nội 100000, Vietnam • Available for remote collaboration",
     postalAddress: { streetAddress: "255 Nguyễn Khang, Yên Hòa", addressLocality: "Hà Nội", addressRegion: "Hà Nội", postalCode: "100000", addressCountry: "VN" },
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=255%20Nguy%E1%BB%85n%20Khang%2C%20Y%C3%AAn%20H%C3%B2a%2C%20H%C3%A0%20N%E1%BB%99i%20100000"

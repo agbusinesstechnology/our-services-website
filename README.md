@@ -70,12 +70,12 @@ Contact methods without real information are hidden. WhatsApp must use digits on
 
 - Gizzle's real Calendly URL, if scheduling should be shown
 - Approved LinkedIn URLs and optional WhatsApp details
-- Approved images for the six business service samples
+- Any additional approved images for internal technology projects
 - Confirmation that the Leba Medical ERP repository is public
 
 The current Gizzle and Andrew Leba portrait files are present and used by the website. The header uses the supplied favicon mark beside the HTML text “A&G Business & Technology”.
 
-No client names, testimonials, certificates, commercial results or statistics should be added without factual evidence and permission.
+The supplied work-sample records are fictional and labelled as illustrative. Testimonials were supplied for publication with this update; preserve their attribution and original reference images, without adding verified badges, ratings or unprovided dates. Add other client names, commercial results or statistics only with supporting information and permission.
 
 ## Replace images
 
@@ -187,3 +187,13 @@ The Business Services sample explorer (`#business-samples`) adds accessible tabs
 The page follows services → audience → selected work → detailed samples → approach → expertise → team → contact. Service filters group operations, growth and technology. The initial project selection includes three business and three technology projects; category filters and Show All expose every project. Case-study dialogs retain problem, solution, tools, outcome and deliverables. Detailed samples and team backgrounds use native expandable disclosures. Scroll progress, active navigation and a back-to-top button support the longer page.
 
 Update the version query on stylesheet and script URLs in `index.html` when deploying changes to avoid stale browser assets.
+
+## Unified service portfolio and supplied feedback
+
+The sample explorer now follows the same nine service groups and order as the main service cards: Virtual Assistance, Digital Marketing, CRM & Lead Generation, Email Marketing, Project Management, Bookkeeping, Web Development, Software & Systems, and AI & Automation. Existing lead research is retained within the CRM tab; email content is retained within the Email tab. Every service card and associated sample project opens its matching tab.
+
+New bookkeeping, web, software and AI examples are maintained in `assets/js/samples.js`; the renderer derives service titles and responsible team members from `assets/js/content.js`. The two Software references are concepts A and B, with independent sample dashboards. BloomNest is fictional and has no supplied live-demo URL. Internal project statuses and stacks remain as separately documented.
+
+Gizzle’s approved portrait is `assets/images/profile-gizzle-2026.png`. Team cards, service avatars and the email sample use this image. Five supplied testimonials are stored in `content.testimonials`; their original images are in `assets/images/testimonials/`. Text attribution follows the supplied images. The undated “almost 7 years” comment is a quotation, not a current tenure calculation.
+
+The existing logo-mark and favicon updates are preserved and packaged with the page references.

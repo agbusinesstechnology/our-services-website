@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc"><title id="title">A&amp;G</title><desc id="desc">Forest-green A and G connected by a rising sage-green arrow.</desc><rect width="128" height="128" rx="28" fill="#163d34"/>
+<path d="M18 86 45 30 65 70H52L45 55 30 86Z" fill="#fffefa"/>
+<path d="M104 62a24 24 0 1 0 4 30V76H85v10h12v5a13 13 0 1 1-2-22Z" fill="#fffefa"/>
+<path d="M20 101h15a9 9 0 0 0 7-3l18-20a12 12 0 0 1 9-4h4a13 13 0 0 0 9-4l20-23" fill="none" stroke="#d7edb3" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="m89 42 23-7-4 24-8-10Z" fill="#d7edb3"/>
+<circle cx="20" cy="101" r="5" fill="#163d34" stroke="#d7edb3" stroke-width="3"/></svg>
