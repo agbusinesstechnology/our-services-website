@@ -286,6 +286,11 @@
       if (service.tagline) article.append(createElement("p", "service-tagline", service.tagline));
       article.append(createElement("p", "service-description", service.description));
       article.append(createList(service.featured || [], "tag-list service-featured", `${service.title} featured services`));
+      if (service.icon === "EM") {
+        const sampleLink = createElement("a", "text-link", "Explore email marketing work sample →");
+        sampleLink.href = "#email-marketing";
+        article.append(sampleLink);
+      }
 
       const panelId = `service-panel-${index}`;
       const buttonId = `service-button-${index}`;

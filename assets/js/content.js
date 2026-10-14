@@ -193,7 +193,7 @@ window.PORTFOLIO_CONTENT = {
       tagline: "Meaningful connections. Real results.",
       description: "Professional email solutions for customer engagement, marketing, and business communication.",
       featured: ["Email Campaign Management", "Newsletter Management", "Basic Email Automation"],
-      services: ["Email Campaign Management", "Email Marketing", "Newsletter Management", "Email List Management", "Campaign Scheduling", "Email Content Management", "Basic Email Automation", "Campaign Performance Tracking"],
+      services: ["Email Campaign Management", "Email Marketing", "Newsletter Management", "Email List Management", "Campaign Scheduling", "Email Content Management", "Basic Email Automation", "Audience Management & Segmentation", "Campaign Performance Tracking", "Email Copy & Design Support", "Flodesk Campaigns & Newsletters", "ActiveCampaign Automation & CRM", "Apollo Lead Generation & Prospect Research"],
       leadNames: ["Gizzle Montemayor"],
       responsible: "Gizzle — Founder & Business Technology Professional"
     },
@@ -296,6 +296,22 @@ window.PORTFOLIO_CONTENT = {
   ],
 
   projects: [
+    {
+      title: "Email Marketing & Automation",
+      category: "Business Services",
+      status: "Work Sample · Illustrative Data",
+      image: "./assets/images/projects/email-marketing-work-sample.png",
+      imageAlt: "A&G email marketing work sample: campaign design, newsletter, automation, Apollo research and illustrative metrics",
+      description: "Campaigns, newsletters and audience workflows designed to support meaningful customer connections.",
+      details: "A sample email marketing workflow using Flodesk, ActiveCampaign and Apollo. Designs, contact records and performance figures are illustrative and do not represent verified client results.",
+      problem: "Businesses need consistent email communication, organized audiences and a repeatable way to welcome and follow up with subscribers.",
+      solution: "Combine campaign planning, newsletter design, audience segmentation, welcome and follow-up automation, prospect research and performance reporting.",
+      outcome: "Illustrates a campaign design, a newsletter and a new-subscriber workflow. Sample metrics: 2,850 emails sent, 1,980 delivered, 42% open rate and 12% click-through rate.",
+      deliverables: ["Email campaign management", "Newsletter management", "Basic email automation", "Audience management and segmentation", "Performance tracking", "Email copy and design support", "Apollo sample prospect list"],
+      tools: ["Flodesk", "ActiveCampaign", "Apollo"],
+      repositoryUrl: "",
+      showRepository: false
+    },
     {
       title: "CRM Pipeline Management",
       category: "Business Services",

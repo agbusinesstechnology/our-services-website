@@ -51,6 +51,8 @@ Routine content is stored in [`assets/js/content.js`](assets/js/content.js). Edi
 
 The dedicated Lead Generation Work Sample section is in `index.html`, with responsive styling in `assets/css/style.css`. Its reference image is `assets/images/projects/lead-generation-work-sample.png`. The metrics and contact records are illustrative sample data, not verified campaign results. The complete original ten-row tracker can be expanded and opened at full size.
 
+The Email Marketing section (`#email-marketing`) includes six service areas, Flodesk campaign and newsletter previews, an ActiveCampaign subscriber workflow, an Apollo sample prospect table and illustrative campaign metrics. Its full reference is `assets/images/projects/email-marketing-work-sample.png`. The original image labels 1,980 delivered as 99% alongside 2,850 sent; the recreated dashboard omits that inconsistent percentage. Static newsletter previews are illustrative designs, not working email campaigns.
+
 The supplied Hanoi address is shown in Contact and the footer and included in ProfessionalService structured data. Edit `contact.location`, `contact.postalAddress` and `contact.mapsUrl` in `content.js` when the address changes; also update the HTML fallback and footer address text in `main.js`.
 
 Search for `EDIT HERE` to locate missing or unconfirmed information. Preserve quotes, brackets and commas when editing JavaScript.
